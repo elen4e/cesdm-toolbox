@@ -1,0 +1,135 @@
+site_name: CESDM
+site_description: Common Energy System Domain Model — docs for building, validating, and exchanging CESDM study models
+site_url: https://cesdm.github.io/cesdm-toolbox/
+repo_name: cesdm/cesdm-toolbox
+repo_url: https://github.com/cesdm/cesdm-toolbox
+edit_uri: edit/main/docs/
+copyright: Copyright &copy; Research Center for Energy Networks, ETH Zürich
+strict: true
+use_directory_urls: true
+
+not_in_nav: |
+  guides/schema-governance.md
+  getting-started/documentation-structure.md
+  tutorials/first-model-simple.md
+  tutorials/advanced-reference-notebook.md
+  reference/schema-reference.md
+
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascripts/toc-collapse.js
+theme:
+  name: material
+  language: en
+  features:
+  - navigation.tabs
+  - navigation.sections
+  - navigation.top
+  - navigation.footer
+  - navigation.tracking
+  - toc.follow
+  - search.suggest
+  - search.highlight
+  - content.code.copy
+  - content.action.edit
+  palette:
+  - media: '(prefers-color-scheme: light)'
+    scheme: default
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
+  - media: '(prefers-color-scheme: dark)'
+    scheme: slate
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
+
+nav:
+- Home:
+  - Welcome: index.md
+- Getting Started:
+  - Quickstart (~20 min): getting-started/quickstart.md
+  - Your First Model (~10 min): getting-started/first-model-simple.md
+  - Installation: getting-started/installation.md
+  - Choose Your Path: getting-started/choose-your-path.md
+- Concepts:
+  - Concepts Overview: getting-started/concepts.md
+  - What is CESDM?: getting-started/what-is-cesdm.md
+  - Core Concepts (EAR): getting-started/core-concepts.md
+  - Schemas: getting-started/schemas.md
+  - Validation: getting-started/validation.md
+  - Proxy API: guides/proxy-api.md
+  - Libraries: guides/libraries.md
+  - Carrier Domains: guides/carrier-domains.md
+- Building Models:
+  - Modelling Workflow: guides/modelling-workflow.md
+  - Tool adapters: guides/tool-adapters.md
+  - Profiles & Time-series: guides/profiles.md
+  - Building your CESDM Model:
+    - Overview: tutorials/building-first-model/overview.md
+    - Part 1 — System & Network: tutorials/building-first-model/part-1-system-and-network.md
+    - Part 2 — Demand & Generation: tutorials/building-first-model/part-2-demand-and-generation.md
+    - Part 3 — Profiles & Interconnectors: tutorials/building-first-model/part-3-profiles-and-interconnectors.md
+    - Part 4 — Multi-carrier & Export: tutorials/building-first-model/part-4-multicarrier-and-export.md
+  - Conversion Units:
+    - Overview: tutorials/conversion-units/overview.md
+    - Part 1 — System & Carriers: tutorials/conversion-units/part-1-system-and-carriers.md
+    - Part 2 — Supply & Demand: tutorials/conversion-units/part-2-supply-and-demand.md
+    - Part 3 — Conversion Leaves: tutorials/conversion-units/part-3-conversion-units.md
+    - Part 4 — Validate & Export: tutorials/conversion-units/part-4-validate-and-export.md
+  - Spatial Aggregation (optional): guides/spatial-aggregation.md
+- Building Applications:
+  - Schema Augmentation: getting-started/schemas-in-depth.md
+- Reference:
+  - CESDM Schema Reference: reference/schema-reference.html
+  - Modeller Cheat Sheet: getting-started/modeller-cheat-sheet.md
+  - Glossary: community/glossary.md
+  - EAR API Reference: reference/api-reference.md
+  - Python Typings & Proxies (optional): guides/python-typing-proxies.md
+- Community:
+  - FAQ: community/faq.md
+  - Contributing: community/contributing.md
+  - How to Cite: community/citation.md
+  - Building Docs Locally: community/building-docs.md
+  - Changelog: community/changelog.md
+  - About: getting-started/about.md
+  - Disclaimer: getting-started/disclaimer.md
+
+plugins:
+- search
+- redirects:
+    redirect_maps:
+      tutorials/jupyter-notebook.md: getting-started/first-model-simple.md
+      tutorials/first-model-simple.md: getting-started/first-model-simple.md
+      getting-started/documentation-structure.md: getting-started/choose-your-path.md
+      tutorials/building-first-model/index.md: tutorials/building-first-model/overview.md
+      guides/attribute-groups.md: guides/proxy-api.md
+      guides/analysis-validation.md: getting-started/validation.md
+      tutorials/advanced-reference-notebook.md: tutorials/building-first-model/overview.md
+      guides/architecture-overview.md: reference/api-reference.md
+markdown_extensions:
+- admonition
+- attr_list
+- def_list
+- footnotes
+- md_in_html
+- meta
+- tables
+- toc:
+    permalink: true
+- pymdownx.details
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences:
+    custom_fences:
+      - name: mermaid
+        class: mermaid
+        format: !!python/name:pymdownx.superfences.fence_code_format
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg

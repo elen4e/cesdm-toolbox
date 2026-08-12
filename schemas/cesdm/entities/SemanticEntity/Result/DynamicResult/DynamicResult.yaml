@@ -1,0 +1,16 @@
+name: DynamicResult
+abstract: true
+parents:
+- Result
+description: >
+  Abstract base for time-domain dynamic simulation outcomes (transient stability, contingency, frequency
+  response).
+
+  Distinct from DispatchResult and PowerFlowResult; often follows a power-flow operating point via chained
+  RunRecords.
+relations:
+- id: reportsOn
+  required: true
+- id: hasRunRecord
+  required: true
+  target: DynamicRunRecord

@@ -1,0 +1,29 @@
+CarrierDomain:
+  domain.electricity:
+    attributes:
+    - id: name
+      value: Electricity
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+  domain.gas:
+    attributes:
+    - id: name
+      value: Natural Gas
+    relations:
+    - id: hasCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  domain.heat:
+    attributes:
+    - id: name
+      value: Heat
+    relations:
+    - id: hasCarrier
+      target: carrier.heat
+  domain.hydrogen:
+    attributes:
+    - id: name
+      value: Hydrogen
+    relations:
+    - id: hasCarrier
+      target: carrier.hydrogen

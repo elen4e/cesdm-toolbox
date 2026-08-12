@@ -1,0 +1,27 @@
+name: GenerationUnit.DynamicResult
+parents:
+- DynamicResult
+description: >-
+  Dynamic simulation result for GenerationUnit assets. Captures
+  rotor-angle and speed-deviation outcomes of a transient stability or
+  contingency simulation: whether the machine remained in synchronism,
+  how far it swung, and whether/when it settled.
+relations:
+- id: reportsOn
+  required: true
+  target: GenerationUnit
+- id: hasRotorAngleProfile
+  required: false
+  target: Profile
+- id: hasSpeedDeviationProfile
+  required: false
+  target: Profile
+attributes:
+- id: max_rotor_angle_deviation
+  required: false
+- id: max_speed_deviation
+  required: false
+- id: settling_time_seconds
+  required: false
+- id: remained_stable
+  required: false

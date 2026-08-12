@@ -1,0 +1,13 @@
+Variable,Policy,Year,Climate Year,Value,Type,Node,Country
+Installed Capacity,National Trends,2030,1995,1600,Nuclear,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,800,Gas CCGT Present 2,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,3200,Wind Onshore,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,2100,Solar Photovoltaic,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,150,Battery Storage,DE00 ,DE
+Charging Capacity,National Trends,2030,1995,150,Battery Storage,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,900,Reservoir,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,500,Pump Storage Closed Loop,DE00 ,DE
+Charging Capacity,National Trends,2030,1995,480,Pump Storage Closed Loop,DE00 ,DE
+Installed Capacity,National Trends,2030,1995,3400,Nuclear,FR00 ,FR
+Installed Capacity,National Trends,2030,1995,600,Run of River,FR00 ,FR
+Installed Capacity,National Trends,2030,1995,1200,Wind Onshore,FR00 ,FR

@@ -1,0 +1,16 @@
+name: HeatTransmission
+parents:
+- TransmissionElement
+abstract: true
+description: >
+  Abstract heat / district-heating transmission branch within a heat CarrierDomain. Pipe leaves come later;
+  capacity-only transfers use GenericInterconnector.
+relations:
+- id: fromNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus
+- id: toNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus

@@ -1,0 +1,63 @@
+name: DemandUnit
+parents:
+- EnergyAssetInstance
+description: >
+  Demand or load that withdraws a carrier from one NetworkNode (atNode), with demand volumes, profiles,
+  and optional flexibility parameters.
+
+  Carrier rule: the withdrawn carrier is implied by atNode → CarrierDomain; optional hasCarrier is an
+  override for imports when the node carrier is ambiguous or unset.
+
+attributes:
+- id: annual_energy_demand
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_energy_demand
+  required: false
+  belongsToGroup: [dispatch]
+- id: demand_type
+  required: false
+  belongsToGroup: [dispatch]
+- id: is_demand_flexible
+  required: false
+  belongsToGroup: [dispatch]
+- id: flexibility_time_resolution
+  required: false
+  belongsToGroup: [dispatch]
+- id: flexibility_window_time_start
+  required: false
+  belongsToGroup: [dispatch]
+- id: flexibility_window_time_end
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_upward_adjustment
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_downward_adjustment
+  required: false
+  belongsToGroup: [dispatch]
+- id: value_of_lost_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: active_power_demand
+  required: false
+  belongsToGroup: [power_flow]
+- id: reactive_power_demand
+  required: false
+  belongsToGroup: [power_flow]
+- id: power_factor
+  required: false
+  belongsToGroup: [power_flow]
+relations:
+- id: hasCarrier
+  required: false
+  target: Carrier
+- id: hasDemandProfile
+  required: false
+  belongsToGroup: [dispatch]
+- id: atNode
+  required: false
+  belongsToGroup: [topology]

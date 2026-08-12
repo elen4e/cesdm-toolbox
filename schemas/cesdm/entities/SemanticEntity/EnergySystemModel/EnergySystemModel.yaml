@@ -1,0 +1,14 @@
+name: EnergySystemModel
+parents:
+- SemanticEntity
+description: 'Top-level container entity representing a complete, self-consistent
+  energy system model instance. Holds global parameters (e.g., a system-wide carbon
+  price) that may be inherited or overridden by individual assets, carriers, or results
+  within the model scope.
+
+  '
+attributes:
+- id: base_mva
+  required: false
+- id: co2_price
+  required: false

@@ -1,0 +1,244 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040" role="img" aria-labelledby="title desc">
+  <title id="title">Common Energy System Domain Model</title>
+  <desc id="desc">Four meshed energy domains for hydrogen, electricity, gas and heat. Generation units inject into network nodes. Storage and demand connect to the domains. Conversion units link the domains.</desc>
+  <defs>
+    <style>
+      .title { font: 700 40px Arial, sans-serif; fill: #15314f; }
+      .subtitle { font: italic 24px Arial, sans-serif; fill: #29455f; }
+      .domain-title { font: 700 26px Arial, sans-serif; }
+      .box-title { font: 700 17px Arial, sans-serif; }
+      .label { font: 15px Arial, sans-serif; fill: #203040; }
+      .small { font: 13px Arial, sans-serif; fill: #203040; }
+      .network { fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+      .node { fill: #fff; stroke-width: 3; }
+      .box { fill: #fff; stroke-width: 2; rx: 12; ry: 12; }
+      .conv { fill: #fff; stroke-width: 2; rx: 10; ry: 10; }
+      .arrow { fill: none; stroke-width: 3; }
+    </style>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#0b57b7"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#198a2e"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#f07a00"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,3 L0,6 Z" fill="#df2b32"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="1040" fill="#ffffff"/>
+  <text x="800" y="55" text-anchor="middle" class="title">Common Energy System Domain Model</text>
+  <text x="800" y="91" text-anchor="middle" class="subtitle">Meshed carrier domains connected by conversion units</text>
+
+  <!-- HYDROGEN -->
+  <g id="hydrogen" stroke="#0b57b7">
+    <rect x="60" y="125" width="280" height="160" class="box"/>
+    <text x="80" y="153" class="box-title" fill="#0b57b7">Hydrogen Generation / Supply</text>
+    <text x="92" y="194" class="label">Electrolyser</text>
+    <text x="92" y="244" class="label">Hydrogen Import</text>
+    <circle cx="75" cy="189" r="7" fill="#0b57b7"/>
+    <circle cx="75" cy="239" r="7" fill="#0b57b7"/>
+
+    <path d="M340 190 H420" class="arrow" marker-end="url(#arrow-blue)"/>
+    <path d="M340 240 H420" class="arrow" marker-end="url(#arrow-blue)"/>
+
+    <g class="network">
+      <path d="M440 175 L560 145 L690 165 L820 145 L950 175 L1090 145 L1230 180"/>
+      <path d="M440 240 L560 215 L690 245 L820 215 L950 245 L1090 215 L1230 245"/>
+      <path d="M440 175 L560 215 L690 165 L820 215 L950 175 L1090 215 L1230 180"/>
+      <path d="M440 240 L560 145 L690 245 L820 145 L950 245 L1090 145 L1230 245"/>
+      <path d="M560 145 L560 215 M690 165 L690 245 M820 145 L820 215 M950 175 L950 245 M1090 145 L1090 215"/>
+    </g>
+    <g>
+      <circle cx="440" cy="175" r="11" class="node"/><circle cx="440" cy="240" r="11" class="node"/>
+      <circle cx="560" cy="145" r="11" class="node"/><circle cx="560" cy="215" r="11" class="node"/>
+      <circle cx="690" cy="165" r="11" class="node"/><circle cx="690" cy="245" r="11" class="node"/>
+      <circle cx="820" cy="145" r="11" class="node"/><circle cx="820" cy="215" r="11" class="node"/>
+      <circle cx="950" cy="175" r="11" class="node"/><circle cx="950" cy="245" r="11" class="node"/>
+      <circle cx="1090" cy="145" r="11" class="node"/><circle cx="1090" cy="215" r="11" class="node"/>
+      <circle cx="1230" cy="180" r="11" class="node"/><circle cx="1230" cy="245" r="11" class="node"/>
+    </g>
+
+    <path d="M1230 180 H1320" class="arrow" marker-end="url(#arrow-blue)"/>
+    <path d="M1230 245 H1320" class="arrow" marker-end="url(#arrow-blue)"/>
+    <rect x="1320" y="145" width="180" height="58" class="box"/>
+    <rect x="1320" y="216" width="180" height="58" class="box"/>
+    <text x="1410" y="171" text-anchor="middle" class="label">Hydrogen Storage</text>
+    <text x="1410" y="242" text-anchor="middle" class="label">Hydrogen Demand</text>
+    <text x="1545" y="195" text-anchor="middle" class="domain-title" fill="#0b57b7">Hydrogen</text>
+    <text x="1545" y="228" text-anchor="middle" class="domain-title" fill="#0b57b7">Domain</text>
+  </g>
+
+  <!-- ELECTRICITY -->
+  <g id="electricity" stroke="#198a2e">
+    <rect x="60" y="345" width="280" height="220" class="box"/>
+    <text x="80" y="374" class="box-title" fill="#198a2e">Electricity Generation Units</text>
+    <text x="92" y="414" class="label">Wind Farm</text>
+    <text x="92" y="460" class="label">Solar PV</text>
+    <text x="92" y="506" class="label">Hydro Power</text>
+    <text x="92" y="552" class="label">Import</text>
+    <circle cx="75" cy="409" r="7" fill="#198a2e"/>
+    <circle cx="75" cy="455" r="7" fill="#198a2e"/>
+    <circle cx="75" cy="501" r="7" fill="#198a2e"/>
+    <circle cx="75" cy="547" r="7" fill="#198a2e"/>
+
+    <path d="M340 410 H420" class="arrow" marker-end="url(#arrow-green)"/>
+    <path d="M340 456 H420" class="arrow" marker-end="url(#arrow-green)"/>
+    <path d="M340 502 H420" class="arrow" marker-end="url(#arrow-green)"/>
+    <path d="M340 548 H420" class="arrow" marker-end="url(#arrow-green)"/>
+
+    <g class="network">
+      <path d="M440 400 L560 370 L700 395 L835 370 L965 405 L1095 375 L1230 410"/>
+      <path d="M440 500 L560 470 L700 500 L835 470 L965 500 L1095 470 L1230 500"/>
+      <path d="M440 400 L560 470 L700 395 L835 470 L965 405 L1095 470 L1230 410"/>
+      <path d="M440 500 L560 370 L700 500 L835 370 L965 500 L1095 375 L1230 500"/>
+      <path d="M560 370 L560 470 M700 395 L700 500 M835 370 L835 470 M965 405 L965 500 M1095 375 L1095 470"/>
+    </g>
+    <g>
+      <circle cx="440" cy="400" r="11" class="node"/><circle cx="440" cy="500" r="11" class="node"/>
+      <circle cx="560" cy="370" r="11" class="node"/><circle cx="560" cy="470" r="11" class="node"/>
+      <circle cx="700" cy="395" r="11" class="node"/><circle cx="700" cy="500" r="11" class="node"/>
+      <circle cx="835" cy="370" r="11" class="node"/><circle cx="835" cy="470" r="11" class="node"/>
+      <circle cx="965" cy="405" r="11" class="node"/><circle cx="965" cy="500" r="11" class="node"/>
+      <circle cx="1095" cy="375" r="11" class="node"/><circle cx="1095" cy="470" r="11" class="node"/>
+      <circle cx="1230" cy="410" r="11" class="node"/><circle cx="1230" cy="500" r="11" class="node"/>
+    </g>
+
+    <path d="M1230 410 H1320" class="arrow" marker-end="url(#arrow-green)"/>
+    <path d="M1230 455 H1320" class="arrow" marker-end="url(#arrow-green)"/>
+    <path d="M1230 500 H1320" class="arrow" marker-end="url(#arrow-green)"/>
+    <rect x="1320" y="375" width="180" height="55" class="box"/>
+    <rect x="1320" y="440" width="180" height="55" class="box"/>
+    <rect x="1320" y="505" width="180" height="55" class="box"/>
+    <text x="1410" y="407" text-anchor="middle" class="label">Battery Storage</text>
+    <text x="1410" y="472" text-anchor="middle" class="label">Electricity Demand</text>
+    <text x="1410" y="537" text-anchor="middle" class="label">Export</text>
+    <text x="1545" y="438" text-anchor="middle" class="domain-title" fill="#198a2e">Electricity</text>
+    <text x="1545" y="471" text-anchor="middle" class="domain-title" fill="#198a2e">Domain</text>
+  </g>
+
+  <!-- GAS -->
+  <g id="gas" stroke="#f07a00">
+    <rect x="60" y="625" width="280" height="175" class="box"/>
+    <text x="80" y="654" class="box-title" fill="#f07a00">Gas Generation / Supply</text>
+    <text x="92" y="696" class="label">Gas Production</text>
+    <text x="92" y="742" class="label">Gas Import</text>
+    <text x="92" y="788" class="label">Biogas Plant</text>
+    <circle cx="75" cy="691" r="7" fill="#f07a00"/>
+    <circle cx="75" cy="737" r="7" fill="#f07a00"/>
+    <circle cx="75" cy="783" r="7" fill="#f07a00"/>
+
+    <path d="M340 692 H420" class="arrow" marker-end="url(#arrow-orange)"/>
+    <path d="M340 738 H420" class="arrow" marker-end="url(#arrow-orange)"/>
+    <path d="M340 784 H420" class="arrow" marker-end="url(#arrow-orange)"/>
+
+    <g class="network">
+      <path d="M440 680 L570 650 L700 680 L835 650 L965 680 L1095 650 L1230 685"/>
+      <path d="M440 760 L570 730 L700 760 L835 730 L965 760 L1095 730 L1230 765"/>
+      <path d="M440 680 L570 730 L700 680 L835 730 L965 680 L1095 730 L1230 685"/>
+      <path d="M440 760 L570 650 L700 760 L835 650 L965 760 L1095 650 L1230 765"/>
+      <path d="M570 650 L570 730 M700 680 L700 760 M835 650 L835 730 M965 680 L965 760 M1095 650 L1095 730"/>
+    </g>
+    <g>
+      <circle cx="440" cy="680" r="11" class="node"/><circle cx="440" cy="760" r="11" class="node"/>
+      <circle cx="570" cy="650" r="11" class="node"/><circle cx="570" cy="730" r="11" class="node"/>
+      <circle cx="700" cy="680" r="11" class="node"/><circle cx="700" cy="760" r="11" class="node"/>
+      <circle cx="835" cy="650" r="11" class="node"/><circle cx="835" cy="730" r="11" class="node"/>
+      <circle cx="965" cy="680" r="11" class="node"/><circle cx="965" cy="760" r="11" class="node"/>
+      <circle cx="1095" cy="650" r="11" class="node"/><circle cx="1095" cy="730" r="11" class="node"/>
+      <circle cx="1230" cy="685" r="11" class="node"/><circle cx="1230" cy="765" r="11" class="node"/>
+    </g>
+
+    <path d="M1230 685 H1320" class="arrow" marker-end="url(#arrow-orange)"/>
+    <path d="M1230 765 H1320" class="arrow" marker-end="url(#arrow-orange)"/>
+    <rect x="1320" y="650" width="180" height="58" class="box"/>
+    <rect x="1320" y="730" width="180" height="58" class="box"/>
+    <text x="1410" y="682" text-anchor="middle" class="label">Gas Storage</text>
+    <text x="1410" y="762" text-anchor="middle" class="label">Gas Demand</text>
+    <text x="1545" y="708" text-anchor="middle" class="domain-title" fill="#f07a00">Gas</text>
+    <text x="1545" y="741" text-anchor="middle" class="domain-title" fill="#f07a00">Domain</text>
+  </g>
+
+  <!-- HEAT -->
+  <g id="heat" stroke="#df2b32">
+    <rect x="60" y="840" width="280" height="165" class="box"/>
+    <text x="80" y="869" class="box-title" fill="#df2b32">Heat Generation / Supply</text>
+    <text x="92" y="911" class="label">Heat Plant</text>
+    <text x="92" y="954" class="label">Geothermal</text>
+    <text x="92" y="997" class="label">Solar Thermal</text>
+    <circle cx="75" cy="906" r="7" fill="#df2b32"/>
+    <circle cx="75" cy="949" r="7" fill="#df2b32"/>
+    <circle cx="75" cy="992" r="7" fill="#df2b32"/>
+
+    <path d="M340 907 H420" class="arrow" marker-end="url(#arrow-red)"/>
+    <path d="M340 950 H420" class="arrow" marker-end="url(#arrow-red)"/>
+    <path d="M340 993 H420" class="arrow" marker-end="url(#arrow-red)"/>
+
+    <g class="network">
+      <path d="M440 885 L570 855 L700 885 L835 855 L965 885 L1095 855 L1230 890"/>
+      <path d="M440 970 L570 940 L700 970 L835 940 L965 970 L1095 940 L1230 975"/>
+      <path d="M440 885 L570 940 L700 885 L835 940 L965 885 L1095 940 L1230 890"/>
+      <path d="M440 970 L570 855 L700 970 L835 855 L965 970 L1095 855 L1230 975"/>
+      <path d="M570 855 L570 940 M700 885 L700 970 M835 855 L835 940 M965 885 L965 970 M1095 855 L1095 940"/>
+    </g>
+    <g>
+      <circle cx="440" cy="885" r="11" class="node"/><circle cx="440" cy="970" r="11" class="node"/>
+      <circle cx="570" cy="855" r="11" class="node"/><circle cx="570" cy="940" r="11" class="node"/>
+      <circle cx="700" cy="885" r="11" class="node"/><circle cx="700" cy="970" r="11" class="node"/>
+      <circle cx="835" cy="855" r="11" class="node"/><circle cx="835" cy="940" r="11" class="node"/>
+      <circle cx="965" cy="885" r="11" class="node"/><circle cx="965" cy="970" r="11" class="node"/>
+      <circle cx="1095" cy="855" r="11" class="node"/><circle cx="1095" cy="940" r="11" class="node"/>
+      <circle cx="1230" cy="890" r="11" class="node"/><circle cx="1230" cy="975" r="11" class="node"/>
+    </g>
+
+    <path d="M1230 890 H1320" class="arrow" marker-end="url(#arrow-red)"/>
+    <path d="M1230 975 H1320" class="arrow" marker-end="url(#arrow-red)"/>
+    <rect x="1320" y="855" width="180" height="58" class="box"/>
+    <rect x="1320" y="940" width="180" height="58" class="box"/>
+    <text x="1410" y="887" text-anchor="middle" class="label">Heat Storage</text>
+    <text x="1410" y="972" text-anchor="middle" class="label">Heat Demand</text>
+    <text x="1545" y="920" text-anchor="middle" class="domain-title" fill="#df2b32">Heat</text>
+    <text x="1545" y="953" text-anchor="middle" class="domain-title" fill="#df2b32">Domain</text>
+  </g>
+
+  <!-- CONVERSION UNITS -->
+  <g id="conversion-units">
+    <!-- H2 to power -->
+    <path d="M560 255 V315" stroke="#0b57b7" class="arrow" marker-end="url(#arrow-blue)"/>
+    <rect x="485" y="285" width="150" height="54" class="conv" stroke="#0b57b7"/>
+    <text x="560" y="307" text-anchor="middle" class="small">Conversion Unit</text>
+    <text x="560" y="328" text-anchor="middle" class="small">H₂ → Power</text>
+    <path d="M560 339 V358" stroke="#198a2e" class="arrow" marker-end="url(#arrow-green)"/>
+
+    <!-- power to hydrogen -->
+    <path d="M1095 358 V338" stroke="#198a2e" class="arrow" marker-end="url(#arrow-green)"/>
+    <rect x="1020" y="285" width="150" height="54" class="conv" stroke="#0b57b7"/>
+    <text x="1095" y="307" text-anchor="middle" class="small">Conversion Unit</text>
+    <text x="1095" y="328" text-anchor="middle" class="small">Power → H₂</text>
+    <path d="M1095 285 V226" stroke="#0b57b7" class="arrow" marker-end="url(#arrow-blue)"/>
+
+    <!-- power to gas -->
+    <path d="M570 512 V585" stroke="#198a2e" class="arrow" marker-end="url(#arrow-green)"/>
+    <rect x="495" y="555" width="150" height="54" class="conv" stroke="#198a2e"/>
+    <text x="570" y="577" text-anchor="middle" class="small">Conversion Unit</text>
+    <text x="570" y="598" text-anchor="middle" class="small">Power → Gas</text>
+    <path d="M570 609 V638" stroke="#f07a00" class="arrow" marker-end="url(#arrow-orange)"/>
+
+    <!-- power to heat -->
+    <path d="M965 512 V585" stroke="#198a2e" class="arrow" marker-end="url(#arrow-green)"/>
+    <rect x="890" y="555" width="150" height="54" class="conv" stroke="#198a2e"/>
+    <text x="965" y="577" text-anchor="middle" class="small">Conversion Unit</text>
+    <text x="965" y="598" text-anchor="middle" class="small">Power → Heat</text>
+    <path d="M965 609 V840" stroke="#df2b32" class="arrow" marker-end="url(#arrow-red)"/>
+
+    <!-- gas to heat -->
+    <path d="M835 772 V825" stroke="#f07a00" class="arrow" marker-end="url(#arrow-orange)"/>
+    <rect x="760" y="800" width="150" height="54" class="conv" stroke="#f07a00"/>
+    <text x="835" y="822" text-anchor="middle" class="small">Conversion Unit</text>
+    <text x="835" y="843" text-anchor="middle" class="small">Gas → Heat</text>
+    <path d="M835 854 V872" stroke="#df2b32" class="arrow" marker-end="url(#arrow-red)"/>
+  </g>
+</svg>

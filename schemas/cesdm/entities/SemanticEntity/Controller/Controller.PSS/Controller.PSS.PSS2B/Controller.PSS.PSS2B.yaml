@@ -1,0 +1,67 @@
+name: Controller.PSS.PSS2B
+parents:
+- Controller.PSS
+description: >
+  IEEE PSS2B dual-input stabiliser with third signal path. IEEE Std 421.5-2016, Section 12.4.
+attributes:
+- id: PSS_PSS2B_Ks1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Ks2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Ks3
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T6
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T7
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T8
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T9
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_M
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_N
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Tw1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Tw2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Tw3
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_Tw4
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T3
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2B_T4
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_Vs_max
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_Vs_min
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

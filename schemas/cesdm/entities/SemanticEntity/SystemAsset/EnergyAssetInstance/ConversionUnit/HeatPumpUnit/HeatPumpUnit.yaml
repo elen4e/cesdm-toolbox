@@ -1,0 +1,47 @@
+name: HeatPumpUnit
+parents:
+- ConversionUnit
+description: >
+  Compact electricity → heat conversion unit with typed electricity and heat node relations.
+
+  For arbitrary MxN conversion use GenericConversionUnit with ConversionPort.
+attributes:
+- id: coefficient_of_performance
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: nominal_thermal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: nominal_electrical_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: minimum_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup: [capacity_expansion]
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasHeatOutputCarrier
+  required: false
+  target: Carrier
+- id: atElectricityNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus
+- id: atHeatNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus

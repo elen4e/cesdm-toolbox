@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Interpretation of CESDM profile types</title>
+  <desc id="desc">Three rows compare capacity-factor, normalized annual-energy, and absolute SI profiles and show their scaling rules.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L9,3 z" fill="#355b75"/></marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#18344b}.head{font:700 20px Arial,sans-serif;fill:#18344b}.body{font:17px Arial,sans-serif;fill:#29475e}.small{font:14px Arial,sans-serif;fill:#526b7c}.panel{fill:#fff;stroke:#7892a4;stroke-width:2;rx:16}.cf{fill:#e8f5eb;stroke:#3f8b55}.ann{fill:#eaf1fa;stroke:#477ba9}.si{fill:#f8efe1;stroke:#a87932}.operator{font:700 27px Arial,sans-serif;fill:#345b78}.line{stroke:#355b75;stroke-width:2.5;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="560" fill="#fff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">How CESDM Interprets Profile Values</text>
+
+  <rect x="35" y="80" width="1130" height="125" class="panel cf"/>
+  <text x="65" y="115" class="head">as_capacity_factor</text>
+  <rect x="65" y="135" width="200" height="45" class="panel"/><text x="165" y="164" text-anchor="middle" class="body">0.45</text>
+  <text x="290" y="165" class="operator">×</text>
+  <rect x="335" y="135" width="240" height="45" class="panel"/><text x="455" y="164" text-anchor="middle" class="body">200 MW nominal</text>
+  <text x="600" y="165" class="operator">=</text>
+  <rect x="645" y="135" width="240" height="45" class="panel"/><text x="765" y="164" text-anchor="middle" class="body">90 MW available</text>
+  <text x="930" y="151" class="small">Relative availability</text><text x="930" y="174" class="small">Normally 0…1; no sum rule</text>
+
+  <rect x="35" y="225" width="1130" height="125" class="panel ann"/>
+  <text x="65" y="260" class="head">as_normalized_annual_energy</text>
+  <rect x="65" y="280" width="200" height="45" class="panel"/><text x="165" y="309" text-anchor="middle" class="body">0.00012</text>
+  <text x="290" y="310" class="operator">×</text>
+  <rect x="335" y="280" width="240" height="45" class="panel"/><text x="455" y="309" text-anchor="middle" class="body">4,000,000 MWh/year</text>
+  <text x="600" y="310" class="operator">=</text>
+  <rect x="645" y="280" width="240" height="45" class="panel"/><text x="765" y="309" text-anchor="middle" class="body">480 MWh/timestep</text>
+  <text x="930" y="296" class="small">Temporal energy share</text><text x="930" y="319" class="small">Fractions sum to 1</text>
+
+  <rect x="35" y="370" width="1130" height="125" class="panel si"/>
+  <text x="65" y="405" class="head">as_SI</text>
+  <rect x="65" y="425" width="280" height="45" class="panel"/><text x="205" y="454" text-anchor="middle" class="body">72.5 MU/MWh</text>
+  <path d="M375 448 H565" class="line"/>
+  <rect x="600" y="425" width="285" height="45" class="panel"/><text x="742" y="454" text-anchor="middle" class="body">72.5 MU/MWh directly</text>
+  <text x="930" y="441" class="small">Absolute physical value</text><text x="930" y="464" class="small">No scaling factor</text>
+
+  <text x="600" y="535" text-anchor="middle" class="small">The profile type defines interpretation; profile_unit defines the unit.</text>
+</svg>

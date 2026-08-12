@@ -1,0 +1,18 @@
+name: PowerFlowResult
+abstract: true
+parents:
+- Result
+description: >-
+  Abstract base for power-flow (load-flow) results. Holds scalar
+  aggregate metrics and relations to Profile entities for the outcome
+  of a steady-state AC/DC network study -- distinct from
+  DispatchResult, which holds economic-dispatch/optimisation outcomes.
+  A single asset can carry both a DispatchResult and a PowerFlowResult
+  simultaneously, from a chained dispatch -> power-flow workflow (see
+  RunRecord.hasInputRun).
+relations:
+- id: reportsOn
+  required: true
+- id: hasRunRecord
+  required: true
+  target: PowerFlowRunRecord

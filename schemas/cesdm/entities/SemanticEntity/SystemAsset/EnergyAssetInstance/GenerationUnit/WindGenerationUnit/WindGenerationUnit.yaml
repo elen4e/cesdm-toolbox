@@ -1,0 +1,25 @@
+name: WindGenerationUnit
+parents:
+- GenerationUnit
+description: >-
+  A wind generation asset (onshore, offshore, or floating offshore), single
+  turbine or wind farm. All generic dispatch/topology/power-flow/dynamics
+  attributes and relations are inherited from GenerationUnit unchanged; this
+  class adds only the physical/design attributes specific to wind turbines,
+  which do not apply to any other generation technology.
+
+  Use hasTechnology to reference a GeneratorType such as:
+  "Generation.Renewable.Wind.Onshore", "Generation.Renewable.Wind.Offshore".
+attributes:
+- id: hub_height
+  required: false
+  belongsToGroup: [technical]
+- id: rotor_diameter
+  required: false
+  belongsToGroup: [technical]
+- id: installation_type
+  required: false
+  belongsToGroup: [technical]
+- id: number_of_turbines
+  required: false
+  belongsToGroup: [technical]

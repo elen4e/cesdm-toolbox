@@ -1,0 +1,20 @@
+name: GenericConversionUnit
+parents:
+- ConversionUnit
+description: >
+  Port-based conversion unit for arbitrary MxN / P2X conversion when no compact leaf fits.
+
+  Prefer HeatPumpUnit, ElectrolyserUnit, BoilerUnit, FuelCellUnit, or CHPUnit when the topology is a
+  simple 1→1 or 1→2 carrier pattern with typed node relations.
+
+  Carriers and topology are expressed only through ConversionPort entities; do not set hasInputCarrier
+  / hasOutputCarrier on the unit itself. The referencePort relation is the source of truth for which
+  ConversionPort scales flow_coefficient and nominal_power_capacity (not a port-level boolean flag).
+attributes:
+- id: nominal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+relations:
+- id: referencePort
+  required: false
+  belongsToGroup: [dispatch]

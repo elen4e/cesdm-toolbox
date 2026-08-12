@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580" role="img">
+<style>
+  .title { font: 700 44px Inter, Arial, sans-serif; fill: #0F172A; }
+  .subtitle { font: 500 20px Inter, Arial, sans-serif; fill: #334155; }
+  .label { font: 600 17px Inter, Arial, sans-serif; fill: #0F172A; }
+  .small { font: 500 14px Inter, Arial, sans-serif; fill: #475569; }
+  .white { fill: #FFFFFF; }
+  .line { stroke: #94A3B8; stroke-width: 2.5; fill: none; }
+  .arrow { marker-end: url(#arrow); }
+</style>
+<defs>
+  <linearGradient id="hero" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#EFF6FF"/>
+    <stop offset="100%" stop-color="#ECFDF5"/>
+  </linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+    <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.12"/>
+  </filter>
+  <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+    <path d="M0,0 L8,4 L0,8 z" fill="#64748B"/>
+  </marker>
+</defs>
+
+<rect width="1200" height="580" rx="24" fill="#F8FAFC"/>
+<text x="600" y="50" text-anchor="middle" class="title" style="font-size:30px">CESDM architecture</text>
+<rect x="315" y="90" width="570" height="72" rx="18" fill="#E0E7FF" stroke="#A5B4FC"/>
+<rect x="315" y="190" width="570" height="72" rx="18" fill="#DBEAFE" stroke="#93C5FD"/>
+<rect x="315" y="290" width="570" height="72" rx="18" fill="#D1FAE5" stroke="#6EE7B7"/>
+<rect x="315" y="390" width="570" height="72" rx="18" fill="#FEF3C7" stroke="#FCD34D"/>
+<rect x="315" y="490" width="570" height="58" rx="18" fill="#F1F5F9" stroke="#CBD5E1"/>
+<text x="600" y="134" text-anchor="middle" class="label">Applications and analysis workflows</text>
+<text x="600" y="234" text-anchor="middle" class="label">CESDM Python API and tool adapters</text>
+<text x="600" y="334" text-anchor="middle" class="label">Schema-driven energy-system model</text>
+<text x="600" y="434" text-anchor="middle" class="label">Generic EAR engine</text>
+<text x="600" y="526" text-anchor="middle" class="label">YAML schemas and libraries</text>
+<path d="M600 162 L600 190" class="line arrow"/>
+<path d="M600 262 L600 290" class="line arrow"/>
+<path d="M600 362 L600 390" class="line arrow"/>
+<path d="M600 462 L600 490" class="line arrow"/>
+<rect x="50" y="190" width="205" height="72" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
+<rect x="945" y="190" width="205" height="72" rx="18" fill="#FFFFFF" stroke="#CBD5E1"/>
+<text x="152" y="220" text-anchor="middle" class="label">Importers</text>
+<text x="152" y="245" text-anchor="middle" class="small">PyPSA · TYNDP · …</text>
+<text x="1047" y="220" text-anchor="middle" class="label">Exporters</text>
+<text x="1047" y="245" text-anchor="middle" class="small">YAML · CSV · RDF · …</text>
+<path d="M255 226 L315 226" class="line arrow"/>
+<path d="M885 226 L945 226" class="line arrow"/>
+</svg>

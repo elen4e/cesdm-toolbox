@@ -1,0 +1,16 @@
+name: GenericInterconnector
+parents:
+- TransmissionElement
+description: >
+  Capacity-only transfer link (NTC / max flow) between two NetworkNodes — no line, pipe, or converter
+  physics.
+
+  Carrier is implied by the connected nodes. Prefer electrical leaves (TransmissionLine, HVDCLink, Transformer)
+  when physics matters. Legacy class name: Interconnector.
+attributes:
+- id: maximum_power_flow_from_to
+  required: false
+  belongsToGroup: [power_flow]
+- id: maximum_power_flow_to_from
+  required: false
+  belongsToGroup: [power_flow]

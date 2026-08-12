@@ -1,0 +1,34 @@
+name: HydroGenerationUnit
+parents:
+- GenerationUnit
+description: >
+  Generation unit that converts hydraulic head or flow into electricity, optionally with pumping
+  (hydro_machine_kind = reversible).
+
+  Couples to HydraulicStorageUnit water bodies via drawsFromHydraulicStorage / dischargesToHydraulicStorage
+  (machine → basin; no inverse suppliesResourceTo). Natural inflow belongs on the water body, not on this
+  generator. hasTechnology is inherited from GenerationUnit → GeneratorType.
+attributes:
+- id: hydraulic_head
+  required: false
+- id: turbine_type
+  required: false
+- id: hydro_machine_kind
+  required: false
+  belongsToGroup: [dispatch]
+- id: turbine_efficiency
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_pumping_power
+  required: false
+  belongsToGroup: [dispatch]
+- id: pumping_efficiency
+  required: false
+  belongsToGroup: [dispatch]
+relations:
+- id: drawsFromHydraulicStorage
+  required: false
+  target: HydraulicStorageUnit
+- id: dischargesToHydraulicStorage
+  required: false
+  target: HydraulicStorageUnit

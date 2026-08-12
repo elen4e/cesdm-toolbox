@@ -1,0 +1,14 @@
+name: HydrogenBus
+parents:
+- NetworkNode
+description: |
+  A NetworkNode within a hydrogen CarrierDomain. Carries the nominal operating
+  pressure of the hydrogen network at this node.
+
+  Examples: a high-pressure hydrogen pipeline node (80 bar), a low-pressure
+  distribution node (20 bar).
+
+attributes:
+- id: nominal_pressure
+  required: false
+relations: null

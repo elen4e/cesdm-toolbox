@@ -1,0 +1,15 @@
+name: Result
+abstract: true
+parents:
+- SemanticEntity
+description: >
+  Abstract base for analysis-run outcomes (dispatch, power flow, dynamics, …), one entity per subject
+  per run.
+
+  Links to the subject via reportsOn and to provenance via hasRunRecord so multiple runs/domains can coexist.
+relations:
+- id: reportsOn
+  required: true
+- id: hasRunRecord
+  required: true
+  target: RunRecord

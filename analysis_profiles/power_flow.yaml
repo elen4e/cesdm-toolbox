@@ -1,0 +1,164 @@
+# Analysis profile: AC power flow
+#
+# What an AC power-flow or optimal-power-flow study needs present and
+# sensible on the model, independent of what the CESDM schema itself
+# marks as `required:`. Several fields checked here are schema-optional
+# (active_power_setpoint on GenerationUnit, for instance) precisely
+# because most CESDM models never touch power flow at all -- this
+# profile is where that requirement actually belongs. Bus type
+# (PQ/PV/slack) is required on ElectricalBus only.
+#
+# Checks are entity-centric: just name the attribute/relation. A
+# requirement block's entity_class also covers every subclass (e.g. a
+# "TransmissionElement" block below is checked against TransmissionLine,
+# Transformer, Interconnector, and HVDCLink alike) -- see
+# docs/guide/10_analysis_validation.md for the full design.
+#
+# Load and run with:
+#   errors = model.validate_for_analysis("power_flow")
+# or, for a copy you edit yourself first:
+#   profile = model.load_analysis_profile("analysis_profiles/power_flow.yaml")
+#   errors = model.validate_for_analysis(profile)
+
+name: power_flow
+description: >
+  Minimum attribute/value requirements for running an AC power-flow or
+  optimal-power-flow study: bus voltage/type data, generator and demand
+  power injections, and transmission-element electrical parameters.
+
+requirements:
+
+  - entity_class: ElectricalBus
+    # Covers every network-node subclass that participates in an AC
+    # power-flow study the same way (GasBus/HeatBus/HydrogenBus aren't
+    # included -- they aren't electrical nodes at all).
+    checks:
+      - attribute: nominal_voltage
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: powerflow_bus_type
+        required: true
+        constraints:
+          enum: [slack, PV, PQ]
+
+      - attribute: voltage_magnitude_setpoint
+        required: false
+        # Meaningful for slack/PV buses (voltage held fixed); a plain
+        # PQ bus typically leaves this unset and lets the solver find it.
+        constraints:
+          minimum: 0
+
+  - entity_class: GenerationUnit
+    checks:
+      - attribute: atNode
+        required: true
+
+      - attribute: active_power_setpoint
+        required: true
+
+      - attribute: reactive_power_setpoint
+        required: false
+
+      - attribute: voltage_magnitude_setpoint
+        required: false
+        constraints:
+          minimum: 0
+
+      - attribute: maximum_reactive_power_output
+        required: false
+
+      - attribute: minimum_reactive_power_output
+        required: false
+
+  - entity_class: DemandUnit
+    checks:
+      - attribute: atNode
+        required: true
+
+      - attribute: active_power_demand
+        required: true
+
+      - attribute: reactive_power_demand
+        required: false
+
+      - attribute: power_factor
+        required: false
+        constraints:
+          minimum: 0
+          maximum: 1
+
+  - entity_class: TransmissionElement
+    # Shared by every concrete subclass: all of them need to know
+    # which two buses they connect.
+    checks:
+      - attribute: fromNode
+        required: true
+
+      - attribute: toNode
+        required: true
+
+  - entity_class: TransmissionLine
+    # A real AC power-flow calculation needs the line's own series
+    # impedance, not just its thermal rating.
+    checks:
+      - attribute: series_resistance_per_km
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: series_reactance_per_km
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: line_length
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: shunt_susceptance_per_km
+        required: false
+        constraints:
+          minimum: 0
+
+  - entity_class: Transformer
+    checks:
+      - attribute: rated_primary_voltage
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: rated_secondary_voltage
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: short_circuit_voltage_in_percentage
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: tap_ratio
+        required: false
+
+      - attribute: phase_shift_angle
+        required: false
+
+  # Interconnector and HVDCLink are deliberately not checked for
+  # impedance data here -- by design (see their own schema
+  # descriptions) they express only transfer capacity, not detailed
+  # electrical parameters, so a full AC power-flow calculation
+  # wouldn't model them as an impedance branch in the first place.
+  # The shared TransmissionElement check above still requires their
+  # fromNode/toNode, since they do need a topological connection.
+
+  - entity_class: HVDCLink
+    # Transfer limit is schema-optional; required when an HVDC link is
+    # present in a power-flow / OPF study.
+    checks:
+      - attribute: max_flow
+        required: true
+        constraints:
+          minimum: 0

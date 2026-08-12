@@ -1,0 +1,16 @@
+StorageType:
+  Storage.Electrochemical.Battery:
+    attributes:
+    - id: name
+      value: Storage.Electrochemical.Battery
+    - id: discharging_efficiency
+      value: 0.95
+    - id: charging_efficiency
+      value: 0.9
+    - id: variable_operating_cost
+      value: 0.0
+    - id: storage_technology_type
+      value: battery
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity

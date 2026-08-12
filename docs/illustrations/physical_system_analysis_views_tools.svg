@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1900" height="1360" viewBox="0 0 1900 1360"
+     role="img" aria-labelledby="title desc">
+
+  <title id="title">One Physical System, Multiple Analysis, Multiple Tools</title>
+  <desc id="desc">
+  The physical energy system is represented once in CESDM. Different analyses—including planning, optimal dispatch, power-system analysis, and dynamic stability—use the entities, relations, and attributes relevant to their specific purpose. Each analysis can be supported by multiple software tools.
+  </desc>
+
+  <defs>
+    <style>
+      .title { font: 700 42px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 21px Arial, Helvetica, sans-serif; fill: #52677b; }
+      .heading { font: 700 23px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .label { font: 700 17px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .body { font: 400 17px Arial, Helvetica, sans-serif; fill: #52677b; }
+      .small { font: 400 14px Arial, Helvetica, sans-serif; fill: #52677b; }
+
+      .system { fill: #eef7f5; stroke: #16806f; stroke-width: 3; }
+      .cesdm { fill: #eaf2f8; stroke: #336f98; stroke-width: 3.2; }
+      .view { fill: #f4f7fb; stroke: #7f98ad; stroke-width: 2.5; }
+      .tool { fill: #fbf8f2; stroke: #b09767; stroke-width: 2.1; }
+      .principle { fill: #f7fafc; stroke: #b9c8d6; stroke-width: 2; }
+
+      .arrow {
+        fill: none;
+        stroke: #426e8c;
+        stroke-width: 3;
+        marker-end: url(#arrow);
+      }
+      .branch {
+        fill: none;
+        stroke: #6d879b;
+        stroke-width: 2.4;
+      }
+      .divider { stroke: #d9e2ea; stroke-width: 2; }
+    </style>
+
+    <marker id="arrow" markerWidth="11" markerHeight="11"
+            refX="9" refY="5.5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L11,5.5 L0,11 z" fill="#426e8c"/>
+    </marker>
+  </defs>
+
+  <rect width="1900" height="1360" fill="#ffffff"/>
+
+  <text x="950" y="62" text-anchor="middle" class="title">
+    One Physical System. Multiple Analysis. Multiple Tools.
+  </text>
+  <text x="950" y="100" text-anchor="middle" class="subtitle">
+    CESDM preserves one semantic system representation while supporting different analyses and software implementations.
+  </text>
+
+  <!-- Physical system -->
+  <rect x="620" y="165" width="660" height="155" rx="30" class="system"/>
+  <text x="950" y="214" text-anchor="middle" class="heading">Physical Energy System</text>
+  <text x="950" y="252" text-anchor="middle" class="body">
+    networks • assets • carrier domains
+  </text>
+  <text x="950" y="283" text-anchor="middle" class="body">
+    technologies • relations • profiles • time series
+  </text>
+
+  <!-- Larger vertical gap -->
+  <path d="M950 320 L950 445" class="arrow"/>
+
+  <!-- CESDM -->
+  <rect x="500" y="445" width="900" height="205" rx="32" class="cesdm"/>
+  <text x="950" y="497" text-anchor="middle" class="heading">
+    Common Energy System Domain Model
+  </text>
+  <text x="950" y="536" text-anchor="middle" class="body">
+    One shared, tool-independent semantic representation
+  </text>
+  <line x1="570" y1="568" x2="1330" y2="568" class="divider"/>
+  <text x="950" y="604" text-anchor="middle" class="small">
+    schemas • stable identifiers • semantic relations • reusable libraries
+  </text>
+  <text x="950" y="631" text-anchor="middle" class="small">
+    validation profiles • analysis-specific subsets • import and export
+  </text>
+
+  <!-- Larger vertical gap -->
+  <path d="M950 650 L950 785" class="arrow"/>
+
+  <!-- Analysis branch -->
+  <path d="M230 785 H1670" class="branch"/>
+  <path d="M230 785 V815" class="branch"/>
+  <path d="M710 785 V815" class="branch"/>
+  <path d="M1190 785 V815" class="branch"/>
+  <path d="M1670 785 V815" class="branch"/>
+
+  <!-- Analysis views -->
+  <rect x="75" y="815" width="310" height="145" rx="22" class="view"/>
+  <text x="230" y="860" text-anchor="middle" class="heading">Planning View</text>
+  <text x="230" y="898" text-anchor="middle" class="small">scenarios, investments,</text>
+  <text x="230" y="923" text-anchor="middle" class="small">capacities and long-term demand</text>
+
+  <rect x="555" y="815" width="310" height="145" rx="22" class="view"/>
+  <text x="710" y="860" text-anchor="middle" class="heading">Optimal Dispatch View</text>
+  <text x="710" y="898" text-anchor="middle" class="small">unit commitment, operation,</text>
+  <text x="710" y="923" text-anchor="middle" class="small">costs, demand and time series</text>
+
+  <rect x="1035" y="815" width="310" height="145" rx="22" class="view"/>
+  <text x="1190" y="860" text-anchor="middle" class="heading">Power-System View</text>
+  <text x="1190" y="898" text-anchor="middle" class="small">buses, topology, impedances,</text>
+  <text x="1190" y="923" text-anchor="middle" class="small">power flow and network limits</text>
+
+  <rect x="1515" y="815" width="310" height="145" rx="22" class="view"/>
+  <text x="1670" y="860" text-anchor="middle" class="heading">Dynamic Stability View</text>
+  <text x="1670" y="898" text-anchor="middle" class="small">machines, controllers,</text>
+  <text x="1670" y="923" text-anchor="middle" class="small">disturbances and protection</text>
+
+  <!-- Much larger gap to tool boxes -->
+  <path d="M230 960 V1080" class="arrow"/>
+  <path d="M710 960 V1080" class="arrow"/>
+  <path d="M1190 960 V1080" class="arrow"/>
+  <path d="M1670 960 V1080" class="arrow"/>
+
+  <!-- Tool distribution lines -->
+  <!-- Group 1 -->
+  <path d="M230 1080 V1115" class="branch"/>
+  <path d="M80 1115 H380" class="branch"/>
+  <path d="M80 1115 V1145" class="branch"/>
+  <path d="M230 1115 V1145" class="branch"/>
+  <path d="M380 1115 V1145" class="branch"/>
+
+  <!-- Group 2 -->
+  <path d="M710 1080 V1115" class="branch"/>
+  <path d="M560 1115 H860" class="branch"/>
+  <path d="M560 1115 V1145" class="branch"/>
+  <path d="M710 1115 V1145" class="branch"/>
+  <path d="M860 1115 V1145" class="branch"/>
+
+  <!-- Group 3 -->
+  <path d="M1190 1080 V1115" class="branch"/>
+  <path d="M1040 1115 H1340" class="branch"/>
+  <path d="M1040 1115 V1145" class="branch"/>
+  <path d="M1190 1115 V1145" class="branch"/>
+  <path d="M1340 1115 V1145" class="branch"/>
+
+  <!-- Group 4 -->
+  <path d="M1670 1080 V1115" class="branch"/>
+  <path d="M1520 1115 H1820" class="branch"/>
+  <path d="M1520 1115 V1145" class="branch"/>
+  <path d="M1670 1115 V1145" class="branch"/>
+  <path d="M1820 1115 V1145" class="branch"/>
+
+  <!-- Tool boxes: 125 wide, 25 gap, fully separated -->
+
+  <!-- Planning -->
+  <rect x="17.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="80" y="1177" text-anchor="middle" class="label">PyPSA</text>
+  <text x="80" y="1203" text-anchor="middle" class="small">planning</text>
+
+  <rect x="167.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="230" y="1177" text-anchor="middle" class="label">Calliope</text>
+  <text x="230" y="1203" text-anchor="middle" class="small">planning</text>
+
+  <rect x="317.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="380" y="1177" text-anchor="middle" class="label">TIMES</text>
+  <text x="380" y="1203" text-anchor="middle" class="small">planning</text>
+
+  <!-- Dispatch -->
+  <rect x="497.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="560" y="1177" text-anchor="middle" class="label">PyPSA</text>
+  <text x="560" y="1203" text-anchor="middle" class="small">dispatch</text>
+
+  <rect x="647.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="710" y="1177" text-anchor="middle" class="label">SpineOpt</text>
+  <text x="710" y="1203" text-anchor="middle" class="small">dispatch</text>
+
+  <rect x="797.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="860" y="1177" text-anchor="middle" class="label">Dispa-SET</text>
+  <text x="860" y="1203" text-anchor="middle" class="small">dispatch</text>
+
+  <!-- Power system -->
+  <rect x="977.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1040" y="1177" text-anchor="middle" class="label">pandapower</text>
+  <text x="1040" y="1203" text-anchor="middle" class="small">power flow</text>
+
+  <rect x="1127.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1190" y="1175" text-anchor="middle" class="label">PowerFactory</text>
+  <text x="1190" y="1203" text-anchor="middle" class="small">power system</text>
+
+  <rect x="1277.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1340" y="1177" text-anchor="middle" class="label">PSS®E</text>
+  <text x="1340" y="1203" text-anchor="middle" class="small">power flow</text>
+
+  <!-- Dynamics -->
+  <rect x="1457.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1520" y="1175" text-anchor="middle" class="label">PowerFactory</text>
+  <text x="1520" y="1203" text-anchor="middle" class="small">dynamics</text>
+
+  <rect x="1607.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1670" y="1177" text-anchor="middle" class="label">PSS®E</text>
+  <text x="1670" y="1203" text-anchor="middle" class="small">dynamics</text>
+
+  <rect x="1757.5" y="1145" width="125" height="76" rx="15" class="tool"/>
+  <text x="1820" y="1177" text-anchor="middle" class="label">PSCAD</text>
+  <text x="1820" y="1203" text-anchor="middle" class="small">dynamics</text>
+
+  <!-- Footer -->
+  <rect x="360" y="1260" width="1180" height="78" rx="18" class="principle"/>
+  <text x="950" y="1291" text-anchor="middle" class="label">
+    One semantic model → multiple analysis-specific attributes → multiple software implementations
+  </text>
+  <text x="950" y="1319" text-anchor="middle" class="body">
+    The physical energy system is represented once and is not redefined for every analysis or tool.
+  </text>
+</svg>

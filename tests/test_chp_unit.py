@@ -1,0 +1,32 @@
+from cesdm import build_model_from_yaml
+
+
+def test_compact_chp_unit_schema_and_validation():
+    m = build_model_from_yaml("schemas/cesdm")
+    gas = m.add_entity(entity_class="Carrier", entity_id="carrier.gas.test")
+    electricity = m.add_entity(entity_class="Carrier", entity_id="carrier.electricity.test")
+    heat = m.add_entity(entity_class="Carrier", entity_id="carrier.heat.test")
+    gas_domain = m.add_entity(entity_class="CarrierDomain", entity_id="domain.gas.test")
+    gas_domain.add_relation(relation_id="hasCarrier", target_entity_id=gas.id)
+    electricity_domain = m.add_entity(entity_class="CarrierDomain", entity_id="domain.electricity.test")
+    electricity_domain.add_relation(relation_id="hasCarrier", target_entity_id=electricity.id)
+    heat_domain = m.add_entity(entity_class="CarrierDomain", entity_id="domain.heat.test")
+    heat_domain.add_relation(relation_id="hasCarrier", target_entity_id=heat.id)
+    gas_bus = m.add_entity(entity_class="GasBus", entity_id="bus.gas.test")
+    gas_bus.add_relation(relation_id="belongsToCarrierDomain", target_entity_id=gas_domain.id)
+    electricity_bus = m.add_entity(entity_class="ElectricalBus", entity_id="bus.electricity.test")
+    electricity_bus.add_relation(relation_id="belongsToCarrierDomain", target_entity_id=electricity_domain.id)
+    heat_bus = m.add_entity(entity_class="HeatBus", entity_id="bus.heat.test")
+    heat_bus.add_relation(relation_id="belongsToCarrierDomain", target_entity_id=heat_domain.id)
+    chp = m.add_entity(entity_class="CHPUnit", entity_id="chp.test")
+    chp.add_attribute(attribute_id="nominal_electrical_power_capacity", value=35, unit="MW")
+    chp.add_attribute(attribute_id="nominal_thermal_power_capacity", value=45, unit="MW")
+    chp.add_attribute(attribute_id="electrical_efficiency", value=0.35, unit="fraction")
+    chp.add_attribute(attribute_id="thermal_efficiency", value=0.45, unit="fraction")
+    chp.add_relation(relation_id="hasInputCarrier", target_entity_id=gas.id)
+    chp.add_relation(relation_id="hasElectricityOutputCarrier", target_entity_id=electricity.id)
+    chp.add_relation(relation_id="hasHeatOutputCarrier", target_entity_id=heat.id)
+    chp.add_relation(relation_id="atFuelNode", target_entity_id=gas_bus.id)
+    chp.add_relation(relation_id="atElectricityNode", target_entity_id=electricity_bus.id)
+    chp.add_relation(relation_id="atHeatNode", target_entity_id=heat_bus.id)
+    assert m.validate() == []

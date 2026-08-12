@@ -1,0 +1,16 @@
+name: Profile
+parents:
+- SemanticEntity
+description: "Named time-series metadata for scalar values (availability, demand shape, inflow, price,
+  …).\nNumeric samples live in external storage (HDF5/Parquet); this entity holds interpretation only
+  (profile_type, link to TimestampSeries).\n"
+attributes:
+- id: profile_type
+  required: true
+- id: profile_unit
+  required: false
+- id: data_reference
+  required: true
+relations:
+- id: hasTimestampSeries
+  required: true

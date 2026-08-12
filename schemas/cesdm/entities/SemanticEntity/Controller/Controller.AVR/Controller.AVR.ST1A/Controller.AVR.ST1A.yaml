@@ -1,0 +1,40 @@
+name: Controller.AVR.ST1A
+parents:
+- Controller.AVR
+description: >
+  IEEE Type ST1A static thyristor exciter. IEEE Std 421.5-2016, Section 7.
+attributes:
+- id: AVR_Tr
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_ST1A_Ka
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_ST1A_Ta
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_ST1A_Tb
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_ST1A_Tc
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_ST1A_Kl
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Va_min
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Va_max
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Efd_min
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Efd_max
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

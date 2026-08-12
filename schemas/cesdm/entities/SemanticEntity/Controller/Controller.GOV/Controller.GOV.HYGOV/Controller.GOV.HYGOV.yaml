@@ -1,0 +1,43 @@
+name: Controller.GOV.HYGOV
+parents:
+- Controller.GOV
+description: >
+  IEEE hydro turbine-governor (HYGOV). IEEE Std 1110-2002, Annex C.
+attributes:
+- id: GOV_HYGOV_R
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_r
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_Tr
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_Tf
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_Tg
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_Tw
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_At
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_Dturb
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_HYGOV_qNL
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_Pmax
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_Pmin
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

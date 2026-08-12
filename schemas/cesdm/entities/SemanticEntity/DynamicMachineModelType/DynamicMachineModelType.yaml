@@ -1,0 +1,9 @@
+name: DynamicMachineModelType
+parents:
+- SemanticEntity
+abstract: true
+description: >
+  Reusable dynamic-machine parameter set shared by GenerationUnits via usesDynamicModelType.
+
+  Rated base quantities stay on the generator; per-unit parameters on this type are interpreted on each
+  unit's own base.

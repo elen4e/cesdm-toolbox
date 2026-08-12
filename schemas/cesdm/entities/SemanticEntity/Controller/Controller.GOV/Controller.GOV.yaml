@@ -1,0 +1,14 @@
+name: Controller.GOV
+parents:
+- Controller
+abstract: true
+view_family: governor
+description: >
+  Abstract base for speed-governor / prime-mover controllers on a synchronous machine.
+
+  Linked via controlsGenerationUnit (inverse: hasTurbineGovernor). Use a concrete IEEE/commercial leaf.
+
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

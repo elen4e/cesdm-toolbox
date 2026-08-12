@@ -1,0 +1,26 @@
+name: AgentBasedModel
+parents:
+- SemanticEntity
+description: Configuration entity for an agent-based simulation scenario linked to
+  CESDM assets, profiles, and behavioural agents.
+attributes:
+- id: start_year
+  required: false
+- id: end_year
+  required: false
+- id: time_step
+  required: false
+- id: random_seed
+  required: false
+- id: objective_description
+  required: false
+relations:
+- id: hasAgent
+  target: Agent
+  required: false
+- id: simulatesAsset
+  target: EnergyAssetInstance
+  required: false
+- id: usesProfile
+  target: Profile
+  required: false

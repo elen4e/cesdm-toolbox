@@ -1,0 +1,26 @@
+name: Transformer
+parents:
+- ElectricityTransmission
+description: 'Two-winding power transformer between ElectricalBuses at different voltage levels, with
+  rated voltages, short-circuit voltage, and thermal rating.
+
+  '
+attributes:
+- id: rated_primary_voltage
+  required: false
+  belongsToGroup: [power_flow]
+- id: rated_secondary_voltage
+  required: false
+  belongsToGroup: [power_flow]
+- id: short_circuit_voltage_in_percentage
+  required: false
+  belongsToGroup: [power_flow]
+- id: thermal_capacity_rating
+  required: false
+  belongsToGroup: [power_flow]
+- id: tap_ratio
+  required: false
+  belongsToGroup: [power_flow]
+- id: phase_shift_angle
+  required: false
+  belongsToGroup: [power_flow]

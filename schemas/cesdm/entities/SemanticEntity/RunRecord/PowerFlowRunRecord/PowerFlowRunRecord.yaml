@@ -1,0 +1,25 @@
+name: PowerFlowRunRecord
+parents:
+- RunRecord
+description: >
+  Provenance for one power-flow (load-flow) study — solver/convergence metadata, not economic dispatch.
+
+  Anchors PowerFlowResult entities; often chained after a DispatchRunRecord via hasInputRun.
+attributes:
+- id: solver_name
+  required: false
+- id: solve_time_seconds
+  required: false
+- id: converged
+  required: false
+- id: iteration_count
+  required: false
+- id: convergence_tolerance
+  required: false
+relations:
+- id: hasTimestampSeries
+  required: false
+  target: TimestampSeries
+  description: >-
+    Present only for a time-series power-flow study run across
+    multiple operating points. Absent for a single-snapshot solve.

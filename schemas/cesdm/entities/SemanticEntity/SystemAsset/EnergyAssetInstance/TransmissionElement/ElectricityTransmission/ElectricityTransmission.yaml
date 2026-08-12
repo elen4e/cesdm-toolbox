@@ -1,0 +1,17 @@
+name: ElectricityTransmission
+parents:
+- TransmissionElement
+abstract: true
+description: >
+  Abstract electrical transmission branch within an electricity CarrierDomain.
+
+  Leaves: TransmissionLine, Transformer, HVDCLink. Capacity-only NTC links use GenericInterconnector.
+relations:
+- id: fromNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus
+- id: toNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus

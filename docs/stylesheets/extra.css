@@ -1,0 +1,89 @@
+/* Gesamtbreite (alle drei Spalten zusammen) vergrößern */
+.md-grid {
+  max-width: 75rem;
+}
+
+/* Linke Navigation — breit genug für lange Labels */
+.md-sidebar--primary {
+  width: 12.5rem;
+}
+
+/* Rechtes Inhaltsverzeichnis breiter machen */
+.md-sidebar--secondary {
+  width: 14rem;
+}
+
+/* Building your CESDM Model — options table: wider first column only */
+.md-typeset .walkthrough-options table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.md-typeset .walkthrough-options th:first-child,
+.md-typeset .walkthrough-options td:first-child {
+  width: 28%;
+  min-width: 11rem;
+}
+
+/* CESDM Schema Reference — wider columns 1 & 2 (ID/Name, Label/Type), equal width */
+.md-content__inner:has(#cesdm-schema-reference) :is(.md-typeset, .doc-contents) table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.md-content__inner:has(#cesdm-schema-reference) :is(.md-typeset, .doc-contents) table :is(th, td):nth-child(1),
+.md-content__inner:has(#cesdm-schema-reference) :is(.md-typeset, .doc-contents) table :is(th, td):nth-child(2) {
+  width: 24%;
+  min-width: 14rem;
+  overflow-wrap: anywhere;
+}
+
+/* Right-hand TOC — collapsible nested hierarchy */
+.md-sidebar--secondary ul[data-md-component="toc"] .toc-collapsible > .toc-collapse-toggle:not(:checked) ~ nav.md-nav,
+ul[data-md-component="toc"] .toc-collapsible > .toc-collapse-toggle:not(:checked) ~ nav.md-nav {
+  display: none;
+}
+
+.md-sidebar--secondary .toc-collapsible,
+ul[data-md-component="toc"] .toc-collapsible {
+  position: relative;
+}
+
+.md-sidebar--secondary .toc-collapsible > a.md-nav__link,
+ul[data-md-component="toc"] .toc-collapsible > a.md-nav__link {
+  padding-right: 1.8rem;
+}
+
+.md-sidebar--secondary .toc-collapse-chevron,
+ul[data-md-component="toc"] .toc-collapse-chevron {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 1.6rem;
+  height: 1.8rem;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.md-sidebar--secondary .toc-collapse-chevron::before,
+ul[data-md-component="toc"] .toc-collapse-chevron::before {
+  content: "▸";
+  font-size: 0.85rem;
+  line-height: 1;
+  color: var(--md-default-fg-color--light, currentColor);
+}
+
+.md-sidebar--secondary .toc-collapse-chevron .md-nav__icon,
+ul[data-md-component="toc"] .toc-collapse-chevron .md-nav__icon {
+  display: none;
+}
+
+.md-sidebar--secondary .toc-collapsible > .toc-collapse-toggle:checked ~ .toc-collapse-chevron::before,
+ul[data-md-component="toc"] .toc-collapsible > .toc-collapse-toggle:checked ~ .toc-collapse-chevron::before {
+  content: "▾";
+}

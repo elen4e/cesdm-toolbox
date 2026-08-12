@@ -1,0 +1,28 @@
+name: TransmissionType
+parents:
+- EnergyTechnologyType
+description: 'Technology type for transmission and transport assets that carry an
+  energy carrier between two Buses within the same CarrierDomain. Covers AC transmission
+  lines, DC links, gas pipelines, district heating pipes, and net transfer capacity
+  (NTC) interconnectors.
+
+  Physical electrical parameters (resistance, reactance, susceptance) belong here
+  as type-level data; the specific from/to Bus connections are declared directly on the asset instance (fromNode/toNode).
+
+  '
+attributes:
+- id: line_length
+  required: false
+- id: series_resistance_per_km
+  required: false
+- id: series_reactance_per_km
+  required: false
+- id: shunt_susceptance_per_km
+  required: false
+- id: thermal_capacity_rating
+  required: false
+- id: parallel_circuit_count
+  required: false
+relations:
+- id: hasCarrier
+  required: true

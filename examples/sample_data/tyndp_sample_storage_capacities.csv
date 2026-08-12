@@ -1,0 +1,4 @@
+Variable,Policy,Year,Type,Node,Value
+Capacity,National Trends,2030,Battery Storage,DE00 ,150
+Capacity,National Trends,2030,Reservoir,DE00 ,900
+Capacity,National Trends,2030,Pump Storage Closed Loop,DE00 ,500

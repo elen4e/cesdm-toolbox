@@ -1,0 +1,27 @@
+name: ElectricalBus
+parents:
+- NetworkNode
+description: |
+  A NetworkNode within an electricity CarrierDomain (AC or DC). Carries the
+  nominal line-to-line voltage of the network level at this node. Used for power
+  flow, unit commitment, and optimal power flow analyses in electricity transmission
+  and distribution models.
+
+  Spatial coordinates and belongsToGeographicalRegion are inherited from
+  NetworkNode (belongsToGroup: spatial). Legacy alias: locatedIn.
+
+  Examples: a 380 kV transmission busbar, a 110 kV substation busbar, a 20 kV
+  distribution feeder node.
+
+attributes:
+- id: nominal_voltage
+  required: false
+- id: powerflow_bus_type
+  required: false
+  belongsToGroup: [power_flow]
+- id: voltage_magnitude_setpoint
+  required: false
+  belongsToGroup: [power_flow]
+- id: voltage_angle_setpoint
+  required: false
+  belongsToGroup: [power_flow]

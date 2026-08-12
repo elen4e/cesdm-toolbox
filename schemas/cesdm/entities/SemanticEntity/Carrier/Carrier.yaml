@@ -1,0 +1,27 @@
+name: Carrier
+parents:
+- SemanticEntity
+description: 'Represents a transferable, storable, or convertible form of energy or
+  commodity that flows within the modelled system. A Carrier defines the conserved
+  quantity associated with a CarrierDomain and all assets connected to it. Examples
+  include electricity, hydrogen, methane, heat, steam, water, and biomass.
+
+  Carriers are distinguished from assets: a carrier is the *what* flows, while assets
+  are the *how* it is generated, transported, stored, or consumed.
+
+  '
+attributes:
+- id: co2_emission_intensity
+  required: false
+  default: 0.0
+- id: energy_carrier_cost
+  required: false
+  default: 0.0
+- id: carrier_group
+  required: false
+- id: carrier_type
+  required: false
+- id: is_primary_fuel
+  required: false
+- id: is_secondary_fuel
+  required: false

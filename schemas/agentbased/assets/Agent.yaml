@@ -1,0 +1,20 @@
+name: Agent
+parents:
+- SemanticEntity
+abstract: true
+description: Abstract actor that observes a state, applies a behavioural rule, and
+  may control or influence CESDM assets.
+attributes:
+- id: agent_kind
+  required: false
+- id: decision_rule
+  required: false
+- id: information_level
+  required: false
+relations:
+- id: controlsAsset
+  target: EnergyAssetInstance
+  required: false
+- id: observesProfile
+  target: Profile
+  required: false

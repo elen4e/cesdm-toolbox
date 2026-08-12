@@ -1,0 +1,14 @@
+name: Controller.AVR
+parents:
+- Controller
+abstract: true
+view_family: avr
+description: >
+  Abstract base for AVR / excitation controllers on a synchronous machine (IEEE/commercial leaf models).
+
+  Linked to a GenerationUnit via controlsGenerationUnit (inverse: hasAutomaticVoltageRegulator).
+
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

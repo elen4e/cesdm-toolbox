@@ -1,0 +1,273 @@
+GeneratorType:
+  Generation.Thermal.Coal.HardCoal.Old1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Coal.HardCoal.Old1
+    - id: long_name
+      value: Hard-coal steam plant (TYNDP Old1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.35
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.coal.hard_coal
+  Generation.Thermal.Coal.HardCoal.Old2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Coal.HardCoal.Old2
+    - id: long_name
+      value: Hard-coal steam plant (TYNDP Old2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.4
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.coal.hard_coal
+  Generation.Thermal.Coal.Lignite.Old1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Coal.Lignite.Old1
+    - id: long_name
+      value: Lignite steam plant (TYNDP Old1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.35
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.coal.lignite
+  Generation.Thermal.Coal.Lignite.Old2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Coal.Lignite.Old2
+    - id: long_name
+      value: Lignite steam plant (TYNDP Old2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.4
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.coal.lignite
+  Generation.Thermal.Gas.Conventional.Old1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.Conventional.Old1
+    - id: long_name
+      value: Conventional gas plant (TYNDP Old1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.36
+    - id: variable_operating_cost
+      value: 1.1
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.Conventional.Old2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.Conventional.Old2
+    - id: long_name
+      value: Conventional gas plant (TYNDP Old2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.41
+    - id: variable_operating_cost
+      value: 1.1
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.CCGT.Old1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.CCGT.Old1
+    - id: long_name
+      value: Combined-cycle gas turbine (TYNDP Old1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.4
+    - id: variable_operating_cost
+      value: 1.6
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.CCGT.Old2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.CCGT.Old2
+    - id: long_name
+      value: Combined-cycle gas turbine (TYNDP Old2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.48
+    - id: variable_operating_cost
+      value: 1.6
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.CCGT.Present1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.CCGT.Present1
+    - id: long_name
+      value: Combined-cycle gas turbine (TYNDP Present1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.56
+    - id: variable_operating_cost
+      value: 1.6
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.CCGT.Present2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.CCGT.Present2
+    - id: long_name
+      value: Combined-cycle gas turbine (TYNDP Present2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.58
+    - id: variable_operating_cost
+      value: 1.6
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Gas.OCGT.Old:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Gas.OCGT.Old
+    - id: long_name
+      value: Open-cycle gas turbine (TYNDP Old)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.35
+    - id: variable_operating_cost
+      value: 1.6
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.gas.natural_gas
+  Generation.Thermal.Oil.HeavyOil.Old1:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Oil.HeavyOil.Old1
+    - id: long_name
+      value: Heavy-oil plant (TYNDP Old1)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.35
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.oil
+  Generation.Thermal.Oil.HeavyOil.Old2:
+    attributes:
+    - id: name
+      value: Generation.Thermal.Oil.HeavyOil.Old2
+    - id: long_name
+      value: Heavy-oil plant (TYNDP Old2)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.4
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.oil
+  Generation.Thermal.OilShale.Standard.Old:
+    attributes:
+    - id: name
+      value: Generation.Thermal.OilShale.Standard.Old
+    - id: long_name
+      value: Oil-shale plant (TYNDP Old)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.29
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.oil.shale
+  Generation.Thermal.OilShale.Standard.New:
+    attributes:
+    - id: name
+      value: Generation.Thermal.OilShale.Standard.New
+    - id: long_name
+      value: Oil-shale plant (TYNDP New)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.39
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.oil.shale
+  Generation.Thermal.OilShale.Biofuel.Standard:
+    attributes:
+    - id: name
+      value: Generation.Thermal.OilShale.Biofuel.Standard
+    - id: long_name
+      value: Oil-shale / biofuel plant (TYNDP)
+    - id: dispatch_type
+      value: dispatchable
+    - id: energy_conversion_efficiency
+      value: 0.29
+    - id: variable_operating_cost
+      value: 3.3
+    relations:
+    - id: hasOutputCarrier
+      target: carrier.electricity
+    - id: hasInputCarrier
+      target: carrier.fuel.fossil.oil.shale

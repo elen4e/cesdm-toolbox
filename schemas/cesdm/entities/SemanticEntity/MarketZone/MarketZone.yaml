@@ -1,0 +1,25 @@
+name: MarketZone
+parents:
+- SemanticEntity
+description: >
+  Electricity (or other carrier) market / bidding zone used for market clearing,
+  NTC coupling, and zonal studies. Distinct from GeographicalRegion: a market zone
+  is an economic area that may cover one or more administrative regions, and may
+  split a single country into several zones.
+
+  Link geography via coversRegion; attach network nodes via belongsToMarketZone.
+  The traded carrier is typically electricity (hasCarrier → carrier.electricity).
+
+attributes:
+- id: market_zone_code
+  required: true
+- id: eic_code
+  required: false
+relations:
+- id: coversRegion
+  required: false
+  target: GeographicalRegion
+  cardinality: 0..*
+- id: hasCarrier
+  required: false
+  target: Carrier

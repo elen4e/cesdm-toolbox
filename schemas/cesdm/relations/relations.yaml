@@ -1,0 +1,420 @@
+relations:
+  hasCarrier:
+    description: >
+      Associates a CarrierDomain, MarketZone, NetworkNode, or asset with the
+      Carrier that flows within or through it.
+    target:
+    - Carrier
+  hasInputCarrier:
+    description: 'Relates a conversion or generation asset to the Carrier consumed or withdrawn as input.
+
+      '
+    target:
+    - Carrier
+  hasOutputCarrier:
+    description: 'Relates a conversion or generation asset to the Carrier produced or injected as output.
+
+      '
+    target:
+    - Carrier
+  atNode:
+    description: 'Connects an asset (or port) to the NetworkNode where it injects or withdraws a carrier.'
+    target:
+    - NetworkNode
+  fromNode:
+    description: 'Relates a two-port asset to the NetworkNode at the originating (from) end of the directed
+      branch. Defines the reference direction for flow sign conventions.
+
+      '
+    target:
+    - NetworkNode
+  toNode:
+    description: 'Relates a two-port asset to the NetworkNode at the receiving (to) end of the directed
+      branch.
+
+      '
+    target:
+    - NetworkNode
+  belongsToCarrierDomain:
+    description: >
+      Relates a NetworkNode to the CarrierDomain within which its carrier exchanges
+      occur and the balance constraint is enforced. Required: every node belongs to
+      exactly one CarrierDomain.
+    required: true
+    target:
+    - CarrierDomain
+    cardinality: 1
+  belongsToGeographicalRegion:
+    description: >
+      Relates an asset, NetworkNode, or spatial view to the GeographicalRegion in
+      which it is physically or administratively situated. Legacy alias on write/
+      import: locatedIn.
+    target:
+    - GeographicalRegion
+  isSubRegionOf:
+    description: >
+      Relates a GeographicalRegion to the broader GeographicalRegion that spatially
+      contains it. Supports hierarchical region trees (e.g. NUTS3 → NUTS2 → country).
+    target:
+    - GeographicalRegion
+  coversRegion:
+    description: >
+      Relates a MarketZone to one or more GeographicalRegions that it covers
+      administratively or for reporting (e.g. bidding zone DE_LU covering Germany
+      and Luxembourg, or IT-North covering several NUTS regions).
+    target:
+    - GeographicalRegion
+    cardinality: 0..*
+  belongsToMarketZone:
+    description: >
+      Relates a NetworkNode (or optionally an asset) to the MarketZone in which it
+      participates for zonal market / NTC studies. Optional: physical topology uses
+      CarrierDomain and belongsToGeographicalRegion independently.
+    target:
+    - MarketZone
+  hasTechnology:
+    description: Relates an asset instance to the technology/type template it implements. Instance-level
+      view attributes override technology-level defaults where specified.
+    target:
+    - EnergyTechnologyType
+    - GeneratorType
+    - StorageType
+    - ConverterType
+    - TransmissionType
+  hasAutomaticVoltageRegulator:
+    description: 'Relates a GenerationUnit to its associated AVR/excitation controller. A generator may
+      reference zero or one Controller.AVR.* entity. The inverse relation (controller → machine) is controlsGenerationUnit,
+      declared directly on the Controller.AVR.* entity.
+
+      '
+    required: false
+    target:
+    - Controller.AVR
+  hasTurbineGovernor:
+    description: 'Relates a GenerationUnit to its associated turbine governor controller. A generator
+      may reference zero or one Controller.GOV.* entity. The inverse relation (controller → machine) is
+      controlsGenerationUnit, declared directly on the Controller.GOV.* entity.
+
+      '
+    required: false
+    target:
+    - Controller.GOV
+  hasPowerSystemStabilizer:
+    description: 'Relates a GenerationUnit to its associated power system stabiliser. A generator may
+      reference zero or one Controller.PSS.* entity. The inverse relation (controller → machine) is controlsGenerationUnit,
+      declared directly on the Controller.PSS.* entity.
+
+      '
+    required: false
+    target:
+    - Controller.PSS
+  usesDynamicModelType:
+    description: Relates a GenerationUnit to a reusable dynamic-machine model type. Multiple generators
+      may reference the same DynamicMachineModelType entity when they share the same parameter set. Generator-specific
+      rated values remain on GenerationUnit.
+    required: false
+    target:
+    - DynamicMachineModelType
+  reportsOn:
+    description: >-
+      Links a Result to the modelled subject it reports on — typically an
+      EnergyAssetInstance, or a NetworkNode (or typed bus) for node-scoped
+      results. Concrete Result classes may narrow the target further.
+    target:
+    - EnergyAssetInstance
+    - NetworkNode
+  controlsGenerationUnit:
+    description: 'Links a controller (AVR/GOV/PSS) to the GenerationUnit it controls.'
+    target:
+    - GenerationUnit
+  hasTimestampSeries:
+    description: 'Relates a Profile entity to the TimestampSeries that defines its time axis. The TimestampSeries
+      length must equal the length of the numeric values array stored in the HDF5 file for this profile.
+
+      '
+    target:
+    - TimestampSeries
+  hasAvailabilityProfile:
+    description: 'Availability or capacity-factor profile constraining an asset''s operable output over
+      time.'
+    target:
+    - Profile
+  hasDemandProfile:
+    description: 'Relates a DemandUnit to the Profile entity that describes the temporal shape of the
+      energy demand. The referenced Profile should have profile_type as_normalized_annual_energy so that
+      multiplying by annual_energy_demand gives absolute demand per timestep.
+
+      '
+    target:
+    - Profile
+  hasNaturalInflowProfile:
+    description: 'Natural water-inflow time series for a HydraulicStorageUnit (pair with annual_natural_inflow_energy).'
+    target:
+    - Profile
+  hasDispatchProfile:
+    description: 'Links a GenerationUnit.DispatchResult to a Profile entity containing the hourly dispatch
+      output p(t) [MW].
+
+      '
+    target:
+    - Profile
+  hasCommitmentProfile:
+    description: 'Links a GenerationUnit.DispatchResult to a Profile entity containing the hourly unit
+      commitment status u(t) ∈ {0,1}.
+
+      '
+    target:
+    - Profile
+  hasStartupProfile:
+    description: 'Links a GenerationUnit.DispatchResult to a Profile entity containing the hourly startup
+      indicator v(t) ∈ {0,1}.
+
+      '
+    target:
+    - Profile
+  hasShutdownProfile:
+    description: 'Links a GenerationUnit.DispatchResult to a Profile entity containing the hourly shutdown
+      indicator w(t) ∈ {0,1}.
+
+      '
+    target:
+    - Profile
+  hasReducedCostProfile:
+    description: 'Links a Result to a Profile entity containing the dual variable (reduced cost / shadow
+      price) time series [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasDischargeProfile:
+    description: 'Links a StorageUnit.DispatchResult to a Profile entity containing the hourly discharge
+      power p_dis(t) [MW].
+
+      '
+    target:
+    - Profile
+  hasChargeProfile:
+    description: 'Links a StorageUnit.DispatchResult to a Profile entity containing the hourly charge
+      power p_chg(t) [MW].
+
+      '
+    target:
+    - Profile
+  hasStateOfChargeProfile:
+    description: 'Links a StorageUnit.DispatchResult to a Profile entity containing the hourly state of
+      charge e(t) [MWh].
+
+      '
+    target:
+    - Profile
+  hasChargeDualProfile:
+    description: 'Links a StorageUnit.DispatchResult to a Profile entity containing the dual variable
+      on the charging constraint [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasDischargeDualProfile:
+    description: 'Links a StorageUnit.DispatchResult to a Profile entity containing the dual variable
+      on the discharging constraint [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasServedDemandProfile:
+    description: 'Links a DemandUnit.DispatchResult to a Profile entity containing the hourly served demand
+      d_served(t) [MW].
+
+      '
+    target:
+    - Profile
+  hasCurtailedDemandProfile:
+    description: 'Links a DemandUnit.DispatchResult to a Profile entity containing the hourly curtailed
+      (unserved) demand d_curt(t) [MW].
+
+      '
+    target:
+    - Profile
+  hasDemandDualProfile:
+    description: 'Links a DemandUnit.DispatchResult to a Profile entity containing the dual variable on
+      the demand balance constraint — i.e. the nodal price λ(t) [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasFlowProfile:
+    description: 'Links an TransmissionElement.DispatchResult to a Profile entity containing the hourly
+      power flow f(t) [MW]. Positive = flow in direction 1→2.
+
+      '
+    target:
+    - Profile
+  hasShadowPriceProfile:
+    description: 'Links an TransmissionElement.DispatchResult to a Profile entity containing the congestion
+      shadow price μ(t) [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasNodalPriceProfile:
+    description: 'Links a NetworkNode.DispatchResult to a Profile entity containing the hourly nodal electricity
+      price λ(t) [MU/MWh].
+
+      '
+    target:
+    - Profile
+  hasRunRecord:
+    description: 'Links a Result to the RunRecord that produced it (run provenance).'
+    target:
+    - RunRecord
+  hasInputRun:
+    description: 'Links a RunRecord to the upstream RunRecord whose output it used as input, for chained
+      multi-stage workflows (dispatch -> power-flow -> dynamics).
+
+      '
+    target:
+    - RunRecord
+  hasVoltageMagnitudeProfile:
+    description: 'Links an ElectricalBus.PowerFlowResult to a Profile entity containing the bus voltage
+      magnitude time series [p.u.].
+
+      '
+    target:
+    - Profile
+  hasVoltageAngleProfile:
+    description: 'Links an ElectricalBus.PowerFlowResult to a Profile entity containing the bus voltage
+      angle time series [deg].
+
+      '
+    target:
+    - Profile
+  hasLoadingProfile:
+    description: 'Links a TransmissionElement.PowerFlowResult to a Profile entity containing the thermal
+      loading time series [%].
+
+      '
+    target:
+    - Profile
+  hasActivePowerLossProfile:
+    description: 'Links a TransmissionElement.PowerFlowResult to a Profile entity containing the active
+      power loss time series [MW].
+
+      '
+    target:
+    - Profile
+  hasActivePowerOutputProfile:
+    description: 'Links a GenerationUnit.PowerFlowResult to a Profile entity containing the active power
+      output time series [MW].
+
+      '
+    target:
+    - Profile
+  hasReactivePowerOutputProfile:
+    description: 'Links a GenerationUnit.PowerFlowResult to a Profile entity containing the reactive power
+      output time series [MVAr].
+
+      '
+    target:
+    - Profile
+  hasRotorAngleProfile:
+    description: 'Links a GenerationUnit.DynamicResult to a Profile entity containing the rotor angle
+      deviation time series [deg].
+
+      '
+    target:
+    - Profile
+  hasSpeedDeviationProfile:
+    description: 'Links a GenerationUnit.DynamicResult to a Profile entity containing the rotor speed
+      deviation time series [p.u.].
+
+      '
+    target:
+    - Profile
+  belongsToUnit:
+    description: 'Relates a ConversionPort to the ConversionUnit it belongs to. Every ConversionPort must
+      point at exactly one ConversionUnit.
+
+      '
+    target:
+    - ConversionUnit
+  referencePort:
+    description: 'Relates a GenericConversionUnit (port-based ConversionUnit) to the ConversionPort whose
+      flow defines the scale for all flow_coefficient values on the unit. nominal_power_capacity on the
+      unit is interpreted as the maximum flow at this reference port.
+
+      '
+    target:
+    - ConversionPort
+  hasFlowCoefficientProfile:
+    description: 'Time-varying flow_coefficient for a ConversionPort.'
+    target:
+    - Profile
+  drawsFromHydraulicStorage:
+    description: HydroGenerationUnit source water body (upper basin / reservoir).
+    target:
+    - HydraulicStorageUnit
+    cardinality: 0..*
+  dischargesToHydraulicStorage:
+    description: HydroGenerationUnit discharge water body (lower basin or next cascade stage).
+    target:
+    - HydraulicStorageUnit
+  suppliesResourceTo:
+    description: >-
+      Deprecated inverse of drawsFromHydraulicStorage. Do not declare on new models;
+      couple HydroGenerationUnit → HydraulicStorageUnit only via drawsFromHydraulicStorage
+      / dischargesToHydraulicStorage. Kept in the catalog for older Frictionless/YAML imports.
+    target:
+    - GenerationUnit
+    - HydroGenerationUnit
+    - ConversionUnit
+  storesCarrier:
+    description: Relates a storage asset to the Carrier or resource it stores.
+    target:
+    - Carrier
+  hasInputResource:
+    description: Relates a generation or conversion technology/asset to an exogenous NaturalResource consumed,
+      harvested, or converted as input, such as wind, solar irradiance, river flow, or reservoir inflow.
+      Use hasInputCarrier for transported fuels or commodities.
+    target:
+    - NaturalResource
+  storesResource:
+    description: Relates a storage asset such as a reservoir to the NaturalResource it stores or buffers,
+      e.g. water in a hydro reservoir. Use storesCarrier for transported/storage carriers such as electricity,
+      hydrogen or heat.
+    target:
+    - NaturalResource
+  hasElectricityOutputCarrier:
+    description: Relates a compact ConversionUnit (e.g. CHPUnit, FuelCellUnit) to the electricity carrier
+      produced as electrical output.
+    target:
+    - Carrier
+  hasHeatOutputCarrier:
+    description: Relates a compact ConversionUnit (e.g. CHPUnit, HeatPumpUnit, BoilerUnit, FuelCellUnit)
+      to the heat carrier produced as useful thermal output.
+    target:
+    - Carrier
+  hasHydrogenOutputCarrier:
+    description: Relates a compact ConversionUnit (e.g. ElectrolyserUnit) to the hydrogen carrier produced
+      as output.
+    target:
+    - Carrier
+  atFuelNode:
+    description: Relates a compact ConversionUnit to the network node from which its fuel input is withdrawn
+      (e.g. gas bus for CHPUnit/BoilerUnit, or a non-hydrogen fuel node for FuelCellUnit).
+    target:
+    - NetworkNode
+  atElectricityNode:
+    description: Relates a compact ConversionUnit to the electrical bus at which it injects or withdraws
+      electricity (injection for CHPUnit/FuelCellUnit; withdrawal for HeatPumpUnit/ElectrolyserUnit).
+    target:
+    - ElectricalBus
+  atHeatNode:
+    description: Relates a compact ConversionUnit to the heat bus at which it injects useful heat (or, where
+      applicable, interacts thermally with a heat network).
+    target:
+    - HeatBus
+  atHydrogenNode:
+    description: Relates a compact ConversionUnit to the hydrogen bus at which it injects or withdraws
+      hydrogen (injection for ElectrolyserUnit; withdrawal for FuelCellUnit).
+    target:
+    - HydrogenBus

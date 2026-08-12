@@ -1,0 +1,35 @@
+# Schema manifest for the agent-based CESDM extension.
+#
+# This is a separate schema tree from schemas/ (see README "Repository
+# structure") and is versioned independently. Everything here is
+# "experimental": it is newer, has a single worked example
+# (examples/example_agent_based_prosumer_model.py) and no cross-tool
+# round-trip coverage yet, unlike the core schemas/ tree.
+#
+# `extends: ["../cesdm"]` declares that this tree builds on the core
+# schema tree rather than forking it: classes like EnergyAssetInstance,
+# SemanticEntity, Carrier, etc. are defined once in schemas/cesdm/ and
+# referenced (e.g. as a parent class) from here, not redefined. The
+# loader (ear.model.schema_loading.load_classes_from_yaml) resolves
+# and auto-loads `extends` targets before this tree's own classes, so
+# `build_model_from_yaml("schemas/agentbased")` alone is equivalent to
+# `build_model_from_yaml(["schemas/cesdm", "schemas/agentbased"])` — callers
+# don't need to pass both paths themselves.
+#
+# See docs/architecture/schema_governance.md for tier definitions.
+
+version: "0.1.0"
+
+description: >
+  Agent-based prosumer/household modelling extension for CESDM.
+  Provisional and evolving faster than the core schema tree.
+
+changelog: ../CHANGELOG.md
+
+extends:
+  - ../cesdm
+
+stability:
+  assets: experimental
+  attributes: experimental
+  relations: experimental

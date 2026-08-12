@@ -1,0 +1,25 @@
+name: GenerationUnit.PowerFlowResult
+parents:
+- PowerFlowResult
+description: >
+  Power-flow result for a GenerationUnit (solved active/reactive setpoints and related operating-point
+  outputs).
+
+  Distinct from DispatchResult (scheduled economic dispatch) and DynamicResult (time-domain simulation).
+relations:
+- id: reportsOn
+  required: true
+  target: GenerationUnit
+- id: hasActivePowerOutputProfile
+  required: false
+  target: Profile
+  description: Time series of active_power_output, for a time-series power-flow run.
+- id: hasReactivePowerOutputProfile
+  required: false
+  target: Profile
+  description: Time series of reactive_power_output, for a time-series power-flow run.
+attributes:
+- id: active_power_output
+  required: false
+- id: reactive_power_output
+  required: false

@@ -1,0 +1,52 @@
+name: StorageType
+parents:
+- EnergyTechnologyType
+description: >
+  Technology template for battery-style and other single-device storage assets
+  (electrochemical, heat storage, hydrogen cavern, CAES, …). StorageUnit instances
+  inherit shared techno-economic parameters via hasTechnology.
+
+  Pumped hydro, reservoirs, and pondage are not StorageType — model them as
+  HydraulicStorageUnit + HydroGenerationUnit (with GeneratorType on the machine).
+attributes:
+- id: name
+  required: false
+- id: energy_storage_capacity
+  required: false
+- id: nominal_power_capacity
+  required: false
+- id: charging_efficiency
+  required: false
+- id: discharging_efficiency
+  required: false
+- id: self_discharge_rate
+  required: false
+- id: minimum_state_of_charge
+  required: false
+- id: maximum_state_of_charge
+  required: false
+- id: maximum_required_units
+  required: false
+- id: minimum_required_units
+  required: false
+- id: unit_nominal_size
+  required: false
+- id: variable_operating_cost
+  required: false
+- id: fixed_operating_cost
+  required: false
+- id: investment_cost
+  required: false
+- id: technical_lifetime
+  required: false
+- id: economic_lifetime
+  required: false
+- id: storage_technology_type
+  required: false
+relations:
+- id: hasCarrier
+  required: false
+  target: Carrier
+- id: storesResource
+  required: false
+  target: NaturalResource

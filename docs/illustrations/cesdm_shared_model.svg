@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="820" viewBox="0 0 1400 820" role="img" aria-labelledby="title desc">
+  <title id="title">One shared CESDM model used by multiple analysis tools</title>
+  <desc id="desc">A central CESDM model containing regions, networks, assets, technologies, and time series is connected bidirectionally to planning, dispatch, power-flow, dynamics, and market-analysis tools.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 38px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .subtitle { font: 400 20px Arial, Helvetica, sans-serif; fill: #52677b; }
+      .section { font: 700 22px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .label { font: 700 20px Arial, Helvetica, sans-serif; fill: #17324d; }
+      .small { font: 400 17px Arial, Helvetica, sans-serif; fill: #52677b; }
+      .tiny { font: 400 15px Arial, Helvetica, sans-serif; fill: #52677b; }
+      .tool { fill: #f7fafc; stroke: #6f8ca6; stroke-width: 2.5; }
+      .core { fill: #eef7f5; stroke: #16806f; stroke-width: 3; }
+      .inner { fill: #ffffff; stroke: #9fc8c0; stroke-width: 2; }
+      .benefit { fill: #f4f7fb; stroke: #b9c8d6; stroke-width: 2; }
+      .arrow { fill: none; stroke: #3e6f8f; stroke-width: 3; marker-start: url(#arrowStart); marker-end: url(#arrowEnd); }
+      .divider { stroke: #d9e2ea; stroke-width: 2; }
+    </style>
+
+    <marker id="arrowEnd" markerWidth="10" markerHeight="10" refX="8.5" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3e6f8f"/>
+    </marker>
+    <marker id="arrowStart" markerWidth="10" markerHeight="10" refX="1.5" refY="5" orient="auto-start-reverse" markerUnits="strokeWidth">
+      <path d="M10,0 L0,5 L10,10 z" fill="#3e6f8f"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="820" fill="#ffffff"/>
+
+  <text x="700" y="58" text-anchor="middle" class="title">One model, multiple analysis workflows</text>
+  <text x="700" y="91" text-anchor="middle" class="subtitle">
+    CESDM keeps the shared description of the physical energy system independent of individual tools.
+  </text>
+
+  <!-- Central CESDM model -->
+  <rect x="440" y="180" width="520" height="390" rx="30" class="core"/>
+  <text x="700" y="225" text-anchor="middle" class="section">Common Energy System Domain Model</text>
+  <text x="700" y="254" text-anchor="middle" class="small">A shared, schema-driven system representation</text>
+
+  <rect x="485" y="290" width="185" height="80" rx="16" class="inner"/>
+  <text x="577.5" y="323" text-anchor="middle" class="label">Regions</text>
+  <text x="577.5" y="348" text-anchor="middle" class="tiny">countries and locations</text>
+
+  <rect x="730" y="290" width="185" height="80" rx="16" class="inner"/>
+  <text x="822.5" y="323" text-anchor="middle" class="label">Networks</text>
+  <text x="822.5" y="348" text-anchor="middle" class="tiny">nodes and connections</text>
+
+  <rect x="485" y="395" width="185" height="80" rx="16" class="inner"/>
+  <text x="577.5" y="428" text-anchor="middle" class="label">Assets</text>
+  <text x="577.5" y="453" text-anchor="middle" class="tiny">generation, demand, storage</text>
+
+  <rect x="730" y="395" width="185" height="80" rx="16" class="inner"/>
+  <text x="822.5" y="428" text-anchor="middle" class="label">Time series</text>
+  <text x="822.5" y="453" text-anchor="middle" class="tiny">profiles and timestamps</text>
+
+  <line x1="485" y1="500" x2="915" y2="500" class="divider"/>
+  <text x="700" y="530" text-anchor="middle" class="small">
+    Stable identifiers • semantic relations • reusable libraries
+  </text>
+  <text x="700" y="554" text-anchor="middle" class="small">
+    schemas • structural validation • analysis-specific validation
+  </text>
+
+  <!-- Tools -->
+  <rect x="70" y="175" width="250" height="95" rx="20" class="tool"/>
+  <text x="195" y="215" text-anchor="middle" class="label">Planning</text>
+  <text x="195" y="243" text-anchor="middle" class="small">capacity and scenarios</text>
+
+  <rect x="70" y="350" width="250" height="95" rx="20" class="tool"/>
+  <text x="195" y="390" text-anchor="middle" class="label">Dispatch</text>
+  <text x="195" y="418" text-anchor="middle" class="small">operation and costs</text>
+
+  <rect x="70" y="525" width="250" height="95" rx="20" class="tool"/>
+  <text x="195" y="565" text-anchor="middle" class="label">Market analysis</text>
+  <text x="195" y="593" text-anchor="middle" class="small">prices and exchanges</text>
+
+  <rect x="1080" y="230" width="250" height="95" rx="20" class="tool"/>
+  <text x="1205" y="270" text-anchor="middle" class="label">Power flow</text>
+  <text x="1205" y="298" text-anchor="middle" class="small">network states and limits</text>
+
+  <rect x="1080" y="455" width="250" height="95" rx="20" class="tool"/>
+  <text x="1205" y="495" text-anchor="middle" class="label">Dynamic simulation</text>
+  <text x="1205" y="523" text-anchor="middle" class="small">stability and controls</text>
+
+  <!-- Bidirectional connections -->
+  <path d="M320 222 C375 222, 390 255, 440 285" class="arrow"/>
+  <path d="M320 398 C375 398, 395 398, 440 398" class="arrow"/>
+  <path d="M320 572 C375 572, 395 540, 440 510" class="arrow"/>
+  <path d="M960 305 C1010 305, 1025 278, 1080 278" class="arrow"/>
+  <path d="M960 485 C1010 485, 1025 502, 1080 502" class="arrow"/>
+
+  <!-- Benefits -->
+  <text x="700" y="660" text-anchor="middle" class="section">Why this matters</text>
+
+  <rect x="120" y="690" width="340" height="90" rx="18" class="benefit"/>
+  <text x="290" y="725" text-anchor="middle" class="label">Consistency</text>
+  <text x="290" y="752" text-anchor="middle" class="small">The same assets and identifiers</text>
+  <text x="290" y="774" text-anchor="middle" class="small">are reused across workflows.</text>
+
+  <rect x="530" y="690" width="340" height="90" rx="18" class="benefit"/>
+  <text x="700" y="725" text-anchor="middle" class="label">Validation</text>
+  <text x="700" y="752" text-anchor="middle" class="small">Problems are detected before</text>
+  <text x="700" y="774" text-anchor="middle" class="small">data are exported to a tool.</text>
+
+  <rect x="940" y="690" width="340" height="90" rx="18" class="benefit"/>
+  <text x="1110" y="725" text-anchor="middle" class="label">Reuse</text>
+  <text x="1110" y="752" text-anchor="middle" class="small">One maintained model supports</text>
+  <text x="1110" y="774" text-anchor="middle" class="small">multiple analysis applications.</text>
+</svg>

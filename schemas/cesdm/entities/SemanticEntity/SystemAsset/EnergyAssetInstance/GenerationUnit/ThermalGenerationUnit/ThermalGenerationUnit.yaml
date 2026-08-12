@@ -1,0 +1,30 @@
+name: ThermalGenerationUnit
+parents:
+- GenerationUnit
+description: >
+  Thermal generation asset (gas, coal, oil, biomass, waste, nuclear) converting heat to electricity.
+
+  Adds thermal design fields and unit-commitment parameters that do not apply to intermittent renewables
+  or hydro.
+attributes:
+- id: cooling_type
+  required: false
+  belongsToGroup: [technical]
+- id: reactor_type
+  required: false
+  belongsToGroup: [technical]
+- id: thermal_capacity
+  required: false
+  belongsToGroup: [technical]
+- id: minimum_up_time
+  required: false
+  belongsToGroup: [dispatch]
+- id: minimum_down_time
+  required: false
+  belongsToGroup: [dispatch]
+- id: hot_start_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: cold_start_cost
+  required: false
+  belongsToGroup: [dispatch]

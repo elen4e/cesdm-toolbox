@@ -1,0 +1,47 @@
+name: TransmissionElement.PowerFlowResult
+parents:
+- PowerFlowResult
+description: >
+  Power-flow branch result for a TransmissionElement (flows at each end, losses, current, thermal loading).
+
+  Distinct from TransmissionElement.DispatchResult, which holds scheduled economic-dispatch flow rather
+  than a solved power-flow state.
+relations:
+- id: reportsOn
+  required: true
+  target:
+  - TransmissionLine
+  - Transformer
+  - HVDCLink
+  - GenericInterconnector
+- id: hasLoadingProfile
+  required: false
+  target: Profile
+  description: Time series of loading_percent, for a time-series power-flow run.
+- id: hasActivePowerLossProfile
+  required: false
+  target: Profile
+  description: Time series of active_power_loss, for a time-series power-flow run.
+attributes:
+- id: active_power_flow_from
+  required: false
+- id: reactive_power_flow_from
+  required: false
+- id: active_power_flow_to
+  required: false
+- id: reactive_power_flow_to
+  required: false
+- id: active_power_loss
+  required: false
+- id: reactive_power_loss
+  required: false
+- id: current_magnitude
+  required: false
+- id: loading_percent
+  required: false
+- id: average_loading_percent
+  required: false
+- id: max_loading_percent
+  required: false
+- id: total_active_power_loss
+  required: false

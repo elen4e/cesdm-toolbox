@@ -1,0 +1,14 @@
+name: DispatchResult
+abstract: true
+parents:
+- Result
+description: >-
+  Abstract base for all hourly dispatch results. Holds scalar
+  aggregate metrics and relations to Profile entities for time-series
+  outcomes.
+relations:
+- id: reportsOn
+  required: true
+- id: hasRunRecord
+  required: true
+  target: DispatchRunRecord

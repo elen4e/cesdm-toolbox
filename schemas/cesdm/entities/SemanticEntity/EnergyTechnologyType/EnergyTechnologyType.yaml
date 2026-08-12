@@ -1,0 +1,48 @@
+name: EnergyTechnologyType
+parents:
+- SemanticEntity
+abstract: true
+description: 'Abstract technology template (efficiency, costs, lifetime, …) shared by many asset instances
+  via hasTechnology.
+
+  Concrete subclasses: GeneratorType, StorageType, ConverterType, TransmissionType.
+
+  '
+attributes:
+- id: energy_conversion_efficiency
+  required: false
+- id: dispatch_type
+  required: false
+- id: variable_operating_cost
+  required: false
+- id: fixed_operating_cost
+  required: false
+- id: investment_cost
+  required: false
+- id: technical_lifetime
+  required: false
+- id: discount_rate
+  required: false
+- id: salvage_fraction_value
+  required: false
+- id: maximum_ramp_rate_up
+  required: false
+- id: maximum_ramp_rate_down
+  required: false
+- id: minimum_up_time
+  required: false
+- id: minimum_down_time
+  required: false
+- id: hot_start_cost
+  required: false
+- id: cold_start_cost
+  required: false
+- id: ramping_cost_increase
+  required: false
+- id: ramping_cost_decrease
+  required: false
+- id: generator_technology_type
+  required: false
+- id: comment
+  required: false
+relations: []

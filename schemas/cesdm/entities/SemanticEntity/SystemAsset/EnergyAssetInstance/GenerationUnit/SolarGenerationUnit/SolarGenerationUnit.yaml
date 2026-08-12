@@ -1,0 +1,18 @@
+name: SolarGenerationUnit
+parents:
+- GenerationUnit
+description: >
+  Solar generation asset (PV or CSP). Adds installation-specific design attributes on top of GenerationUnit.
+attributes:
+- id: tilt_angle
+  required: false
+  belongsToGroup: [technical]
+- id: azimuth_angle
+  required: false
+  belongsToGroup: [technical]
+- id: tracking_type
+  required: false
+  belongsToGroup: [technical]
+- id: panel_technology
+  required: false
+  belongsToGroup: [technical]

@@ -1,0 +1,32 @@
+name: TransmissionElement.DispatchResult
+parents:
+- DispatchResult
+description: >-
+  Hourly dispatch result for capacity and line assets under
+  TransmissionElement (GenericInterconnector, TransmissionLine, …).
+  Captures directional energy flows, congestion hours, and congestion
+  rent. Shadow price profile gives the dual variable on the flow limit
+  constraint.
+relations:
+- id: reportsOn
+  required: true
+  target:
+  - GenericInterconnector
+  - TransmissionLine
+  - Transformer
+  - HVDCLink
+- id: hasFlowProfile
+  required: false
+  target: Profile
+- id: hasShadowPriceProfile
+  required: false
+  target: Profile
+attributes:
+- id: total_flow_1_to_2
+  required: false
+- id: total_flow_2_to_1
+  required: false
+- id: congestion_hours
+  required: false
+- id: total_congestion_rent
+  required: false

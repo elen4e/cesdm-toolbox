@@ -1,0 +1,9 @@
+name: Canton
+role: domain
+parents:
+  - SemanticEntity
+description: Swiss canton.
+attributes:
+  - id: name
+    required: true
+relations: null

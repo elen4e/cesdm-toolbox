@@ -1,0 +1,20 @@
+name: EnergyAssetInstance
+parents:
+- SystemAsset
+description: "Abstract base for a deployed energy infrastructure asset (generation, storage, conversion,
+  transmission, demand, …).\nCarries optional capacity-expansion lifecycle slots (commissioning/retirement).
+  Spatial location lives on NetworkNode; assets attach via topology (atNode / fromNode+toNode).\n"
+attributes:
+- id: commissioning_year
+  required: false
+  belongsToGroup: [capacity_expansion]
+- id: commission_date
+  required: false
+  belongsToGroup: [capacity_expansion]
+- id: retrofit_date
+  required: false
+  belongsToGroup: [capacity_expansion]
+- id: retirement_date
+  required: false
+  belongsToGroup: [capacity_expansion]
+abstract: true

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1220" viewBox="0 0 1500 1220" role="img" aria-labelledby="title desc">
+<title id="title">CESDM Attribute Groups and Proxy API</title>
+<desc id="desc">YAML schemas assign attributes and relations to logical groups using belongsToGroup. The Proxy API exposes those groups while all values and relations remain on the same EAR entity.</desc>
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#17324d}.subtitle{font:400 20px Arial,sans-serif;fill:#52677b}
+.heading{font:700 25px Arial,sans-serif;fill:#17324d}.label{font:700 18px Arial,sans-serif;fill:#17324d}
+.body{font:400 17px Arial,sans-serif;fill:#52677b}.small{font:400 15px Arial,sans-serif;fill:#52677b}
+.code{font:700 17px 'Courier New',monospace;fill:#17324d}.codeSmall{font:400 15px 'Courier New',monospace;fill:#52677b}
+.schema{fill:#eaf2f8;stroke:#336f98;stroke-width:3}.groups{fill:#f4f7fb;stroke:#7f98ad;stroke-width:3}
+.proxy{fill:#eef7f5;stroke:#16806f;stroke-width:3}.entity{fill:#fbf8f2;stroke:#b09767;stroke-width:3}
+.inner{fill:#fff;stroke:#a9bbc9;stroke-width:2}.callout{fill:#f7fafc;stroke:#b9c8d6;stroke-width:2}
+.arrow{fill:none;stroke:#426e8c;stroke-width:3.2;marker-end:url(#arrow)}.divider{stroke:#d9e2ea;stroke-width:2}
+</style>
+<marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto" markerUnits="strokeWidth">
+<path d="M0,0 L12,6 L0,12 z" fill="#426e8c"/></marker>
+</defs>
+<rect width="1500" height="1220" fill="#fff"/>
+<text x="750" y="58" text-anchor="middle" class="title">Attribute Groups and the Proxy API</text>
+<text x="750" y="94" text-anchor="middle" class="subtitle">Schemas define logical groups; the Proxy API exposes them without changing the underlying EAR model.</text>
+
+<rect x="260" y="140" width="980" height="270" rx="30" class="schema"/>
+<text x="750" y="188" text-anchor="middle" class="heading">YAML Schema</text>
+<text x="750" y="221" text-anchor="middle" class="body">Attributes and relations are assigned to groups using belongsToGroup</text>
+<line x1="330" y1="247" x2="1170" y2="247" class="divider"/>
+
+<rect x="330" y="275" width="260" height="98" rx="18" class="inner"/>
+<text x="460" y="309" text-anchor="middle" class="codeSmall">nominal_power_capacity</text>
+<text x="460" y="340" text-anchor="middle" class="codeSmall">belongsToGroup: dispatch</text>
+
+<rect x="620" y="275" width="260" height="98" rx="18" class="inner"/>
+<text x="750" y="309" text-anchor="middle" class="codeSmall">atNode</text>
+<text x="750" y="340" text-anchor="middle" class="codeSmall">belongsToGroup: topology</text>
+
+<rect x="910" y="275" width="260" height="98" rx="18" class="inner"/>
+<text x="1040" y="309" text-anchor="middle" class="codeSmall">turbine_efficiency</text>
+<text x="1040" y="340" text-anchor="middle" class="codeSmall">belongsToGroup: technical</text>
+
+<path d="M750 410 L750 505" class="arrow"/>
+<rect x="625" y="432" width="250" height="48" rx="16" class="callout"/>
+<text x="750" y="463" text-anchor="middle" class="label">defines logical namespaces</text>
+
+<rect x="300" y="505" width="900" height="180" rx="28" class="groups"/>
+<text x="750" y="551" text-anchor="middle" class="heading">Attribute Groups</text>
+<text x="750" y="582" text-anchor="middle" class="body">Organise related fields without creating new entities or duplicating data</text>
+
+<rect x="370" y="610" width="210" height="48" rx="15" class="inner"/>
+<text x="475" y="641" text-anchor="middle" class="code">dispatch</text>
+<rect x="645" y="610" width="210" height="48" rx="15" class="inner"/>
+<text x="750" y="641" text-anchor="middle" class="code">topology</text>
+<rect x="920" y="610" width="210" height="48" rx="15" class="inner"/>
+<text x="1025" y="641" text-anchor="middle" class="code">technical</text>
+
+<path d="M750 685 L750 780" class="arrow"/>
+<rect x="620" y="708" width="300" height="48" rx="16" class="callout"/>
+<text x="765" y="739" text-anchor="middle" class="label">exposed as proxy namespaces</text>
+
+<rect x="250" y="780" width="1000" height="220" rx="30" class="proxy"/>
+<text x="750" y="828" text-anchor="middle" class="heading">CESDM Proxy API</text>
+<text x="750" y="860" text-anchor="middle" class="body">Structured and discoverable access to schema-defined fields</text>
+<line x1="320" y1="884" x2="1180" y2="884" class="divider"/>
+<text x="750" y="923" text-anchor="middle" class="code">hydro.dispatch.nominal_power_capacity</text>
+<text x="750" y="956" text-anchor="middle" class="code">hydro.topology.atNode</text>
+<text x="750" y="989" text-anchor="middle" class="code">hydro.technical.turbine_efficiency</text>
+
+<path d="M750 1000 L750 1075" class="arrow"/>
+<rect x="655" y="1016" width="190" height="45" rx="15" class="callout"/>
+<text x="750" y="1045" text-anchor="middle" class="label">accesses</text>
+
+<rect x="300" y="1075" width="900" height="115" rx="26" class="entity"/>
+<text x="750" y="1118" text-anchor="middle" class="heading">One HydroGenerationUnit EAR Entity</text>
+<text x="750" y="1151" text-anchor="middle" class="body">Attributes and relations remain stored once on the same entity instance</text>
+<text x="750" y="1179" text-anchor="middle" class="small">One entity • No duplicated data • No additional entity layer</text>
+</svg>

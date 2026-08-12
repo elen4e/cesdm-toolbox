@@ -1,0 +1,17 @@
+name: TimestampSeries
+parents:
+- SemanticEntity
+description: 'Shared uniform time axis metadata for one or more Profiles (start, resolution, length, timezone).
+
+  Optional explicit timestamp samples may live in external storage; one series can be reused by many profiles.
+
+  '
+attributes:
+- id: start_datetime
+  required: true
+- id: resolution
+  required: true
+- id: length
+  required: true
+- id: timezone
+  required: false

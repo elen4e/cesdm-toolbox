@@ -1,0 +1,9 @@
+name: LowVoltageNode
+role: domain
+parents:
+  - SemanticEntity
+description: Low-voltage grid node to which a household may be connected.
+attributes:
+  - id: name
+    required: true
+relations: null

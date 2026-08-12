@@ -1,0 +1,70 @@
+name: StorageUnit
+parents:
+- EnergyAssetInstance
+description: >
+  Deployed storage that absorbs and re-releases a single carrier at one NetworkNode (atNode).
+  For reservoir / PHS water bodies use HydraulicStorageUnit + HydroGenerationUnit instead — not a
+  StorageUnit subclass.
+
+  Carrier rule: the stored carrier is implied by atNode → CarrierDomain; optional storesCarrier is an
+  override for imports. hasTechnology → StorageType for shared techno-economic defaults.
+
+attributes:
+- id: nominal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: energy_storage_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: charging_efficiency
+  required: false
+  belongsToGroup: [dispatch]
+- id: discharging_efficiency
+  required: false
+  belongsToGroup: [dispatch]
+- id: self_discharge_rate
+  required: false
+  belongsToGroup: [dispatch]
+- id: minimum_state_of_charge
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_state_of_charge
+  required: false
+  belongsToGroup: [dispatch]
+- id: initial_state_of_charge
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: charging_variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_charging_power
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_discharging_power
+  required: false
+  belongsToGroup: [dispatch]
+- id: storage_technology_type
+  required: false
+  belongsToGroup: [dispatch]
+relations:
+- id: hasTechnology
+  required: false
+  target: StorageType
+- id: storesCarrier
+  required: false
+  target: Carrier
+- id: storesResource
+  required: false
+  target: NaturalResource
+- id: atNode
+  required: false
+  belongsToGroup: [topology]

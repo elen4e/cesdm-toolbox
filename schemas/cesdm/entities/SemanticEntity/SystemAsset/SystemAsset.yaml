@@ -1,0 +1,12 @@
+name: SystemAsset
+parents:
+- SemanticEntity
+description: 'Abstract base for deployable or operable units that exchange, transport, store, convert,
+  generate, or withdraw carriers.
+
+  Concrete energy assets hang under EnergyAssetInstance; this class itself declares no attributes.
+
+  '
+attributes:
+relations:
+abstract: true

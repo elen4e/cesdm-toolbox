@@ -1,0 +1,10 @@
+{
+  "include": ["."],
+  "exclude": ["**/__pycache__", ".venv"],
+  "stubPath": "./typings",
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownVariableType": false,
+  "pythonVersion": "3.10"
+}

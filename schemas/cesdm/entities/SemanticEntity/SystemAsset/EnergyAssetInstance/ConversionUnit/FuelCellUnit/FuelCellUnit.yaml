@@ -1,0 +1,68 @@
+name: FuelCellUnit
+parents:
+- ConversionUnit
+description: >
+  Compact hydrogen/fuel → electricity conversion unit, optionally with useful heat output.
+  Attach the fuel side via atHydrogenNode (hydrogen network) or atFuelNode (other fuel node).
+
+  Prefer this class for explicit cross-domain topology. When a study treats fuel only as a
+  GeneratorType template on an electricity-domain plant, GenerationUnit remains valid.
+
+  For arbitrary MxN conversion use GenericConversionUnit with ConversionPort.
+attributes:
+- id: electrical_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: thermal_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: nominal_electrical_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: nominal_thermal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: power_to_heat_ratio
+  required: false
+  belongsToGroup: [technical]
+- id: minimum_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup: [capacity_expansion]
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasElectricityOutputCarrier
+  required: false
+  target: Carrier
+- id: hasHeatOutputCarrier
+  required: false
+  target: Carrier
+- id: atHydrogenNode
+  required: false
+  belongsToGroup: [topology]
+  target: HydrogenBus
+- id: atFuelNode
+  required: false
+  belongsToGroup: [topology]
+  target: NetworkNode
+- id: atElectricityNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus
+- id: atHeatNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus

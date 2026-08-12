@@ -1,0 +1,312 @@
+units:
+  # --- Power ---
+  MW:
+    symbol: MW
+    quantity_kind: power
+    description: Megawatt — active power.
+    qudt_iri: http://qudt.org/vocab/unit/MegaW
+    qudt_status: verified
+  MW_th:
+    symbol: MW_th
+    quantity_kind: power
+    description: Megawatt thermal — thermal (not electrical) power output.
+    qudt_iri: null
+    qudt_status: unverified
+  kW:
+    symbol: kW
+    quantity_kind: power
+    description: Kilowatt — active power, used where MW would be too coarse (e.g. small demand-response adjustments).
+    qudt_iri: http://qudt.org/vocab/unit/KiloW
+    qudt_status: verified
+  kWp:
+    symbol: kWp
+    quantity_kind: power
+    description: Kilowatt-peak — nameplate DC power rating convention for PV installations.
+    qudt_iri: null
+    qudt_status: unverified
+  MVA:
+    symbol: MVA
+    quantity_kind: apparent_power
+    description: Megavolt-ampere — apparent power (thermal/converter ratings).
+    qudt_iri: null
+    qudt_status: unverified
+  MVAr:
+    symbol: MVAr
+    quantity_kind: reactive_power
+    description: Megavolt-ampere-reactive — reactive power.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Energy ---
+  MWh:
+    symbol: MWh
+    quantity_kind: energy
+    description: Megawatt-hour — energy.
+    qudt_iri: http://qudt.org/vocab/unit/MegaW-HR
+    qudt_status: verified
+  GWh:
+    symbol: GWh
+    quantity_kind: energy
+    description: Gigawatt-hour — energy, used for larger quantities such as reservoir volumes expressed as energy-equivalent.
+    qudt_iri: null
+    qudt_status: unverified
+  TWh:
+    symbol: TWh
+    quantity_kind: energy
+    description: Terawatt-hour — energy, used for the largest quantities (e.g. national-scale reservoir volumes).
+    qudt_iri: null
+    qudt_status: unverified
+  MWh/year:
+    symbol: MWh/year
+    quantity_kind: energy_rate
+    description: Megawatt-hours per year — annualised energy quantity (e.g. resource potential, demand).
+    qudt_iri: null
+    qudt_status: unverified
+  kWh/year:
+    symbol: kWh/year
+    quantity_kind: energy_rate
+    description: Kilowatt-hours per year — annualised energy quantity at smaller (e.g. household) scale.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Volume (used interchangeably with energy for reservoir-type quantities) ---
+  m3:
+    symbol: m3
+    quantity_kind: volume
+    description: Cubic metre — physical volume.
+    qudt_iri: null
+    qudt_status: unverified
+  hm3:
+    symbol: hm3
+    quantity_kind: volume
+    description: Cubic hectometre (10^6 m3) — physical volume, used for reservoir volumes at hydro-plant scale.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Voltage / current / angle ---
+  kV:
+    symbol: kV
+    quantity_kind: voltage
+    description: Kilovolt.
+    qudt_iri: http://qudt.org/vocab/unit/KiloV
+    qudt_status: verified
+  kA:
+    symbol: kA
+    quantity_kind: current
+    description: Kiloampere.
+    qudt_iri: null
+    qudt_status: unverified
+  deg:
+    symbol: deg
+    quantity_kind: angle
+    description: Degree — plane angle. Covers electrical angles (voltage/rotor angle) and geographic angles (latitude/longitude, panel tilt/azimuth) alike.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Dimensionless ---
+  pu:
+    symbol: pu
+    quantity_kind: dimensionless_per_unit
+    description: Per-unit — the power-systems engineering normalization convention (a quantity expressed relative to a defined base value), distinct from a general-purpose fraction.
+    qudt_iri: null
+    qudt_status: unverified
+  pu/s:
+    symbol: pu/s
+    quantity_kind: rate
+    description: Per-unit per second — rate of change of a per-unit quantity (e.g. governor ramp limits).
+    qudt_iri: null
+    qudt_status: unverified
+  fraction:
+    symbol: fraction
+    quantity_kind: dimensionless_fraction
+    description: A general-purpose dimensionless ratio, typically constrained to [0, 1] by the attribute's own value.constraints (efficiencies, state-of-charge bounds, discount rates, ...). Distinct from pu, which specifically denotes the power-systems per-unit normalization.
+    qudt_iri: null
+    qudt_status: unverified
+  '%':
+    symbol: '%'
+    quantity_kind: dimensionless_percent
+    description: Percent (0-100 scale). Distinct from fraction (0-1 scale) — do not use interchangeably.
+    qudt_iri: null
+    qudt_status: unverified
+  '%/h':
+    symbol: '%/h'
+    quantity_kind: rate
+    description: Percent per hour — a ramp rate expressed relative to a nominal capacity.
+    qudt_iri: null
+    qudt_status: unverified
+  unit:
+    symbol: unit
+    quantity_kind: count
+    description: A dimensionless count of discrete units (e.g. minimum/maximum number of identical generating units required), not a physical unit.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Time ---
+  s:
+    symbol: s
+    quantity_kind: time
+    description: Second.
+    qudt_iri: null
+    qudt_status: unverified
+  min:
+    symbol: min
+    quantity_kind: time
+    description: Minute.
+    qudt_iri: null
+    qudt_status: unverified
+  h:
+    symbol: h
+    quantity_kind: time
+    description: Hour.
+    qudt_iri: null
+    qudt_status: unverified
+  years:
+    symbol: years
+    quantity_kind: time
+    description: Year — used for lifetimes and long-horizon quantities.
+    qudt_iri: null
+    qudt_status: unverified
+  date:
+    symbol: date
+    quantity_kind: date
+    description: Calendar date, not a physical unit (e.g. commission_date, retirement_date).
+    qudt_iri: null
+    qudt_status: no_qudt_equivalent
+  Timestamp / time index:
+    symbol: Timestamp / time index
+    quantity_kind: date
+    description: A timestamp or index position within a time series, not a physical unit.
+    qudt_iri: null
+    qudt_status: no_qudt_equivalent
+
+  # --- Length / area ---
+  m:
+    symbol: m
+    quantity_kind: length
+    description: Metre.
+    qudt_iri: null
+    qudt_status: unverified
+  km:
+    symbol: km
+    quantity_kind: length
+    description: Kilometre.
+    qudt_iri: null
+    qudt_status: unverified
+  m2:
+    symbol: m2
+    quantity_kind: area
+    description: Square metre.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Temperature / pressure ---
+  degC:
+    symbol: degC
+    quantity_kind: temperature
+    description: Degrees Celsius.
+    qudt_iri: null
+    qudt_status: unverified
+  bar:
+    symbol: bar
+    quantity_kind: pressure
+    description: Bar — pressure.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Per-length electrical parameters ---
+  Ohm/km:
+    symbol: Ohm/km
+    quantity_kind: resistance_per_length
+    description: Ohms per kilometre — series impedance parameter of a line.
+    qudt_iri: null
+    qudt_status: unverified
+  microS/km:
+    symbol: microS/km
+    quantity_kind: susceptance_per_length
+    description: Microsiemens per kilometre — shunt susceptance (charging) parameter of a line.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Emissions ---
+  tCO2:
+    symbol: tCO2
+    quantity_kind: mass_emissions
+    description: Tonnes of CO2 — absolute emissions quantity.
+    qudt_iri: null
+    qudt_status: unverified
+  tCO2/MWh:
+    symbol: tCO2/MWh
+    quantity_kind: emission_intensity
+    description: Tonnes of CO2 per megawatt-hour — emission intensity/factor.
+    qudt_iri: null
+    qudt_status: unverified
+
+  # --- Currency / cost ---
+  MU:
+    symbol: MU
+    quantity_kind: currency
+    description: >-
+      Monetary Unit — a currency-neutral placeholder used throughout the
+      cost/economics attributes so the schema doesn't hardcode a specific
+      currency. Modellers substitute their actual currency (EUR, USD, CHF, ...)
+      at the data level.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/MW:
+    symbol: MU/MW
+    quantity_kind: cost_rate
+    description: Monetary units per megawatt — a capacity-based cost rate.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/MWh:
+    symbol: MU/MWh
+    quantity_kind: cost_rate
+    description: Monetary units per megawatt-hour — an energy-based cost rate (e.g. variable operating cost, nodal price).
+    qudt_iri: null
+    qudt_status: unverified
+  MU/kW:
+    symbol: MU/kW
+    quantity_kind: cost_rate
+    description: Monetary units per kilowatt — a capacity-based investment cost rate.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/unit:
+    symbol: MU/unit
+    quantity_kind: cost_rate
+    description: Monetary units per discrete unit — a per-unit (count-based) cost rate.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/year:
+    symbol: MU/year
+    quantity_kind: cost_rate
+    description: Monetary units per year — an annualised fixed cost.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/(kW/year):
+    symbol: MU/(kW/year)
+    quantity_kind: cost_rate
+    description: Monetary units per kilowatt per year — an annualised, capacity-based fixed O&M cost rate.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/(MW/year):
+    symbol: MU/(MW/year)
+    quantity_kind: cost_rate
+    description: Monetary units per megawatt per year — an annualised, capacity-based fixed O&M cost rate.
+    qudt_iri: null
+    qudt_status: unverified
+  MU/tCO2:
+    symbol: MU/tCO2
+    quantity_kind: cost_rate
+    description: Monetary units per tonne of CO2 — a carbon price.
+    qudt_iri: null
+    qudt_status: unverified
+  CHF/tCO2:
+    symbol: CHF/tCO2
+    quantity_kind: cost_rate
+    description: >-
+      Swiss francs per tonne of CO2 — a carbon price denominated in a
+      specific currency, unlike the currency-neutral MU/tCO2. Kept as its
+      own registered unit rather than merged with MU/tCO2, since the two
+      are not interchangeable without an explicit exchange-rate conversion.
+    qudt_iri: null
+    qudt_status: unverified

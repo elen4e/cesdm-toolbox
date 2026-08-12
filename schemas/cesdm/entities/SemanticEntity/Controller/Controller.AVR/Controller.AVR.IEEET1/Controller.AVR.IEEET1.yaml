@@ -1,0 +1,43 @@
+name: Controller.AVR.IEEET1
+parents:
+- Controller.AVR
+description: >
+  IEEE Type 1 DC commutator exciter (IEEET1). IEEE Std 421.5-2016, Section 3.
+attributes:
+- id: AVR_Tr
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Ka
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Ta
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Ke
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Te
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Kf
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_IEEET1_Tf
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Vr_min
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Vr_max
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Efd_min
+  required: false
+  belongsToGroup: [dynamics]
+- id: AVR_Efd_max
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

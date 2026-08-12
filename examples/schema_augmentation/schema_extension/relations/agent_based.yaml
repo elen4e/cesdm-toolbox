@@ -1,0 +1,5 @@
+relations:
+  ownedByAgent:
+    description: Agent that owns or represents the asset.
+    target: Agent
+    cardinality: 0..1

@@ -1,0 +1,16 @@
+name: HeatBus
+parents:
+- NetworkNode
+description: |
+  A NetworkNode within a heat CarrierDomain (district heating or steam network).
+  Carries the nominal supply temperature and operating pressure at this node.
+
+  Examples: a district heating supply node (90 °C, 6 bar), a steam header node
+  (180 °C, 10 bar).
+
+attributes:
+- id: nominal_temperature
+  required: false
+- id: nominal_pressure
+  required: false
+relations: null

@@ -1,0 +1,21 @@
+name: Municipality
+role: domain
+parents:
+  - SemanticEntity
+description: >
+  A municipality used for spatial classification of households and energy communities.
+attributes:
+  - id: name
+    required: false
+  - id: bfs_code
+    required: false
+  - id: canton
+    required: false
+  - id: population
+    required: false
+  - id: urbanisation_level
+    required: false
+relations:
+  - id: isPartOf
+    target: Canton
+    required: true

@@ -1,0 +1,22 @@
+name: RunRecord
+abstract: true
+parents:
+- SemanticEntity
+description: >
+  Abstract provenance anchor for one analysis run. Concrete subclasses add domain fields (dispatch, power
+  flow, dynamics).
+
+  Every Result points back here via hasRunRecord so multiple runs can coexist on the same subject.
+attributes:
+- id: run_timestamp
+  required: false
+relations:
+- id: hasInputRun
+  required: false
+  target: RunRecord
+  description: >-
+    The upstream run whose output was used as this run's input, for
+    chained multi-stage workflows — e.g. a PowerFlowRunRecord pointing
+    back at the DispatchRunRecord whose dispatch profile it used as
+    the injection basis, or a DynamicRunRecord pointing back at the
+    PowerFlowRunRecord that supplied its pre-fault steady state.

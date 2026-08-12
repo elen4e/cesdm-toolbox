@@ -1,0 +1,776 @@
+MarketZone:
+  market_zone.AL:
+    attributes:
+    - id: name
+      value: AL
+    - id: long_name
+      value: Albania
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone AL (Albania). Covers country region(s):
+        AL.'
+    - id: market_zone_code
+      value: AL
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.AL
+  market_zone.AT:
+    attributes:
+    - id: name
+      value: AT
+    - id: long_name
+      value: Austria
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone AT (Austria). Covers country region(s):
+        AT.'
+    - id: market_zone_code
+      value: AT
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.AT
+  market_zone.BA:
+    attributes:
+    - id: name
+      value: BA
+    - id: long_name
+      value: Bosnia and Herzegovina
+    - id: description
+      value: ENTSO-E-style electricity bidding / market zone BA (Bosnia and Herzegovina).
+    - id: market_zone_code
+      value: BA
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+  market_zone.BE:
+    attributes:
+    - id: name
+      value: BE
+    - id: long_name
+      value: Belgium
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone BE (Belgium). Covers country region(s):
+        BE.'
+    - id: market_zone_code
+      value: BE
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.BE
+  market_zone.BG:
+    attributes:
+    - id: name
+      value: BG
+    - id: long_name
+      value: Bulgaria
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone BG (Bulgaria). Covers country region(s):
+        BG.'
+    - id: market_zone_code
+      value: BG
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.BG
+  market_zone.CH:
+    attributes:
+    - id: name
+      value: CH
+    - id: long_name
+      value: Switzerland
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone CH (Switzerland). Covers country region(s):
+        CH.'
+    - id: market_zone_code
+      value: CH
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.CH
+  market_zone.CY:
+    attributes:
+    - id: name
+      value: CY
+    - id: long_name
+      value: Cyprus
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone CY (Cyprus). Covers country region(s): CY.'
+    - id: market_zone_code
+      value: CY
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.CY
+  market_zone.CZ:
+    attributes:
+    - id: name
+      value: CZ
+    - id: long_name
+      value: Czechia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone CZ (Czechia). Covers country region(s):
+        CZ.'
+    - id: market_zone_code
+      value: CZ
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.CZ
+  market_zone.DE_LU:
+    attributes:
+    - id: name
+      value: DE_LU
+    - id: long_name
+      value: Germany–Luxembourg
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone DE_LU (Germany–Luxembourg). Covers country
+        region(s): DE, LU.'
+    - id: market_zone_code
+      value: DE_LU
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.DE
+    - id: coversRegion
+      target: region.country.LU
+  market_zone.DK1:
+    attributes:
+    - id: name
+      value: DK1
+    - id: long_name
+      value: Denmark West (DK1)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone DK1 (Denmark West (DK1)). Covers country
+        region(s): DK.'
+    - id: market_zone_code
+      value: DK1
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.DK
+  market_zone.DK2:
+    attributes:
+    - id: name
+      value: DK2
+    - id: long_name
+      value: Denmark East (DK2)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone DK2 (Denmark East (DK2)). Covers country
+        region(s): DK.'
+    - id: market_zone_code
+      value: DK2
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.DK
+  market_zone.EE:
+    attributes:
+    - id: name
+      value: EE
+    - id: long_name
+      value: Estonia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone EE (Estonia). Covers country region(s):
+        EE.'
+    - id: market_zone_code
+      value: EE
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.EE
+  market_zone.ES:
+    attributes:
+    - id: name
+      value: ES
+    - id: long_name
+      value: Spain
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone ES (Spain). Covers country region(s): ES.'
+    - id: market_zone_code
+      value: ES
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.ES
+  market_zone.FI:
+    attributes:
+    - id: name
+      value: FI
+    - id: long_name
+      value: Finland
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone FI (Finland). Covers country region(s):
+        FI.'
+    - id: market_zone_code
+      value: FI
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.FI
+  market_zone.FR:
+    attributes:
+    - id: name
+      value: FR
+    - id: long_name
+      value: France
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone FR (France). Covers country region(s): FR.'
+    - id: market_zone_code
+      value: FR
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.FR
+  market_zone.GR:
+    attributes:
+    - id: name
+      value: GR
+    - id: long_name
+      value: Greece
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone GR (Greece). Covers country region(s): GR.'
+    - id: market_zone_code
+      value: GR
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.GR
+  market_zone.HR:
+    attributes:
+    - id: name
+      value: HR
+    - id: long_name
+      value: Croatia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone HR (Croatia). Covers country region(s):
+        HR.'
+    - id: market_zone_code
+      value: HR
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.HR
+  market_zone.HU:
+    attributes:
+    - id: name
+      value: HU
+    - id: long_name
+      value: Hungary
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone HU (Hungary). Covers country region(s):
+        HU.'
+    - id: market_zone_code
+      value: HU
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.HU
+  market_zone.IE:
+    attributes:
+    - id: name
+      value: IE
+    - id: long_name
+      value: Ireland
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IE (Ireland). Covers country region(s):
+        IE.'
+    - id: market_zone_code
+      value: IE
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IE
+  market_zone.IT-Calabria:
+    attributes:
+    - id: name
+      value: IT-Calabria
+    - id: long_name
+      value: Italy Calabria
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-Calabria (Italy Calabria). Covers country
+        region(s): IT.'
+    - id: market_zone_code
+      value: IT-Calabria
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-Centre-North:
+    attributes:
+    - id: name
+      value: IT-Centre-North
+    - id: long_name
+      value: Italy Centre-North
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-Centre-North (Italy Centre-North). Covers
+        country region(s): IT.'
+    - id: market_zone_code
+      value: IT-Centre-North
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-Centre-South:
+    attributes:
+    - id: name
+      value: IT-Centre-South
+    - id: long_name
+      value: Italy Centre-South
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-Centre-South (Italy Centre-South). Covers
+        country region(s): IT.'
+    - id: market_zone_code
+      value: IT-Centre-South
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-North:
+    attributes:
+    - id: name
+      value: IT-North
+    - id: long_name
+      value: Italy North
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-North (Italy North). Covers country region(s):
+        IT.'
+    - id: market_zone_code
+      value: IT-North
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-Sardinia:
+    attributes:
+    - id: name
+      value: IT-Sardinia
+    - id: long_name
+      value: Italy Sardinia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-Sardinia (Italy Sardinia). Covers country
+        region(s): IT.'
+    - id: market_zone_code
+      value: IT-Sardinia
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-Sicily:
+    attributes:
+    - id: name
+      value: IT-Sicily
+    - id: long_name
+      value: Italy Sicily
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-Sicily (Italy Sicily). Covers country
+        region(s): IT.'
+    - id: market_zone_code
+      value: IT-Sicily
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.IT-South:
+    attributes:
+    - id: name
+      value: IT-South
+    - id: long_name
+      value: Italy South
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone IT-South (Italy South). Covers country region(s):
+        IT.'
+    - id: market_zone_code
+      value: IT-South
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.IT
+  market_zone.LT:
+    attributes:
+    - id: name
+      value: LT
+    - id: long_name
+      value: Lithuania
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone LT (Lithuania). Covers country region(s):
+        LT.'
+    - id: market_zone_code
+      value: LT
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.LT
+  market_zone.LV:
+    attributes:
+    - id: name
+      value: LV
+    - id: long_name
+      value: Latvia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone LV (Latvia). Covers country region(s): LV.'
+    - id: market_zone_code
+      value: LV
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.LV
+  market_zone.ME:
+    attributes:
+    - id: name
+      value: ME
+    - id: long_name
+      value: Montenegro
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone ME (Montenegro). Covers country region(s):
+        ME.'
+    - id: market_zone_code
+      value: ME
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.ME
+  market_zone.MK:
+    attributes:
+    - id: name
+      value: MK
+    - id: long_name
+      value: North Macedonia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone MK (North Macedonia). Covers country region(s):
+        MK.'
+    - id: market_zone_code
+      value: MK
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.MK
+  market_zone.MT:
+    attributes:
+    - id: name
+      value: MT
+    - id: long_name
+      value: Malta
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone MT (Malta). Covers country region(s): MT.'
+    - id: market_zone_code
+      value: MT
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.MT
+  market_zone.NL:
+    attributes:
+    - id: name
+      value: NL
+    - id: long_name
+      value: Netherlands
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NL (Netherlands). Covers country region(s):
+        NL.'
+    - id: market_zone_code
+      value: NL
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NL
+  market_zone.NO1:
+    attributes:
+    - id: name
+      value: NO1
+    - id: long_name
+      value: Norway NO1 (Oslo)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NO1 (Norway NO1 (Oslo)). Covers country
+        region(s): NO.'
+    - id: market_zone_code
+      value: NO1
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NO
+  market_zone.NO2:
+    attributes:
+    - id: name
+      value: NO2
+    - id: long_name
+      value: Norway NO2 (Kristiansand)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NO2 (Norway NO2 (Kristiansand)). Covers
+        country region(s): NO.'
+    - id: market_zone_code
+      value: NO2
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NO
+  market_zone.NO3:
+    attributes:
+    - id: name
+      value: NO3
+    - id: long_name
+      value: Norway NO3 (Trondheim)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NO3 (Norway NO3 (Trondheim)). Covers country
+        region(s): NO.'
+    - id: market_zone_code
+      value: NO3
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NO
+  market_zone.NO4:
+    attributes:
+    - id: name
+      value: NO4
+    - id: long_name
+      value: Norway NO4 (Tromsø)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NO4 (Norway NO4 (Tromsø)). Covers country
+        region(s): NO.'
+    - id: market_zone_code
+      value: NO4
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NO
+  market_zone.NO5:
+    attributes:
+    - id: name
+      value: NO5
+    - id: long_name
+      value: Norway NO5 (Bergen)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone NO5 (Norway NO5 (Bergen)). Covers country
+        region(s): NO.'
+    - id: market_zone_code
+      value: NO5
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.NO
+  market_zone.PL:
+    attributes:
+    - id: name
+      value: PL
+    - id: long_name
+      value: Poland
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone PL (Poland). Covers country region(s): PL.'
+    - id: market_zone_code
+      value: PL
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.PL
+  market_zone.PT:
+    attributes:
+    - id: name
+      value: PT
+    - id: long_name
+      value: Portugal
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone PT (Portugal). Covers country region(s):
+        PT.'
+    - id: market_zone_code
+      value: PT
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.PT
+  market_zone.RO:
+    attributes:
+    - id: name
+      value: RO
+    - id: long_name
+      value: Romania
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone RO (Romania). Covers country region(s):
+        RO.'
+    - id: market_zone_code
+      value: RO
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.RO
+  market_zone.RS:
+    attributes:
+    - id: name
+      value: RS
+    - id: long_name
+      value: Serbia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone RS (Serbia). Covers country region(s): RS.'
+    - id: market_zone_code
+      value: RS
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.RS
+  market_zone.SE1:
+    attributes:
+    - id: name
+      value: SE1
+    - id: long_name
+      value: Sweden SE1 (Luleå)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SE1 (Sweden SE1 (Luleå)). Covers country
+        region(s): SE.'
+    - id: market_zone_code
+      value: SE1
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SE
+  market_zone.SE2:
+    attributes:
+    - id: name
+      value: SE2
+    - id: long_name
+      value: Sweden SE2 (Sundsvall)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SE2 (Sweden SE2 (Sundsvall)). Covers country
+        region(s): SE.'
+    - id: market_zone_code
+      value: SE2
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SE
+  market_zone.SE3:
+    attributes:
+    - id: name
+      value: SE3
+    - id: long_name
+      value: Sweden SE3 (Stockholm)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SE3 (Sweden SE3 (Stockholm)). Covers country
+        region(s): SE.'
+    - id: market_zone_code
+      value: SE3
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SE
+  market_zone.SE4:
+    attributes:
+    - id: name
+      value: SE4
+    - id: long_name
+      value: Sweden SE4 (Malmö)
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SE4 (Sweden SE4 (Malmö)). Covers country
+        region(s): SE.'
+    - id: market_zone_code
+      value: SE4
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SE
+  market_zone.SI:
+    attributes:
+    - id: name
+      value: SI
+    - id: long_name
+      value: Slovenia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SI (Slovenia). Covers country region(s):
+        SI.'
+    - id: market_zone_code
+      value: SI
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SI
+  market_zone.SK:
+    attributes:
+    - id: name
+      value: SK
+    - id: long_name
+      value: Slovakia
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone SK (Slovakia). Covers country region(s):
+        SK.'
+    - id: market_zone_code
+      value: SK
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.SK
+  market_zone.TR:
+    attributes:
+    - id: name
+      value: TR
+    - id: long_name
+      value: Türkiye
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone TR (Türkiye). Covers country region(s):
+        TR.'
+    - id: market_zone_code
+      value: TR
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.TR
+  market_zone.UK:
+    attributes:
+    - id: name
+      value: UK
+    - id: long_name
+      value: United Kingdom
+    - id: description
+      value: 'ENTSO-E-style electricity bidding / market zone UK (United Kingdom). Covers country region(s):
+        GB.'
+    - id: market_zone_code
+      value: UK
+    relations:
+    - id: hasCarrier
+      target: carrier.electricity
+    - id: coversRegion
+      target: region.country.GB

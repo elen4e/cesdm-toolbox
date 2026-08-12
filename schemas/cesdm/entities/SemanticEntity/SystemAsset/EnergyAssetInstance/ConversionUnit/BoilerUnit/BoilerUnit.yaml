@@ -1,0 +1,44 @@
+name: BoilerUnit
+parents:
+- ConversionUnit
+description: >
+  Compact fuel → heat conversion unit with typed fuel and heat node relations.
+
+  For arbitrary MxN conversion use GenericConversionUnit with ConversionPort.
+attributes:
+- id: thermal_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: nominal_thermal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: minimum_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup: [capacity_expansion]
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasHeatOutputCarrier
+  required: false
+  target: Carrier
+- id: atFuelNode
+  required: false
+  belongsToGroup: [topology]
+  target: NetworkNode
+- id: atHeatNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus

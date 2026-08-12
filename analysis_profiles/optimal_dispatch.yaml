@@ -1,0 +1,315 @@
+# Analysis profile: optimal dispatch / unit commitment
+#
+# What an optimal-dispatch or unit-commitment study needs present and
+# sensible on the model, independent of what the CESDM schema itself
+# marks as `required:`. Schema validation (model.validate()) checks
+# structural completeness against the *schema*; this checks fitness
+# for a *specific analysis* -- an attribute can be schema-optional but
+# required here (e.g. nominal_power_capacity, which most of CESDM
+# doesn't strictly need but a dispatch optimization can't run without),
+# or schema-required but irrelevant here.
+#
+# Checks are entity-centric: just name the attribute/relation. Almost
+# everything (e.g. nominal_power_capacity) is flattened directly onto
+# the entity_class itself today, so that's normally the whole story --
+# see docs/guide/10_analysis_validation.md for the current,
+# limited state of the `view_family` fallback for the two things that
+# still aren't flattened (Controller.*, Result entities).
+#
+# A requirement block's entity_class also covers every subclass (e.g.
+# a "GenerationUnit" block is checked against HydroGenerationUnit too;
+# a "TransmissionElement" block against TransmissionLine, Transformer,
+# Interconnector, and HVDCLink) -- used below to check fromNode/toNode
+# once, on the shared abstract base, rather than four times over.
+#
+# Load and run with:
+#   errors = model.validate_for_analysis("optimal_dispatch")
+# or, for a copy you edit yourself first:
+#   profile = model.load_analysis_profile("analysis_profiles/optimal_dispatch.yaml")
+#   errors = model.validate_for_analysis(profile)
+
+name: optimal_dispatch
+description: >
+  Minimum attribute/value requirements for running an optimal dispatch
+  or unit-commitment study: generation, storage, and demand dispatch
+  data (including resource/inflow profiles for wind, solar, and
+  run-of-river hydro), plus transmission topology and transfer/thermal
+  limits.
+
+requirements:
+
+  - entity_class: GenerationUnit
+    # Every concrete GenerationUnit (including subclasses like
+    # HydroGenerationUnit) in the model is checked against this block.
+    checks:
+      - attribute: hasTechnology
+        required: true
+
+      - attribute: atNode
+        required: true
+        # Without a network location, a dispatch study has nowhere to
+        # deliver this generator's output to -- even a single-node
+        # ("copperplate") study still needs every asset connected to
+        # that one node explicitly.
+
+      - attribute: nominal_power_capacity
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: variable_operating_cost
+        required: false
+        constraints:
+          minimum: 0
+
+      - attribute: energy_conversion_efficiency
+        required: false
+        # Not every technology has a meaningful conversion efficiency
+        # (e.g. wind/solar don't consume a fuel), so this stays
+        # optional -- but if it *is* set, it must be a real fraction.
+        constraints:
+          minimum: 0
+          maximum: 1
+
+
+  - entity_class: CHPUnit
+    checks:
+      - attribute: atFuelNode
+        required: true
+      - attribute: atElectricityNode
+        required: true
+      - attribute: atHeatNode
+        required: true
+      - attribute: nominal_electrical_power_capacity
+        required: true
+        constraints:
+          minimum: 0
+      - attribute: nominal_thermal_power_capacity
+        required: true
+        constraints:
+          minimum: 0
+      - attribute: electrical_efficiency
+        required: true
+        constraints:
+          minimum: 0
+          maximum: 1
+      - attribute: thermal_efficiency
+        required: true
+        constraints:
+          minimum: 0
+          maximum: 1
+
+  - entity_class: ExternalSupply
+    # Boundary slack / import: capacity and slack flag are schema-optional
+    # (dispatch group) but required for a dispatch study that uses them.
+    checks:
+      - attribute: atNode
+        required: true
+      - attribute: supply_capacity
+        required: true
+        constraints:
+          minimum: 0
+      - attribute: is_slack
+        required: true
+
+  - entity_class: DemandUnit
+    checks:
+      - attribute: atNode
+        required: true
+
+      - attribute: annual_energy_demand
+        required: true
+        # The energy budget a dispatch study distributes over time,
+        # together with hasDemandProfile below -- not
+        # maximum_energy_demand, which only bounds the peak and says
+        # nothing about the total energy actually consumed.
+        constraints:
+          minimum: 0
+
+      - attribute: hasDemandProfile
+        required: true
+        # The temporal shape annual_energy_demand is distributed over;
+        # without it there's no way to know which hours the energy is
+        # actually needed in.
+
+      - attribute: maximum_energy_demand
+        required: false
+        constraints:
+          minimum: 0
+
+      - attribute: value_of_lost_load
+        required: false
+        # Only meaningful if the study allows curtailing demand at a
+        # cost rather than treating it as a hard constraint.
+        constraints:
+          minimum: 0
+
+  - entity_class: WindGenerationUnit
+    # Wind is resource-driven, not fuel-driven: its available energy
+    # comes from annual_resource_potential distributed over time by
+    # hasAvailabilityProfile (a capacity-factor time series), rather
+    # than being freely dispatchable up to nominal_power_capacity.
+    checks:
+      - attribute: hasAvailabilityProfile
+        required: true
+
+      - attribute: annual_resource_potential
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: SolarGenerationUnit
+    checks:
+      - attribute: hasAvailabilityProfile
+        required: true
+
+      - attribute: annual_resource_potential
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: HydroGenerationUnit
+    # Water inflow profiles live on HydraulicStorageUnit
+    # (hasNaturalInflowProfile), not on the generator. Run-of-river should
+    # couple via drawsFromHydraulicStorage to a water-body
+    # HydraulicStorageUnit. A bare HydroGenerationUnit with no water-body
+    # link is treated as resource-driven and must still carry
+    # annual_resource_potential (legacy / incomplete models).
+    checks:
+      - attribute: annual_resource_potential
+        required: true
+        when: "not drawsFromHydraulicStorage"
+        constraints:
+          minimum: 0
+
+  - entity_class: StorageUnit
+    # HydraulicStorageUnit is a separate, standalone class now (not a
+    # StorageUnit subclass -- see its own schema description for why),
+    # so this block only ever applies to genuine battery-style storage,
+    # and every field below can be a real requirement rather than the
+    # required:false compromise an inherited HydraulicStorageUnit used
+    # to force on all of them.
+    checks:
+      - attribute: energy_storage_capacity
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: atNode
+        required: true
+
+      - attribute: maximum_charging_power
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: maximum_discharging_power
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: charging_efficiency
+        required: true
+        constraints:
+          minimum: 0
+          maximum: 1
+
+      - attribute: discharging_efficiency
+        required: true
+        constraints:
+          minimum: 0
+          maximum: 1
+
+      - attribute: variable_operating_cost
+        required: false
+        constraints:
+          minimum: 0
+
+  - entity_class: HydraulicStorageUnit
+    # No longer a StorageUnit subclass, so energy_storage_capacity is
+    # required directly here rather than inherited from the block
+    # above. Natural inflow is genuinely optional per reservoir, by the
+    # schema's own design (see schemas/cesdm/.../HydraulicStorageUnit.yaml):
+    # a reservoir-hydro or open-loop-PHS reservoir has inflow and should
+    # set both fields below; a closed-loop PHS upper reservoir has none
+    # at all and correctly leaves both unset. Rather than making both
+    # merely optional, each is required *of the other*: setting one
+    # without the other (a profile with no stated annual total, or an
+    # annual total with no temporal shape) is treated as incomplete,
+    # while leaving both unset (the closed-loop PHS case) stays valid.
+    checks:
+      - attribute: energy_storage_capacity
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: hasNaturalInflowProfile
+        required: true
+        when: "annual_natural_inflow_energy > 0"
+        # An expression (not attribute_set) deliberately -- the schema
+        # itself documents that a closed-loop PHS reservoir may "leave
+        # annual_natural_inflow_energy unset OR ZERO". A plain presence
+        # check would treat an explicit 0 as "set" and incorrectly
+        # demand a profile for it too; > 0 correctly treats "unset" and
+        # "explicitly zero" the same way.
+
+      - attribute: annual_natural_inflow_energy
+        required: false
+        # Value-checked whenever set, independent of the co-requirement
+        # below -- a nonsensical negative inflow is wrong regardless of
+        # whether hasNaturalInflowProfile happens to be linked too.
+        constraints:
+          minimum: 0
+
+      - attribute: annual_natural_inflow_energy
+        required: true
+        when: "hasNaturalInflowProfile"
+        # Presence/co-requirement only -- the value itself is already
+        # checked by the unconditional block above.
+
+  - entity_class: TransmissionElement
+    # Shared by every concrete subclass (TransmissionLine, Transformer,
+    # Interconnector, HVDCLink): all of them need to know which two
+    # buses they connect, regardless of how their transfer capacity is
+    # expressed.
+    checks:
+      - attribute: fromNode
+        required: true
+
+      - attribute: toNode
+        required: true
+
+  - entity_class: TransmissionLine
+    checks:
+      - attribute: thermal_capacity_rating
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: Transformer
+    checks:
+      - attribute: thermal_capacity_rating
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: GenericInterconnector
+    # NTC-style interconnectors express capacity directionally rather
+    # than as one shared thermal rating.
+    checks:
+      - attribute: maximum_power_flow_from_to
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: maximum_power_flow_to_from
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: HVDCLink
+    checks:
+      - attribute: max_flow
+        required: true
+        constraints:
+          minimum: 0

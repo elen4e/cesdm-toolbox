@@ -1,0 +1,40 @@
+name: Household
+role: domain
+parents:
+- SemanticEntity
+description: 'A residential household that may consume, produce, or store energy.
+  The household is the unit of social analysis in the prosumer example.
+
+  '
+attributes:
+- id: occupant_count
+  required: false
+- id: building_type
+  required: false
+- id: ownership_status
+  required: false
+- id: gross_floor_area_m2
+  required: false
+- id: annual_consumption_kwh
+  required: false
+- id: has_pv
+  required: false
+- id: has_battery
+  required: false
+- id: has_ev
+  required: false
+- id: adoption_year
+  required: false
+relations:
+- id: locatedIn
+  target: Municipality
+  required: true
+- id: memberOf
+  target: EnergyCommittee
+  required: false
+- id: connectedTo
+  target: LowVoltageNode
+  required: false
+- id: ownsAsset
+  target: EnergyAssetInstance
+  required: false

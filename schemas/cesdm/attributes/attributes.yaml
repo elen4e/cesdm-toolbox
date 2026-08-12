@@ -1,0 +1,4202 @@
+attributes:
+  name:
+    comment: Descriptive name.
+    label: Name
+    description: Descriptive name.
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  long_name:
+    comment: Long description
+    label: Long Name
+    description: Long description
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  description:
+    comment: Human-readable explanation of the entity.
+    label: Description
+    description: Textual description providing additional semantic, contextual, or explanatory information
+      about the entity.
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  comment:
+    description: Optional comment/notes.
+    label: Comment
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  region_level:
+    description: >
+      Administrative / statistical level of a GeographicalRegion:
+      country (ISO / NUTS 0), nuts1, nuts2, nuts3, or other custom regions.
+    label: Region Level
+    provenance_ref: Eurostat NUTS / ISO 3166-1.
+    value:
+      type: string
+      constraints:
+        enum:
+        - country
+        - nuts1
+        - nuts2
+        - nuts3
+        - other
+  nuts_code:
+    description: >
+      Official NUTS code for the region when region_level is country/nuts1/nuts2/nuts3
+      (e.g. CH, CH0, CH01, CH011). Empty for non-NUTS custom regions.
+    label: NUTS Code
+    provenance_ref: Eurostat NUTS.
+    value:
+      type: string
+  iso_country_code:
+    description: >
+      ISO 3166-1 alpha-2 country code associated with the region (e.g. CH, DE).
+      For NUTS regions this is typically the two-letter country prefix (with EL→GR
+      and UK→GB remapping applied where relevant).
+    label: ISO Country Code
+    provenance_ref: ISO 3166-1.
+    value:
+      type: string
+  market_zone_code:
+    description: >
+      Short market / bidding-zone identifier as used in ENTSO-E or national market
+      models (e.g. CH, DE_LU, IT-North, NO1).
+    label: Market Zone Code
+    provenance_ref: ENTSO-E bidding zones.
+    value:
+      type: string
+  eic_code:
+    description: >
+      Optional Energy Identification Code (EIC) for the market area or control area
+      when available from ENTSO-E transparency sources.
+    label: EIC Code
+    provenance_ref: ENTSO-E EIC.
+    value:
+      type: string
+  base_mva:
+    label: base_mva
+    description: 'The system-wide apparent power base used for per-unit calculations. All per-unit quantities
+      are referenced to this base power.
+
+      '
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  annual_resource_potential:
+    description: 'Specifies the total annually available quantity of a resource or carrier that can be
+      utilized, harvested, extracted, or converted by the represented entity under the assumptions of
+      the associated scenario or resource representation.
+
+      '
+    label: Annual Resource Potential
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh/year
+  commission_date:
+    description: The date when the generator was first commissioned and became operational. Used for lifecycle,
+      availability, and depreciation modeling.
+    label: Commission Date
+    provenance_ref: Define the provenance here.
+    value:
+      type: dateTime
+    unit:
+      constraints:
+        enum:
+        - date
+  retirement_date:
+    description: Planned or actual date when the generator is permanently retired from service. Used for
+      asset replacement planning and system expansion studies.
+    label: Retirement Date
+    provenance_ref: Define the provenance here.
+    value:
+      type: dateTime
+    unit:
+      constraints:
+        enum:
+        - date
+  retrofit_date:
+    description: Date of major upgrade or efficiency retrofit. Impacts operational efficiency, lifetime
+      extension, and emission calculations.
+    label: Retrofit Date
+    provenance_ref: Define the provenance here.
+    value:
+      type: dateTime
+    unit:
+      constraints:
+        enum:
+        - date
+  maximum_ramp_rate_down:
+    description: The maximum percentage decrease in output power per unit time during ramp-down operations.
+      Expressed as %/min or %/s, capturing the asset's downward operational flexibility (a generator ramping
+      down, or a storage device changing its charging/discharging rate).
+    label: Maximum Ramp Rate Down
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%/h'
+  maximum_ramp_rate_up:
+    description: The maximum increase in output power per unit time, typically expressed in kW/s or MW/min.
+      Represents the upward operational flexibility of the asset (a generator ramping up, or a storage
+      device discharging faster).
+    label: Maximum Ramp Rate Up
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%/h'
+  minimum_down_time:
+    description: 'Minimum number of hours a unit must remain offline after shutdown. Used in unit commitment
+      models.
+
+      '
+    label: Minimum Down Time
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - h
+  minimum_up_time:
+    description: 'Minimum number of hours a unit must remain online once started. Used in unit commitment
+      models.
+
+      '
+    label: Minimum Up Time
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - h
+  initial_state_of_charge:
+    description: Initial state of charge at the beginning of the optimization horizon, expressed as a
+      fraction between 0 and 1.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  maximum_state_of_charge:
+    description: Maximum allowed state of charge, usually expressed as a fraction between 0 and 1.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  minimum_state_of_charge:
+    description: Minimum allowed state of charge, usually expressed as a fraction between 0 and 1
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  self_discharge_rate:
+    description: Fraction of stored energy lost per time step due to self-discharge.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  latitude:
+    description: 'Geographical latitude of the entity, expressed in decimal degrees. Used for spatial
+      modelling, renewable resource assessment, and GIS-based visualisation.
+
+      '
+    label: Latitude
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: -90.0
+        maximum: 90.0
+    unit:
+      constraints:
+        enum:
+        - deg
+  longitude:
+    description: 'Geographical longitude of the entity, expressed in decimal degrees. Used for spatial
+      modelling, renewable resource assessment, and GIS-based visualisation.
+
+      '
+    label: Longitude
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: -180.0
+        maximum: 180.0
+    unit:
+      constraints:
+        enum:
+        - deg
+  elevation:
+    description: 'Elevation of the entity above mean sea level, expressed in metres. Relevant for climate-adjusted
+      performance modelling and topographic network studies.
+
+      '
+    label: Elevation
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - m
+  nominal_voltage:
+    description: 'Rated line-to-line voltage of the network node or branch under normal operating conditions,
+      expressed in kV.
+
+      '
+    label: Nominal Voltage
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kV
+  powerflow_bus_type:
+    label: Power Flow Bus Type
+    description: AC power-flow bus classification (PQ, PV, slack, …) used by the load-flow formulation.
+    provenance_ref: 'IEEE Std 399-1997 (Brown Book), Section 7; MATPOWER User''s Manual, Table B-1; PSS/E
+      Program Operation Manual, Bus Data.
+
+      '
+    value:
+      type: string
+      constraints:
+        enum:
+        - slack
+        - PV
+        - PQ
+  max_flow:
+    description: 'Maximum carrier flow permitted through a branch or interconnector without violating
+      operational limits, expressed in MW (power) or the appropriate flow unit for the carrier.
+
+      '
+    label: Maximum Flow
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  maximum_power_flow_from_to:
+    description: 'Maximum power flow in the direction from node 1 to node 2, used for asymmetric capacity
+      limits (e.g., NTC interconnectors).
+
+      '
+    label: Maximum Power Flow (1→2)
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  maximum_power_flow_to_from:
+    description: 'Maximum power flow in the direction from node 2 to node 1, used for asymmetric capacity
+      limits (e.g., NTC interconnectors).
+
+      '
+    label: Maximum Power Flow (2→1)
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  series_resistance_per_km:
+    description: Series resistance of the branch per unit length. This is the real component of the series
+      impedance and represents resistive conductor losses, expressed in ohm per kilometre (Ohm/km).
+    label: Series Resistance
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - Ohm/km
+  series_reactance_per_km:
+    description: Series reactance of the branch per unit length. This is the imaginary component of the
+      series impedance and represents inductive behaviour relevant for power-flow and voltage calculations,
+      expressed in ohm per kilometre (Ohm/km).
+    label: Series Reactance
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - Ohm/km
+  shunt_susceptance_per_km:
+    description: Shunt susceptance of the branch per unit length. This is the imaginary component of the
+      shunt admittance, not the shunt capacitance. It represents capacitive charging behaviour and is
+      expressed in micro-siemens per kilometre (microS/km).
+    label: Shunt Susceptance
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - microS/km
+  thermal_capacity_rating:
+    description: 'Maximum continuous apparent power the branch can carry without exceeding thermal limits,
+      expressed in MVA.
+
+      '
+    label: Thermal Capacity Rating
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MVA
+  line_length:
+    description: 'Physical length of the transmission or pipeline element, expressed in kilometres. Used
+      to scale per-unit-length electrical or hydraulic parameters.
+
+      '
+    label: Line Length
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - km
+  parallel_circuit_count:
+    description: 'Number of identical circuits run in parallel between the same endpoints. Increases total
+      capacity and reduces effective impedance.
+
+      '
+    label: Parallel Circuit Count
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+  from_switch_closed:
+    description: 'Boolean indicating whether the breaker at the from-end of the branch is closed (true
+      = connected, false = disconnected). Used in contingency and outage modelling.
+
+      '
+    label: From Switch Closed
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  to_switch_closed:
+    description: 'Boolean indicating whether the breaker at the to-end of the branch is closed (true =
+      connected, false = disconnected). Used in contingency and outage modelling.
+
+      '
+    label: To Switch Closed
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  energy_storage_capacity:
+    description: 'Maximum net energy or storage medium volume that can be stored and subsequently released
+      under defined operating conditions, expressed as the difference between maximum and minimum allowable
+      state of charge. Use MWh for energy-equivalent storage models and m3 for reservoir water-volume
+      models.
+
+      '
+    label: Energy Storage Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+        - m3
+  charging_variable_operating_cost:
+    description: 'Marginal cost incurred per MWh of energy absorbed during the charging process, expressed
+      in MU/MWh.
+
+      '
+    label: Charging Variable Operating Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  maximum_charging_power:
+    description: 'Upper limit on instantaneous power intake during charging, constrained by converter
+      size and thermal limits (MW).
+
+      '
+    label: Maximum Charging Power
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  maximum_required_units:
+    description: 'Maximum number of discrete technology units that may be installed, representing site
+      or policy constraints on deployment.
+
+      '
+    label: Maximum Required Units
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+    unit:
+      constraints:
+        enum:
+        - unit
+  minimum_required_units:
+    description: 'Minimum number of discrete technology units that must be installed, representing modular
+      build constraints or policy minimums.
+
+      '
+    label: Minimum Required Units
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+    unit:
+      constraints:
+        enum:
+        - unit
+  unit_nominal_size:
+    description: 'Nominal capacity of a single technology unit (MW or MWh depending on type). Combined
+      with minimum/maximum required units to define total installable capacity range.
+
+      '
+    label: Unit Nominal Size
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+        - MWh
+  technical_lifetime:
+    description: Technical lifetime of the asset in years.
+    label: Technical Lifetime
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - years
+  dispatch_type:
+    description: "Dispatch classification of a generation technology:\n  \"dispatchable\"    — operator\
+      \ can choose output (thermal, hydro reservoir)\n  \"nondispatchable\" — output bounded by external\
+      \ resource (wind, solar, RoR)\n  \"must_run\"        — must generate at minimum level (nuclear baseload,\
+      \ CHP)\n"
+    label: Dispatch Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - dispatchable
+        - nondispatchable
+        - must_run
+  start_datetime:
+    description: 'ISO 8601 datetime string marking the first timestep of the series (e.g. "2009-01-01T00:00:00").
+      Combined with resolution and length this fully defines the time axis without storing the full array.
+
+      '
+    label: Start Datetime
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  resolution:
+    description: 'ISO 8601 duration string defining the uniform step size between consecutive timesteps
+      (e.g. "PT1H" for hourly, "PT15M" for quarter-hourly, "P1D" for daily). All timesteps within one
+      TimestampSeries are assumed to have equal duration.
+
+      '
+    label: Resolution
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  length:
+    description: 'Total number of timesteps in the series. Must equal the length of the values array stored
+      in the HDF5 file for every Profile that references this TimestampSeries.
+
+      '
+    label: Length
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+      constraints:
+        minimum: 1
+  timezone:
+    description: 'IANA timezone identifier for the series (e.g. "UTC", "Europe/Zurich"). Used when converting
+      between local time and epoch timestamps. Defaults to UTC if not specified.
+
+      '
+    label: Timezone
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  profile_type:
+    description: How profile samples are interpreted (absolute SI, capacity factor, or normalized annual
+      energy).
+    label: Profile Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - as_SI
+        - as_capacity_factor
+        - as_normalized_annual_energy
+  profile_unit:
+    description: 'SI unit of the profile values. Only meaningful for as_SI profiles (e.g. "MW", "MWh",
+      "m3/s"). Dimensionless profiles (capacity factor and normalized annual energy) should leave this
+      blank or set it to "pu" (per unit).
+
+      '
+    label: Profile Unit
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  data_reference:
+    description: 'Internal HDF5 path identifying the numeric payload for this profile, formatted as "/profiles/<entity_id>"
+      (e.g. "/profiles/profile.demand.electricity.at00"). The values dataset at this path contains a float64
+      array of length equal to the referenced TimestampSeries length. This attribute is the bridge between
+      the YAML entity store and the HDF5 data store.
+
+      '
+    label: Data Reference
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  has_natural_inflow:
+    description: Legacy boolean formerly used on StorageType for hydro templates. Prefer annual_natural_inflow_energy
+      + hasNaturalInflowProfile on HydraulicStorageUnit. Not declared on current StorageType / HydraulicStorageUnit
+      schemas.
+    label: Has Natural Inflow
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  has_active_charging:
+    description: Legacy boolean formerly used on StorageType for PHS vs gravity reservoirs. Prefer HydroGenerationUnit.hydro_machine_kind
+      for pump capability. Not declared on current StorageType schemas.
+    label: Has Active Charging
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  annual_natural_inflow_energy:
+    description: 'Total natural inflow received by a storage asset over one year. Used as the scaling
+      factor when converting a normalised inflow profile (as_normalized_annual_energy) to absolute hourly
+      inflow values in dispatch optimisation models.
+
+      '
+    label: Annual Natural Inflow as energy
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh/year
+  nominal_pressure:
+    description: 'Nominal operating pressure at a gas, hydrogen, or water Bus, expressed in bar (gauge).
+      Defines the reference pressure level of the carrier domain at this node and is used for hydraulic
+      network calculations and compressor/pump modelling.
+
+      '
+    label: Nominal Pressure
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - bar
+  nominal_temperature:
+    description: 'Nominal supply temperature at a heat network Bus, expressed in degrees Celsius. Defines
+      the reference temperature of the heat carrier at this node and is used for thermal network flow
+      calculations and heat exchanger modelling.
+
+      '
+    label: Nominal Temperature
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - degC
+  rated_primary_voltage:
+    description: 'Rated line-to-line voltage on the primary (high-voltage) winding of a power transformer,
+      expressed in kV. Used to define the voltage transformation ratio and for per-unit system normalisation
+      in power flow calculations.
+
+      '
+    label: Rated Primary Voltage
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kV
+  rated_secondary_voltage:
+    description: 'Rated line-to-line voltage on the secondary (low-voltage) winding of a power transformer,
+      expressed in kV. Combined with rated_primary_voltage this defines the nominal transformation ratio.
+
+      '
+    label: Rated Secondary Voltage
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kV
+  short_circuit_voltage_in_percentage:
+    description: 'Short-circuit voltage of a transformer expressed as a percentage of rated voltage (%).
+      Determines the transformer''s series reactance in per-unit: x_pu = short_circuit_voltage_in_percentage
+      / 100. Used directly in power flow and fault analysis calculations.
+
+      '
+    label: Short Circuit Voltage
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%'
+  tap_ratio:
+    description: Off-nominal transformer tap ratio. In MATPOWER, a value of 0 or 1 indicates no off-nominal
+      tap; values different from 1 represent transformer branch behaviour.
+    label: Tap Ratio
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  phase_shift_angle:
+    description: Transformer phase-shift angle in degrees. Maps to the MATPOWER branch angle column and
+      pandapower transformer shift_degree where applicable.
+    label: Phase Shift Angle
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - deg
+  storage_technology_type:
+    description: Storage technology category when no StorageType library entity is referenced.
+    label: Storage Technology Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  economic_lifetime:
+    description: Economic/depreciation lifetime of the asset in years.
+    label: Economic Lifetime
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - years
+  co2_emission_factor:
+    description: 'Direct CO₂ emissions per unit of electrical output [tCO₂ / MWh_el]. For fuel-based generators
+      this is fuel_co2_intensity / efficiency.
+
+      '
+    label: CO2 Emission Factor
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - tCO2/MWh
+  fuel_consumption_rate:
+    description: 'Fuel input per unit of electrical output [MWh_fuel / MWh_el], equal to 1 / energy_conversion_efficiency.
+
+      '
+    label: Fuel Consumption Rate
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  total_generation:
+    description: Total energy generated over the optimisation horizon [MWh].
+    label: Total Generation
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  total_discharge_energy:
+    description: Total energy discharged from storage over the horizon [MWh].
+    label: Total Discharge Energy
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  total_charge_energy:
+    description: Total energy charged into storage over the horizon [MWh].
+    label: Total Charge Energy
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  total_served_energy:
+    description: Total energy actually served to demand over the horizon [MWh].
+    label: Total Served Energy
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  total_curtailed_energy:
+    description: Total unserved energy (curtailed demand) over the horizon [MWh].
+    label: Total Curtailed Energy
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  curtailment_rate:
+    description: 'Fraction of demanded energy that was curtailed. curtailed_energy / total_demanded_energy
+      [-].
+
+      '
+    label: Curtailment Rate
+    value:
+      type: decimal
+      minimum: 0.0
+      maximum: 1.0
+  capacity_factor:
+    description: 'Ratio of actual generation to maximum possible generation over the horizon. sum(p(t))
+      / (P_max * T) [-].
+
+      '
+    label: Capacity Factor
+    value:
+      type: decimal
+      minimum: 0.0
+      maximum: 1.0
+  full_load_hours:
+    description: 'Equivalent full-load hours of operation. total_generation / nominal_power_capacity [h].
+
+      '
+    label: Full Load Hours
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - h
+  storage_cycles:
+    description: 'Number of equivalent full charge/discharge cycles completed over the optimisation horizon
+      [-].
+
+      '
+    label: Storage Cycles
+    value:
+      type: decimal
+      minimum: 0.0
+  average_round_trip_efficiency:
+    description: 'Realised round-trip efficiency over the horizon: total_discharge / total_charge [-].
+
+      '
+    label: Average Round-Trip Efficiency
+    value:
+      type: decimal
+      minimum: 0.0
+      maximum: 1.0
+  total_flow_1_to_2:
+    description: Total energy flow in the 1→2 direction over the horizon [MWh].
+    label: Total Flow 1 to 2
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MWh
+  total_flow_2_to_1:
+    description: Total energy flow in the 2→1 direction over the horizon [MWh].
+    label: Total Flow 2 to 1
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MWh
+  congestion_hours:
+    description: Number of hours the line/interconnector was at its thermal limit.
+    label: Congestion Hours
+    value:
+      type: integer
+      minimum: 0
+    unit:
+      constraints:
+        enum:
+        - h
+  total_congestion_rent:
+    description: 'Total congestion rent collected over the horizon (shadow price × flow) [MU].
+
+      '
+    label: Total Congestion Rent
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MU
+  total_variable_cost:
+    description: Total variable operating cost over the horizon [MU].
+    label: Total Variable Cost
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU
+  total_start_cost:
+    description: Total startup cost over the horizon [MU].
+    label: Total Start Cost
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU
+  co2_emissions:
+    description: 'Total CO2 emissions over the horizon [tCO2]. sum(p(t) * dt * emission_factor).
+
+      '
+    label: CO2 Emissions
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - tCO2
+  average_nodal_price:
+    description: Time-weighted average nodal electricity price [MU/MWh].
+    label: Average Nodal Price
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  min_nodal_price:
+    description: Minimum nodal electricity price over the horizon [MU/MWh].
+    label: Minimum Nodal Price
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  max_nodal_price:
+    description: Maximum nodal electricity price over the horizon [MU/MWh].
+    label: Maximum Nodal Price
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  objective_value:
+    description: Total system cost (objective function value) [MU].
+    label: Objective Value
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MU
+  optimality_gap:
+    description: 'Relative MIP gap at solver termination. (UB - LB) / UB [-].
+
+      '
+    label: Optimality Gap
+    value:
+      type: decimal
+      minimum: 0.0
+  solve_time_seconds:
+    description: Wall-clock solver time in seconds.
+    label: Solve Time
+    value:
+      type: decimal
+      minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  solver_name:
+    description: Name of the solver used (e.g. HiGHS, Gurobi, CPLEX).
+    label: Solver Name
+    value:
+      type: string
+  solver_status:
+    description: Solver termination status.
+    label: Solver Status
+    value:
+      type: string
+      constraints:
+        enum:
+        - optimal
+        - suboptimal
+        - infeasible
+        - timeout
+        - unknown
+  scenario_year:
+    description: Planning or operational reference year of the scenario.
+    label: Scenario Year
+    value:
+      type: integer
+  run_timestamp:
+    description: ISO-8601 datetime when this optimisation run was executed.
+    label: Run Timestamp
+    value:
+      type: datetime
+  port_direction:
+    description: "Flow direction at a ConversionPort.\n  input        — carrier is consumed/withdrawn\
+      \ at this port\n  output       — carrier is produced/injected at this port\n  bidirectional — carrier\
+      \ can flow in either direction\n                  (e.g. reversible heat pump, V2G)\n"
+    label: Port Direction
+    value:
+      type: string
+      constraints:
+        enum:
+        - input
+        - output
+        - bidirectional
+  flow_coefficient:
+    description: Signed flow ratio of a ConversionPort relative to the unit's reference port (reference
+      port = 1.0).
+    label: Flow Coefficient
+    value:
+      type: decimal
+  is_reference_port:
+    description: 'Legacy boolean formerly used on ConversionPort to mark the flow_coefficient scale reference.
+      Prefer GenericConversionUnit.referencePort. Remapped on import when true; not declared on current
+      ConversionPort schemas.
+
+      '
+    label: Is Reference Port (legacy)
+    value:
+      type: boolean
+  minimum_flow_fraction:
+    description: 'Minimum allowed flow at this port as a fraction of the product flow_coefficient × reference_port_flow.
+      Used to express minimum part-load ratios or technical minimum generation constraints at the port
+      level.
+
+      '
+    label: Minimum Flow Fraction
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  maximum_flow_fraction:
+    description: 'Maximum allowed flow at this port as a fraction of the product flow_coefficient × reference_port_flow.
+      Values greater than 1.0 express short-term overload capability beyond the rated coefficient.
+
+      '
+    label: Maximum Flow Fraction
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  maximum_output_power:
+    description: Upper bound on instantaneous output power for the asset in dispatch or technical limits.
+    label: Maximum Output Power
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  hvdc_technology_type:
+    label: HVDC Technology Type
+    description: Legacy alias for converter_technology (LCC/VSC). Prefer converter_technology on HVDCLink;
+      this id is no longer declared on the entity schema.
+    value:
+      type: string
+      constraints:
+        enum:
+        - LCC
+        - VSC
+  dc_voltage_kv:
+    label: DC Voltage [kV]
+    description: Nominal DC pole-to-pole voltage of the HVDC link [kV].
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kV
+  active_power_setpoint_from_to:
+    label: Scheduled Active Power [MW]
+    description: 'Operator-set active power transfer on the HVDC link [MW]. Positive = fromNode → toNode.
+
+      '
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  p_max_hvdc:
+    label: P max HVDC [MW]
+    description: Legacy HVDC capacity field. Prefer max_flow on HVDCLink (dispatch + power_flow). This
+      id is no longer declared on the entity schema.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  p_min_hvdc:
+    label: P min HVDC [MW]
+    description: Minimum active power [MW]. Negative = reverse direction allowed.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  converter_loss_coefficient:
+    label: Converter Loss Coefficient
+    description: Fractional converter losses as proportion of transferred power [pu].
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  converter_rating_from:
+    label: Converter Rating fromNode [MVA]
+    description: Apparent power rating of the converter station at the fromNode end.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MVA
+  converter_rating_to:
+    label: Converter Rating toNode [MVA]
+    description: Apparent power rating of the converter station at the toNode end.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MVA
+  active_power_injection:
+    label: Shunt Active Power [MW]
+    description: Active power component of a static shunt element at nominal voltage, expressed in MW.
+      For MATPOWER this maps to the bus Gs column at V = 1.0 p.u.; for pandapower this maps to net.shunt
+      p_mw.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_injection:
+    label: Shunt Reactive Power Injection [MVAr]
+    description: 'Reactive power injection of a static shunt element at nominal voltage, expressed in
+      MVAr. This follows the MATPOWER bus Bs convention: positive values inject reactive power at V =
+      1.0 p.u. When exchanging with pandapower, whose shunt q_mvar uses the opposite load-oriented sign
+      convention, the importer/exporter converts the sign.
+
+      '
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  supply_price:
+    label: Supply Price
+    description: 'Marginal price at which the external supply injects energy into the system [MU/MWh].
+      Acts as the cost signal for the slack source in economic dispatch and market clearing. Set to 0
+      for a free slack (e.g. reference bus in a power flow). Set to a large positive value (e.g. value_of_lost_load)
+      to represent an emergency import of last resort.
+
+      '
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  supply_capacity:
+    label: Supply Capacity
+    description: 'Maximum power the external supply can inject [MW]. When absent or null the supply is
+      treated as uncapacitated (true slack — unlimited injection). Set an explicit value to model a capacity-limited
+      import connection such as a cross-border cable.
+
+      '
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  is_slack:
+    label: Is Slack
+    description: 'Boolean flag indicating that this ExternalSupply acts as the system slack / reference
+      node. Exactly one ExternalSupply per connected island should have is_slack = true. When true, the
+      supply absorbs all active power imbalances and the connected bus is treated as the angle reference
+      in AC power flow (bus type = slack).
+
+      '
+    value:
+      type: boolean
+  maximum_discharging_power:
+    description: Upper limit on instantaneous power output during discharging or generation, constrained
+      by turbine/converter size and operating limits (MW).
+    label: Maximum Discharging Power
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  pumping_efficiency:
+    description: Pumping efficiency of a HydroGenerationUnit (electrical energy in → hydraulic energy
+      stored). Distinct from charging_efficiency on battery-style StorageUnit.
+    label: Pumping Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  maximum_pumping_power:
+    description: 'Maximum electrical power consumed during pumping operation [MW]. May differ from the
+      turbine generation capacity in ternary or quaternary configurations. Only relevant for phs_closed_loop
+      and phs_open_loop. '
+    label: Maximum Pumping Power
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  resource_group:
+    description: Broad group of a NaturalResource.
+    label: Resource Group
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - renewable
+        - hydro
+        - geothermal
+        - environmental
+  resource_type:
+    description: Natural-resource category (wind, solar, hydro inflow, …).
+    label: Resource Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  natural_resource_unit:
+    description: Canonical physical unit used when the resource is represented as an absolute quantity
+      or rate.
+    label: Natural Resource Unit
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  co2_emission_intensity:
+    description: 'Mass of CO₂ emitted per unit of energy delivered by the carrier, expressed in tCO₂/MWh.
+      Used for carbon accounting, emission constraint modelling, and environmental impact assessment.
+
+      '
+    label: CO2 Emission Intensity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - tCO2/MWh
+  carrier_group:
+    description: High-level classification group of the carrier. Used for cross-carrier aggregation, reporting,
+      and domain assignment. Network node types exist for electricity/gas/heat/hydrogen (ElectricalBus,
+      GasBus, HeatBus, HydrogenBus). Group value "water" remains for carrier/resource labelling; hydro
+      water balance uses HydraulicStorageUnit, not a WaterBus node.
+    label: Carrier Group
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - electricity
+        - gas
+        - heat
+        - hydrogen
+        - water
+  carrier_type:
+    description: Carrier category label (electricity, gas, heat, …) for classification or import mapping.
+    label: Carrier Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  is_primary_fuel:
+    description: 'Indicates whether this carrier is a primary fuel that enters the system from outside
+      the modelled boundary (e.g., natural gas, coal, crude oil). Mutually exclusive with is_secondary_fuel.
+
+      '
+    label: Is Primary Fuel
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  is_secondary_fuel:
+    description: 'Indicates whether this carrier is a secondary or derived fuel produced within the modelled
+      system (e.g., hydrogen from electrolysis, synthetic methane). Mutually exclusive with is_primary_fuel.
+
+      '
+    label: Is Secondary Fuel
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  annual_energy_demand:
+    description: The total amount of energy required by the load over an entire year, expressed in MWh/year.
+      It is used to scale demand time series or to validate consumption totals for modelling scenarios.
+    label: Annual Energy Demand
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh/year
+  maximum_energy_demand:
+    description: Maximum energy demand by the load over an entire year, expressed in MW.
+    label: Maximum Energy Demand
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  demand_type:
+    description: Demand category or sector label for a DemandUnit (industrial, residential, …).
+    label: Type of the specific demand
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  flexibility_time_resolution:
+    description: The smallest allowable time granularity for shifting, adjusting, or rescheduling the
+      load demand. Typically corresponds to the dispatch interval (e.g., 15 min, 1 h).
+    label: Flexibility Time Resolution
+    provenance_ref: Define the provenance here.
+    value:
+      type: number
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - h
+        - min
+  flexibility_window_time_end:
+    description: The end of the time interval during which flexibility actions are permitted. Outside
+      this window the demand must strictly follow its profile.
+    label: Flexibility Window Time End
+    provenance_ref: Define the provenance here.
+    value:
+      type: number
+    unit:
+      constraints:
+        enum:
+        - Timestamp / time index
+  flexibility_window_time_start:
+    description: The beginning of the time interval during which the load is allowed to shift or modify
+      its consumption, expressed as a timestamp or model time index.
+    label: Flexibility WindowTime Start
+    provenance_ref: Define the provenance here.
+    value:
+      type: number
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - Timestamp / time index
+  is_demand_flexible:
+    description: Boolean indicator specifying whether the load can be shifted, curtailed, rescheduled,
+      or otherwise managed during operation. If false, demand must be met as defined by the demand profile.
+    label: Is demand Flexible
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  maximum_downward_adjustment:
+    description: The maximum allowable reduction from the nominal load, expressed in kW or MW. Represents
+      demand reduction, curtailment potential, or flexibility for load shedding.
+    label: Maximum Downward Adjustment
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kW
+        - MW
+  maximum_upward_adjustment:
+    description: The maximum amount of incremental upward deviation from the nominal load that is allowed
+      at any given time, expressed in kW or MW. Represents demand increase or load activation flexibility.
+    label: Maximum Upward Adjustment
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kW
+        - MW
+  active_power_demand:
+    description: 'The instantaneous active power consumed by the demand entity. Active power represents
+      the real electrical power required to perform useful work and is typically expressed in MW.
+
+      '
+    label: Active Power Demand
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_demand:
+    description: 'The instantaneous reactive power consumed by the demand entity. Reactive power represents
+      the non-working power required for maintaining electric and magnetic fields in AC systems and is
+      typically expressed in MVAr.
+
+      '
+    label: Reactive Power Demand
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  power_factor:
+    description: 'Ratio between active power and apparent power associated with the demand entity. The
+      power factor characterizes the efficiency of electrical power utilization and indicates the phase
+      shift between voltage and current in AC systems.
+
+      '
+    label: Power Factor
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  rated_apparent_power:
+    label: Rated MVA
+    description: Rated apparent power of the deployed generation unit [MVA]. Defines the machine-specific
+      per-unit power base used with a linked DynamicMachineModelType.
+    provenance_ref: IEEE Std 1110-2002, Section 3.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MVA
+  rated_voltage:
+    label: Rated kV
+    description: Rated line-to-line terminal voltage of the deployed generation unit [kV]. Together with
+      rated_apparent_power, defines the machine-specific impedance base.
+    provenance_ref: IEC 60034-1.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kV
+  machine_model_order:
+    label: Machine Model
+    description: 'Dynamic model order identifier used in the simulation.
+
+      '
+    value:
+      type: string
+      constraints:
+        enum:
+        - classical
+        - two_axis
+        - subtransient_4th
+        - subtransient_6th
+        - subtransient_8th
+  inertia_constant:
+    label: H — inertia constant
+    description: 'Stored kinetic energy at rated speed / rated MVA [s]. H = ½·J·ω₀² / Sn. Governs dω/dt
+      = (Pm − Pe) / (2H).
+
+      '
+    provenance_ref: Anderson & Fouad (2003), Eq. 2.33.
+    value:
+      type: decimal
+      default: 5.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  damping_coefficient:
+    label: D — mechanical damping coefficient
+    description: 'Damping torque proportional to speed deviation (pu torque / pu speed). Dimensionless.
+      Typical range 0–3; default 0.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  d_axis_synchronous_reactance:
+    label: Xd — d-axis synchronous reactance
+    description: 'Direct-axis synchronous reactance [pu on machine base]. Steady-state d-axis air-gap
+      impedance. Typical range 1.0–2.0 pu.
+
+      '
+    provenance_ref: IEEE Std 1110-2002, Table 3.
+    value:
+      type: decimal
+      default: 1.8
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  q_axis_synchronous_reactance:
+    label: Xq — q-axis synchronous reactance
+    description: 'Quadrature-axis synchronous reactance [pu on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 1.7
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  d_axis_transient_reactance:
+    label: X'd — d-axis transient reactance
+    description: 'Direct-axis transient reactance [pu on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 0.3
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  q_axis_transient_reactance:
+    label: X'q — q-axis transient reactance
+    description: 'Quadrature-axis transient reactance [pu on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 0.55
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  d_axis_transient_open_circuit_time_constant:
+    label: T'd0 — d-axis transient open-circuit time constant
+    description: 'Direct-axis transient open-circuit time constant [s].
+
+      '
+    value:
+      type: decimal
+      default: 8.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  q_axis_transient_open_circuit_time_constant:
+    label: T'q0 — q-axis transient open-circuit time constant
+    description: 'Quadrature-axis transient open-circuit time constant [s].
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  d_axis_subtransient_reactance:
+    label: X''d — d-axis subtransient reactance
+    description: 'Direct-axis subtransient reactance [pu on machine base]. Governs first-cycle behaviour
+      after a disturbance.
+
+      '
+    value:
+      type: decimal
+      default: 0.25
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  q_axis_subtransient_reactance:
+    label: X''q — q-axis subtransient reactance
+    description: 'Quadrature-axis subtransient reactance [pu on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 0.25
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  d_axis_subtransient_open_circuit_time_constant:
+    label: T''d0 — d-axis subtransient open-circuit time constant
+    description: 'Direct-axis subtransient open-circuit time constant [s].
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  q_axis_subtransient_open_circuit_time_constant:
+    label: T''q0 — q-axis subtransient open-circuit time constant
+    description: 'Quadrature-axis subtransient open-circuit time constant [s].
+
+      '
+    value:
+      type: decimal
+      default: 0.05
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  armature_resistance:
+    label: Ra — armature resistance
+    description: 'Armature (stator) resistance [pu on machine base]. Typically 0.002–0.005 pu; often neglected
+      in simplified models.
+
+      '
+    value:
+      type: decimal
+      default: 0.003
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  stator_leakage_reactance:
+    label: Xl — stator leakage reactance
+    description: 'Stator leakage reactance [pu on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 0.2
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Efd_min:
+    label: Efd_min — minimum field voltage
+    description: 'Minimum field voltage limit [pu on machine air-gap base]. Prevents field reversal under
+      leading power factor operation.
+
+      '
+    value:
+      type: decimal
+      default: -6.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Efd_max:
+    label: Efd_max — maximum (ceiling) field voltage
+    description: 'Ceiling field voltage limit [pu on machine air-gap base]. Represents AVR forcing capability
+      (typically 3–6 pu).
+
+      '
+    value:
+      type: decimal
+      default: 6.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Va_min:
+    label: Va_min — regulator output lower limit
+    description: 'Lower limit on voltage regulator output before the exciter block [pu].
+
+      '
+    value:
+      type: decimal
+      default: -10.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Va_max:
+    label: Va_max — regulator output upper limit
+    description: 'Upper limit on voltage regulator output before the exciter block [pu].
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Vr_min:
+    label: Vr_min — exciter lower output limit
+    description: 'Lower limit on the internal regulator reference signal [pu]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: -1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Vr_max:
+    label: Vr_max — exciter upper output limit
+    description: 'Upper limit on the internal regulator reference signal [pu]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_Tr:
+    label: Tr — voltage transducer time constant
+    description: 'Terminal voltage transducer / filter time constant [s]. Common to IEEET1, AC1A, ST1A.
+      Typical: 0.01–0.05 s.
+
+      '
+    value:
+      type: decimal
+      default: 0.02
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_SEXS_Ka:
+    label: Ka — voltage regulator gain
+    description: 'Regulator forward gain [pu]. Efd = Ka/(1+s·Ta) · (Vref − Vt + Vs).
+
+      '
+    provenance_ref: PSS/E Model Library, SEXS.
+    value:
+      type: decimal
+      default: 200.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_SEXS_Ta:
+    label: Ta — regulator time constant
+    description: 'First-order regulator lag time constant [s].
+
+      '
+    value:
+      type: decimal
+      default: 0.01
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_IEEET1_Ka:
+    label: Ka — voltage regulator gain
+    description: 'Regulator gain [pu]. IEEE Std 421.5-2016, IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 400.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_IEEET1_Ta:
+    label: Ta — regulator time constant
+    description: 'Regulator lag time constant [s]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 0.02
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_IEEET1_Ke:
+    label: Ke — exciter constant
+    description: 'Self-excitation constant of the DC exciter [pu]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_IEEET1_Te:
+    label: Te — exciter time constant
+    description: 'Exciter field circuit time constant [s]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 0.8
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_IEEET1_Kf:
+    label: Kf — rate feedback gain
+    description: 'Exciter stabilising rate-feedback gain [pu]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_IEEET1_Tf:
+    label: Tf — rate feedback time constant
+    description: 'Exciter stabilising feedback filter time constant [s]. IEEET1.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Ka:
+    label: Ka — voltage regulator gain
+    description: 'Regulator gain [pu]. IEEE Std 421.5-2016, AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 400.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_AC1A_Ta:
+    label: Ta — regulator time constant
+    description: 'Regulator lag time constant [s]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.02
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Tb:
+    label: Tb — TGR denominator time constant
+    description: 'Transient gain reduction (TGR) lag time constant [s]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Tc:
+    label: Tc — TGR numerator time constant
+    description: 'Transient gain reduction (TGR) lead time constant [s]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Ke:
+    label: Ke — exciter constant
+    description: 'Self-excitation constant [pu]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_AC1A_Te:
+    label: Te — exciter time constant
+    description: 'Exciter field circuit time constant [s]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.8
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Kf:
+    label: Kf — rate feedback gain
+    description: 'Stabilising rate-feedback gain [pu]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_AC1A_Tf:
+    label: Tf — rate feedback time constant
+    description: 'Stabilising feedback time constant [s]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_AC1A_Kc:
+    label: Kc — rectifier loading factor
+    description: 'Rectifier voltage drop factor accounting for commutation [pu]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.2
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_AC1A_Kd:
+    label: Kd — demagnetising factor
+    description: 'd-axis generator reaction to exciter demagnetising factor [pu]. AC1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.38
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_ST1A_Ka:
+    label: Ka — voltage regulator gain
+    description: 'Regulator gain [pu]. IEEE Std 421.5-2016, ST1A.
+
+      '
+    value:
+      type: decimal
+      default: 200.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  AVR_ST1A_Ta:
+    label: Ta — regulator time constant
+    description: 'Regulator lag time constant [s]. ST1A.
+
+      '
+    value:
+      type: decimal
+      default: 0.02
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_ST1A_Tb:
+    label: Tb — TGR denominator time constant
+    description: 'Transient gain reduction lag time constant [s]. ST1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_ST1A_Tc:
+    label: Tc — TGR numerator time constant
+    description: 'Transient gain reduction lead time constant [s]. ST1A.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  AVR_ST1A_Kl:
+    label: Kl — field weakening gain
+    description: 'Gain applied when regulator input is below threshold [pu]. ST1A. Typically 0 (disabled).
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_Pmax:
+    label: Pmax — maximum mechanical power
+    description: 'Maximum mechanical power from the prime mover [MW on machine base].
+
+      '
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  GOV_Pmin:
+    label: Pmin — minimum mechanical power
+    description: 'Minimum mechanical power from the prime mover [MW on machine base].
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  GOV_Db:
+    label: Db — governor speed deadband
+    description: 'Speed error deadband around rated frequency [pu]. Governor does not respond within ±Db.
+      Common to IEEEG1, GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_IEEEG1_R:
+    label: R — speed droop
+    description: 'Permanent speed droop [pu]. 0.05 = 5 % droop. IEEEG1.
+
+      '
+    value:
+      type: decimal
+      default: 0.05
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_IEEEG1_T1:
+    label: T1 — governor lag time constant
+    description: 'First lag time constant of the governor control loop [s]. IEEEG1.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_IEEEG1_T2:
+    label: T2 — governor lead time constant
+    description: 'Lead time constant of the governor lead-lag compensator [s]. IEEEG1. Set to 0 for pure
+      lag.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_IEEEG1_T3:
+    label: T3 — turbine time constant
+    description: 'Steam chest / prime mover time constant [s]. IEEEG1.
+
+      '
+    value:
+      type: decimal
+      default: 0.3
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_GGOV1_R:
+    label: R — speed droop
+    description: 'Permanent speed droop [pu]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.04
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Tpelec:
+    label: Tpelec — electrical power transducer time constant
+    description: 'Electrical power measurement filter time constant [s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_GGOV1_Kpgov:
+    label: Kpgov — PID proportional gain
+    description: 'Speed governor proportional gain [pu]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Kigov:
+    label: Kigov — PID integral gain
+    description: 'Speed governor integral gain [pu/s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 2.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Kdgov:
+    label: Kdgov — PID derivative gain
+    description: 'Speed governor derivative gain [pu·s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Tdgov:
+    label: Tdgov — derivative filter time constant
+    description: 'Derivative controller filter time constant [s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_GGOV1_Tact:
+    label: Tact — actuator time constant
+    description: 'Valve/gate actuator time constant [s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.5
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_GGOV1_T3:
+    label: T3 — fuel system / turbine time constant
+    description: 'Combustor / turbine delay time constant [s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.85
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_GGOV1_Ropen:
+    label: Ropen — valve opening rate limit
+    description: 'Maximum valve opening rate [pu/s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+    unit:
+      constraints:
+        enum:
+        - pu/s
+  GOV_GGOV1_Rclose:
+    label: Rclose — valve closing rate limit
+    description: 'Maximum valve closing rate [pu/s] (negative). GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: -0.1
+    unit:
+      constraints:
+        enum:
+        - pu/s
+  GOV_GGOV1_Kimw:
+    label: Kimw — load control integral gain
+    description: 'Load control / power error integration gain [pu/s]. GGOV1. Set to 0 to disable droop
+      reset.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Aset:
+    label: Aset — acceleration limiter setpoint
+    description: 'Acceleration limiter setpoint [pu/s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.01
+    unit:
+      constraints:
+        enum:
+        - pu/s
+  GOV_GGOV1_Ka:
+    label: Ka — acceleration limiter gain
+    description: 'Acceleration limiter proportional gain [pu]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_GGOV1_Ta:
+    label: Ta — acceleration limiter time constant
+    description: 'Acceleration limiter filter time constant [s]. GGOV1.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_HYGOV_R:
+    label: R — permanent droop
+    description: 'Permanent (steady-state) speed droop [pu]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 0.05
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_HYGOV_r:
+    label: r — temporary droop
+    description: 'Temporary droop [pu]. HYGOV. Provides faster transient response than permanent droop
+      R before decaying via dashpot Tr.
+
+      '
+    value:
+      type: decimal
+      default: 0.3
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_HYGOV_Tr:
+    label: Tr — dashpot reset time constant
+    description: 'Dashpot (temporary droop) reset time constant [s]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 5.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_HYGOV_Tf:
+    label: Tf — pilot valve / gate servo time constant
+    description: 'Pilot valve and gate servo time constant [s]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 0.05
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_HYGOV_Tg:
+    label: Tg — main gate time constant
+    description: 'Main gate (penstock flow) time constant [s]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 0.5
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_HYGOV_Tw:
+    label: Tw — water starting time
+    description: 'Water column (penstock) starting time constant [s]. HYGOV. Tw = L·Q0 / (g·H0·A).
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  GOV_HYGOV_At:
+    label: At — turbine gain
+    description: 'Turbine gain factor [pu]. HYGOV. Ratio of full-gate power to rated power at rated head.
+
+      '
+    value:
+      type: decimal
+      default: 1.2
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_HYGOV_Dturb:
+    label: Dturb — turbine damping
+    description: 'Turbine self-regulation factor [pu power / pu speed]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 0.5
+    unit:
+      constraints:
+        enum:
+        - pu
+  GOV_HYGOV_qNL:
+    label: qNL — no-load flow
+    description: 'No-load water flow at rated head [pu of rated flow]. HYGOV.
+
+      '
+    value:
+      type: decimal
+      default: 0.08
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_Vs_max:
+    label: Vs_max — PSS output upper limit
+    description: 'Upper saturation limit on PSS supplementary voltage output [pu]. Injected at AVR summing
+      junction. Typical: 0.05–0.15 pu.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_Vs_min:
+    label: Vs_min — PSS output lower limit
+    description: 'Lower saturation limit on PSS supplementary voltage output [pu].
+
+      '
+    value:
+      type: decimal
+      default: -0.1
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_STAB1_Kstab:
+    label: Kstab — stabiliser gain
+    description: 'PSS forward path gain [pu]. STAB1 / PSS1A.
+
+      '
+    provenance_ref: IEEE Std 421.5-2016, PSS1A.
+    value:
+      type: decimal
+      default: 20.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_STAB1_Tw:
+    label: Tw — washout time constant
+    description: 'Washout high-pass filter time constant [s]. STAB1. Removes DC and low-frequency components.
+      Typical: 5–20 s.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_STAB1_T1:
+    label: T1 — first lead time constant
+    description: 'First lead-lag stage numerator time constant [s]. STAB1.
+
+      '
+    value:
+      type: decimal
+      default: 0.05
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_STAB1_T2:
+    label: T2 — first lag time constant
+    description: 'First lead-lag stage denominator time constant [s]. STAB1.
+
+      '
+    value:
+      type: decimal
+      default: 0.02
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_STAB1_T3:
+    label: T3 — second lead time constant
+    description: 'Second lead-lag stage numerator time constant [s]. STAB1.
+
+      '
+    value:
+      type: decimal
+      default: 3.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_STAB1_T4:
+    label: T4 — second lag time constant
+    description: 'Second lead-lag stage denominator time constant [s]. STAB1.
+
+      '
+    value:
+      type: decimal
+      default: 5.4
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_Ks1:
+    label: Ks1 — first path gain
+    description: 'Gain of the speed signal path [pu]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 5.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_PSS2A_Ks2:
+    label: Ks2 — second path gain
+    description: 'Gain of the integral-of-accelerating-power path [pu]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.2
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_PSS2A_T6:
+    label: T6 — speed transducer time constant
+    description: 'Rotor speed transducer filter time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T7:
+    label: T7 — power transducer time constant
+    description: 'Active power transducer filter time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 2.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T8:
+    label: T8 — ramp tracking numerator time constant
+    description: 'Ramp-tracking filter numerator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.5
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T9:
+    label: T9 — ramp tracking denominator time constant
+    description: 'Ramp-tracking filter denominator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_M:
+    label: M — ramp tracking numerator order
+    description: 'Integer order M of ramp-tracking numerator (1+s·T8)^M. PSS2A: M=5.
+
+      '
+    value:
+      type: integer
+      default: 5
+      constraints:
+        minimum: 1
+  PSS_PSS2A_N:
+    label: N — ramp tracking denominator order
+    description: 'Integer order N of ramp-tracking denominator (1+s·T9)^N. PSS2A: N=1.
+
+      '
+    value:
+      type: integer
+      default: 1
+      constraints:
+        minimum: 1
+  PSS_PSS2A_Tw1:
+    label: Tw1 — first speed-path washout
+    description: 'First washout time constant on speed signal path [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_Tw2:
+    label: Tw2 — second speed-path washout
+    description: 'Second washout time constant on speed signal path [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_Tw3:
+    label: Tw3 — power-path washout
+    description: 'Washout time constant on integral-of-power path [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T1:
+    label: T1 — first lead time constant
+    description: 'First lead-lag stage numerator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.15
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T2:
+    label: T2 — first lag time constant
+    description: 'First lead-lag stage denominator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T3:
+    label: T3 — second lead time constant
+    description: 'Second lead-lag stage numerator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.15
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2A_T4:
+    label: T4 — second lag time constant
+    description: 'Second lead-lag stage denominator time constant [s]. PSS2A.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_Ks1:
+    label: Ks1 — first path gain
+    description: 'Gain of the speed signal path [pu]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 5.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_PSS2B_Ks2:
+    label: Ks2 — second path gain
+    description: 'Gain of the integral-of-accelerating-power path [pu]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.2
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_PSS2B_Ks3:
+    label: Ks3 — third path gain
+    description: 'Gain of the additional third signal path [pu]. PSS2B only.
+
+      '
+    value:
+      type: decimal
+      default: 1.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  PSS_PSS2B_T6:
+    label: T6 — speed transducer time constant
+    description: 'Rotor speed transducer filter time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T7:
+    label: T7 — power transducer time constant
+    description: 'Active power transducer filter time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 2.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T8:
+    label: T8 — ramp tracking numerator time constant
+    description: 'Ramp-tracking filter numerator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.5
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T9:
+    label: T9 — ramp tracking denominator time constant
+    description: 'Ramp-tracking filter denominator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.1
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_M:
+    label: M — ramp tracking numerator order
+    description: 'Integer order M of ramp-tracking numerator (1+s·T8)^M. PSS2B.
+
+      '
+    value:
+      type: integer
+      default: 5
+      constraints:
+        minimum: 1
+  PSS_PSS2B_N:
+    label: N — ramp tracking denominator order
+    description: 'Integer order N of ramp-tracking denominator (1+s·T9)^N. PSS2B.
+
+      '
+    value:
+      type: integer
+      default: 1
+      constraints:
+        minimum: 1
+  PSS_PSS2B_Tw1:
+    label: Tw1 — first speed-path washout
+    description: 'First washout time constant on speed path [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_Tw2:
+    label: Tw2 — second speed-path washout
+    description: 'Second washout time constant on speed path [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_Tw3:
+    label: Tw3 — power-path washout
+    description: 'Washout on integral-of-power path [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_Tw4:
+    label: Tw4 — fourth washout time constant
+    description: 'Additional washout time constant [s]. PSS2B only.
+
+      '
+    value:
+      type: decimal
+      default: 10.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T1:
+    label: T1 — first lead time constant
+    description: 'First lead-lag stage numerator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.15
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T2:
+    label: T2 — first lag time constant
+    description: 'First lead-lag stage denominator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T3:
+    label: T3 — second lead time constant
+    description: 'Second lead-lag stage numerator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.15
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  PSS_PSS2B_T4:
+    label: T4 — second lag time constant
+    description: 'Second lead-lag stage denominator time constant [s]. PSS2B.
+
+      '
+    value:
+      type: decimal
+      default: 0.03
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  co2_price:
+    comment: CO2 Price is a monetary value assigned to each tonne of carbon dioxide (or CO₂-equivalent)
+      emitted within an energy system. It represents the cost of emitting greenhouse gases and is used
+      to internalize the environmental and societal damages associated with climate change.
+    label: CO2 Price
+    description: CO2 Price is a monetary value assigned to each tonne of carbon dioxide (or CO₂-equivalent)
+      emitted within an energy system. It represents the cost of emitting greenhouse gases and is used
+      to internalize the environmental and societal damages associated with climate change.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/tCO2
+        - CHF/tCO2
+  energy_carrier_cost:
+    description: The monetary cost of the energy carrier per unit of energy, expressed in MU/MWh. Includes
+      production, delivery, and variable operational costs, used for economic dispatch and optimization.
+    label: Energy Carrier Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      default: 0.0
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  cold_start_cost:
+    description: Cost incurred to restart a generator that has been offline for a long period (cold state),
+      expressed in MU. Usually higher than hot start due to additional operational procedures.
+    label: Cold Start Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU
+  hot_start_cost:
+    description: Cost incurred to restart a generator that has been recently offline (hot state), expressed
+      in monitary units. Reflects fuel and operational overhead.
+    label: Hot Start Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU
+  ramping_cost_decrease:
+    description: The cost associated with reducing output power or reducing charging rate, expressed in
+      MonetaryUnits/MW or MonetaryUnits/MW/min. Represents operational constraints or efficiency penalties
+      during ramp-down.
+    label: Ramping Cost Decrease
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  ramping_cost_increase:
+    description: The cost associated with increasing output power, expressed in MU/MW or MU/MW/min. Used
+      in dispatch optimisation to represent wear, thermal cycling, or operational penalties for fast upward
+      ramping.
+    label: Ramping Cost Increase
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MW
+  variable_operating_cost:
+    description: Marginal operating cost per unit of output (or throughput) used in dispatch optimisation.
+    label: Variable Operating Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  value_of_lost_load:
+    description: The economic cost (MU/MWh) assigned to unserved energy demand, representing the penalty
+      for not meeting the load. This parameter quantifies the societal and economic impact of supply interruptions
+      and is heavily used in adequacy and reliability studies.
+    label: Value of Lost Load Cost
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/MWh
+  discount_rate:
+    description: Discount rate applied to investment and cost streams associated with this technology,
+      expressed as a fraction between 0 and 1 (e.g. 0.03 for 3%). May override a global discount rate
+      defined at the Energy System Model level.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  fixed_operating_cost:
+    description: Fixed operation and maintenance (O&M) cost associated with the technology, typically
+      expressed per year and per unit of installed capacity or per unit of technology. Covers costs that
+      do not depend on energy production.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/year
+        - MU/(kW/year)
+        - MU/(MW/year)
+        - MU/unit
+  investment_cost:
+    description: Overnight investment cost of the technology per unit of installed capacity or per unit,
+      depending on the modeling convention. Used together with technical_lifetime and discount_rate for
+      annualized cost calculations.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MU/kW
+        - MU/MW
+        - MU/unit
+  salvage_fraction_value:
+    description: Fraction of the original investment value that is recovered as salvage at the end of
+      the planning horizon, expressed as a fraction between 0 and 1. Used for partial lifetime treatment
+      when the technology lifetime extends beyond the modeled period.
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  net_electrical_efficiency:
+    description: Net electrical efficiency is the ratio of the net electrical energy output of the CHP
+      plant to the total fuel energy input under defined operating conditions. It quantifies the plant’s
+      effectiveness in converting input fuel energy into electricity.
+    label: Net Electrical Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: float
+      default: 0.35
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  net_thermal_efficiency:
+    description: Net thermal efficiency is the ratio of the useful thermal energy output of the CHP plant
+      to the total fuel energy input. It represents the portion of input fuel energy recovered as usable
+      heat.
+    label: Net Thermal Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      default: 0.45
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  rated_electrical_power_capacity:
+    description: Electrical power capacity is the maximum continuous electrical output a device can deliver
+      under specified conditions, typically expressed in kilowatts (kW) or megawatts (MW).
+    label: Rated Electrical Power Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  rated_thermal_output_capacity:
+    description: Thermal power capacity is the maximum useful thermal power that a device can deliver
+      (as steam, hot water, or process heat) to an external heat network or process under defined operation.
+    label: Rated Thermal Output Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  energy_conversion_efficiency:
+    description: Ratio of useful output energy to input energy, expressed as a fraction (0–1). Determines
+      efficiency of energy conversion processes.
+    label: Energy Conversion Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  generator_technology_type:
+    description: Generation technology category when no GeneratorType library entity is referenced.
+    label: Generator Technology Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+  hydro_machine_kind:
+    description: 'Hydro machine class for dispatch: turbine = generation-only; pump = pump-only (consumes
+      electricity to move water); reversible = pump-turbine that can operate in both modes. Distinct from
+      turbine_type (Francis/Kaplan/…) and GeneratorType.
+
+      '
+    label: Hydro Machine Kind
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - turbine
+        - pump
+        - reversible
+  machine_role:
+    description: 'Legacy alias for hydro_machine_kind. Remapped on import; not declared on HydroGenerationUnit.
+
+      '
+    label: Hydro Machine Role (legacy)
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - turbine
+        - pump
+        - reversible
+  nominal_power_capacity:
+    description: Maximum instantaneous power that the conversion unit can deliver or absorb, in MW. Defines
+      operational limits for dispatch.
+    label: Nominal Power Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  charging_efficiency:
+    description: The fraction of input energy that is successfully stored during the charging process,
+      expressed as a value between 0 and 1. Accounts for losses in power electronics, conversion stages,
+      and internal storage mechanisms.
+    label: Charging Energy Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  turbine_efficiency:
+    description: The fraction of hydraulic energy converted into useful electrical output by the turbine
+      or turbine-generator set, expressed as a value between 0 and 1. Applies to HydroGenerationUnit and
+      avoids storage-discharge semantics.
+    label: Turbine Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  discharging_efficiency:
+    description: The fraction of stored energy that can be delivered as useful output during the discharging
+      process, expressed as a value between 0 and 1. Represents conversion losses, internal resistance,
+      and inverter losses.
+    label: Discharging Energy Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  minimum_generation:
+    description: 'The minimum active power output that the generation entity can continuously produce
+      while remaining in stable operation. This value represents the lower operational dispatch limit
+      of the generator and is typically expressed in MW.
+
+      '
+    label: Minimum Generation
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  maximum_generation:
+    description: 'The maximum active power output that the generation entity can produce under normal
+      operating conditions. This value represents the upper operational dispatch limit of the generator
+      and is typically expressed in MW.
+
+      '
+    label: Maximum Generation
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  active_power_setpoint:
+    description: 'The target active power output assigned to the generator within the power flow calculation.
+      This value defines the scheduled real power injection of the generator into the electrical network
+      and is typically expressed in MW.
+
+      '
+    label: Active Power Setpoint
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_setpoint:
+    description: 'The target reactive power output assigned to the generator within the power flow calculation.
+      This value defines the scheduled reactive power injection used for voltage support and reactive
+      power balancing in the electrical network and is typically expressed in MVAr.
+
+      '
+    label: Reactive Power Setpoint
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  maximum_active_power_output:
+    description: 'Maximum active power output of a generator in power-flow or OPF formulations. This corresponds
+      to MATPOWER QMAX and is expressed in MW.
+
+      '
+    label: Maximum active Power Output
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  minimum_active_power_output:
+    description: 'Minimum active power output of a generator in power-flow or OPF formulations. This corresponds
+      to MATPOWER QMIN and is expressed in MW.
+
+      '
+    label: Minimum active Power Output
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  maximum_reactive_power_output:
+    description: 'Maximum reactive power output of a generator in power-flow or OPF formulations. This
+      corresponds to MATPOWER QMAX and is expressed in MVAr.
+
+      '
+    label: Maximum Reactive Power Output
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  minimum_reactive_power_output:
+    description: 'Minimum reactive power output of a generator in power-flow or OPF formulations. This
+      corresponds to MATPOWER QMIN and is expressed in MVAr.
+
+      '
+    label: Minimum Reactive Power Output
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  voltage_magnitude_setpoint:
+    description: 'The target voltage magnitude maintained by the generator at its connected network node
+      during the power flow analysis. This value is commonly used for PV bus modelling and voltage regulation
+      studies and is typically expressed in per unit.
+
+      '
+    label: Voltage Setpoint
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  voltage_angle_setpoint:
+    description: 'The voltage phase angle associated with the generator bus within the power flow solution.
+      The voltage angle represents the phase displacement of the bus voltage relative to the system reference
+      angle and is typically expressed in degrees.
+
+      '
+    label: Voltage Angle
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - deg
+  hub_height:
+    description: 'Height of the wind turbine hub above ground level. Determines the wind speed at rotor
+      height via the wind shear profile, and therefore directly affects annual energy yield. Instance-specific:
+      two turbines of the same type may have different hub heights depending on site conditions. '
+    label: Hub Height
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - m
+  rotor_diameter:
+    description: 'Diameter of the wind turbine rotor. Together with hub_height, determines the swept area
+      and the rated power curve. Instance-specific. '
+    label: Rotor Diameter
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - m
+  installation_type:
+    description: 'Installation category of the wind turbine. Determines foundation type, accessibility,
+      and O&M cost profile. Allowed values: onshore, offshore, floating_offshore. '
+    label: Installation Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - onshore
+        - offshore
+        - floating_offshore
+  number_of_turbines:
+    description: 'Number of individual wind turbines within this GenerationUnit (wind farm). Used to derive
+      per-turbine statistics and wake-loss modelling. '
+    label: Number of Turbines
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+      constraints:
+        minimum: 1
+  tilt_angle:
+    description: 'Tilt angle of the solar panels relative to the horizontal plane. 0° = horizontal, 90°
+      = vertical. Optimal value depends on latitude and tracking system. Instance-specific. '
+    label: Tilt Angle
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 90.0
+    unit:
+      constraints:
+        enum:
+        - deg
+  azimuth_angle:
+    description: 'Azimuth orientation of the solar panels. Measured clockwise from north: 0° = north,
+      90° = east, 180° = south, 270° = west. 180° (south-facing) is optimal in the northern hemisphere. '
+    label: Azimuth Angle
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 360.0
+    unit:
+      constraints:
+        enum:
+        - deg
+  tracking_type:
+    description: 'Tracking system of the solar installation. Fixed systems have no moving parts. Single-axis
+      trackers follow the sun east-west. Dual-axis trackers follow both elevation and azimuth. Allowed
+      values: fixed, single_axis, dual_axis. '
+    label: Tracking Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - fixed
+        - single_axis
+        - dual_axis
+  panel_technology:
+    description: 'Photovoltaic cell technology or solar thermal technology type. Determines efficiency,
+      degradation rate, and temperature coefficient. Allowed values: monocrystalline, polycrystalline,
+      thin_film, csp. '
+    label: Panel Technology
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - monocrystalline
+        - polycrystalline
+        - thin_film
+        - csp
+  hydraulic_head:
+    description: 'Net hydraulic head available at the turbine under design conditions. Determines the
+      theoretical power output together with flow rate and turbine efficiency. Instance-specific: depends
+      on reservoir level and tailwater. '
+    label: Hydraulic Head
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - m
+  turbine_type:
+    description: Hydro turbine family (Francis, Kaplan, Pelton, …) for a HydroGenerationUnit.
+    label: Turbine Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - pelton
+        - francis
+        - kaplan
+        - bulb
+        - reversible_francis
+        - ternary
+        - quaternary
+  commissioning_year:
+    description: 'Year in which the generation unit was first commissioned and became commercially operational.
+      Instance-specific: determines actual age, real efficiency relative to nameplate, and remaining technical
+      lifetime. Distinct from commission_date (which carries the full date) — year alone is sufficient
+      for most planning and ageing models. '
+    label: Commissioning Year
+    provenance_ref: Define the provenance here.
+    value:
+      type: integer
+      constraints:
+        minimum: 1900
+        maximum: 2100
+  cooling_type:
+    description: Cooling system type for a thermal plant (once-through, tower, air, …).
+    label: Cooling Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - once_through
+        - cooling_tower
+        - air_cooled
+  reactor_type:
+    description: 'Nuclear reactor technology type. Determines neutron spectrum, coolant, moderator, fuel
+      cycle, and safety characteristics. PWR: pressurised water reactor (most common globally). BWR: boiling
+      water reactor. PHWR: pressurised heavy-water reactor (e.g. CANDU). SMR: small modular reactor (<300
+      MWe). Allowed values: PWR, BWR, PHWR, SMR. '
+    label: Reactor Type
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - PWR
+        - BWR
+        - PHWR
+        - SMR
+  thermal_capacity:
+    description: 'Gross thermal power output of the nuclear reactor core under rated conditions. The electrical
+      output is thermal_capacity multiplied by the net electrical efficiency. Relevant for thermal discharge
+      licensing and fuel management. '
+    label: Thermal Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW_th
+  is_reversible:
+    description: 'Legacy boolean formerly used on HydroGenerationUnit for PHS pump-turbines. Prefer hydro_machine_kind
+      = reversible. Remapped on import when true; not declared on current HydroGenerationUnit schemas.
+
+      '
+    label: Is Reversible (PHS, legacy)
+    provenance_ref: Define the provenance here.
+    value:
+      type: boolean
+  converter_technology:
+    description: HVDC converter technology classification, e.g. LCC or VSC.
+    label: Converter Technology
+    provenance_ref: Define the provenance here.
+    value:
+      type: string
+      constraints:
+        enum:
+        - LCC
+        - VSC
+  converged:
+    description: Whether the power-flow solver reached a converged solution.
+    label: Converged
+    value:
+      type: boolean
+  iteration_count:
+    description: Number of iterations the power-flow solver took to converge (or reach its iteration limit).
+    label: Iteration Count
+    value:
+      type: integer
+      constraints:
+        minimum: 0
+  convergence_tolerance:
+    description: Mismatch tolerance the power-flow solver was configured to converge to [pu].
+    label: Convergence Tolerance
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  integration_method:
+    description: Numerical integration scheme used for the time-domain simulation (e.g. trapezoidal, RK4).
+    label: Integration Method
+    value:
+      type: string
+  simulation_timestep_seconds:
+    description: Fixed integration timestep of the dynamic simulation [s].
+    label: Simulation Timestep
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  simulation_duration_seconds:
+    description: Total simulated time span of the dynamic run [s].
+    label: Simulation Duration
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  voltage_magnitude:
+    description: Bus voltage magnitude from a single power-flow snapshot [pu].
+    label: Voltage Magnitude
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - pu
+  voltage_angle:
+    description: Bus voltage angle from a single power-flow snapshot, relative to the slack bus [deg].
+    label: Voltage Angle
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - deg
+  net_active_power_injection:
+    description: Net active power injection at the bus as solved by the power flow [MW].
+    label: Active Power Injection
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  net_reactive_power_injection:
+    description: Net reactive power injection at the bus as solved by the power flow [MVAr].
+    label: Reactive Power Injection
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  average_voltage_magnitude:
+    description: Time-averaged bus voltage magnitude over the power-flow run [pu].
+    label: Average Voltage Magnitude
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - pu
+  min_voltage_magnitude:
+    description: Minimum bus voltage magnitude observed over the power-flow run [pu].
+    label: Min Voltage Magnitude
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - pu
+  max_voltage_magnitude:
+    description: Maximum bus voltage magnitude observed over the power-flow run [pu].
+    label: Max Voltage Magnitude
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - pu
+  active_power_flow_from:
+    description: Active power flow into the branch at its "from" end, from a single power-flow snapshot
+      [MW].
+    label: Active Power Flow (From)
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_flow_from:
+    description: Reactive power flow into the branch at its "from" end, from a single power-flow snapshot
+      [MVAr].
+    label: Reactive Power Flow (From)
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  active_power_flow_to:
+    description: Active power flow into the branch at its "to" end, from a single power-flow snapshot
+      [MW].
+    label: Active Power Flow (To)
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_flow_to:
+    description: Reactive power flow into the branch at its "to" end, from a single power-flow snapshot
+      [MVAr].
+    label: Reactive Power Flow (To)
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  active_power_loss:
+    description: Instantaneous active power loss on the branch, from a single power-flow snapshot [MW].
+    label: Active Power Loss
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_loss:
+    description: Instantaneous reactive power loss (or generation, for a line's charging) on the branch,
+      from a single power-flow snapshot [MVAr].
+    label: Reactive Power Loss
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  current_magnitude:
+    description: Branch current magnitude from a single power-flow snapshot [kA].
+    label: Current Magnitude
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kA
+  loading_percent:
+    description: Thermal loading relative to rated capacity from a single power-flow snapshot [%].
+    label: Loading
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%'
+  average_loading_percent:
+    description: Time-averaged thermal loading relative to rated capacity [%].
+    label: Average Loading
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%'
+  max_loading_percent:
+    description: Maximum thermal loading relative to rated capacity observed over the power-flow run [%].
+    label: Max Loading
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - '%'
+  total_active_power_loss:
+    description: Total active-power loss on the element, integrated over the power-flow run.
+    label: Total Active Power Loss
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MWh
+  active_power_output:
+    description: Active power output at the generator as solved by the power flow [MW]. Typically an input
+      at PV/PQ buses (equal to the dispatch setpoint) but solved by the power flow at the slack bus, to
+      balance system losses.
+    label: Active Power Output
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MW
+  reactive_power_output:
+    description: Reactive power output at the generator as solved by the power flow [MVAr]. Solved (not
+      an input) at PV/slack buses, to hold the bus voltage setpoint.
+    label: Reactive Power Output
+    value:
+      type: decimal
+    unit:
+      constraints:
+        enum:
+        - MVAr
+  max_rotor_angle_deviation:
+    description: Maximum rotor-angle deviation from the pre-disturbance operating point during the simulation
+      [deg].
+    label: Max Rotor Angle Deviation
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - deg
+  max_speed_deviation:
+    description: Maximum rotor speed deviation from nominal during the simulation [pu].
+    label: Max Speed Deviation
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - pu
+  settling_time_seconds:
+    description: Time after the disturbance for oscillations to settle within a defined band, or null
+      if the run did not settle [s].
+    label: Settling Time
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - s
+  remained_stable:
+    description: Whether the machine remained in synchronism for the full simulated duration.
+    label: Remained Stable
+    value:
+      type: boolean
+  nominal_electrical_power_capacity:
+    description: Maximum electrical power (output or input rating) of a compact ConversionUnit such as
+      CHPUnit, FuelCellUnit, HeatPumpUnit, or ElectrolyserUnit.
+    label: Nominal Electrical Power Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  nominal_thermal_power_capacity:
+    description: Maximum useful heat output of a compact ConversionUnit such as CHPUnit, HeatPumpUnit,
+      BoilerUnit, or FuelCellUnit (when heat is modelled).
+    label: Nominal Thermal Power Capacity
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - MW
+  electrical_efficiency:
+    description: Ratio of electrical energy output to fuel (or other input) energy for a compact
+      ConversionUnit such as CHPUnit or FuelCellUnit.
+    label: Electrical Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  thermal_efficiency:
+    description: Ratio of useful heat output to fuel (or other input) energy for a compact ConversionUnit
+      such as CHPUnit, BoilerUnit, or FuelCellUnit.
+    label: Thermal Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  coefficient_of_performance:
+    description: Ratio of useful heat output to electrical energy input for a heat pump (COP). Values
+      greater than 1 are typical; not constrained to the unit interval.
+    label: Coefficient of Performance
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+  total_efficiency:
+    description: Combined useful electrical and thermal output divided by fuel energy input.
+    label: Total Efficiency
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  power_to_heat_ratio:
+    description: Ratio of electrical output to useful heat output of a compact ConversionUnit such as
+      CHPUnit or FuelCellUnit.
+    label: Power-to-Heat Ratio
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  minimum_load:
+    description: Minimum stable operating load as a fraction of nominal electrical power.
+    label: Minimum Load
+    provenance_ref: Define the provenance here.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction

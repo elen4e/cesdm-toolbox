@@ -1,0 +1,29 @@
+name: NetworkNode
+parents:
+- SemanticEntity
+description: "Abstract topological balance point within a CarrierDomain where a carrier is injected, withdrawn,
+  or exchanged.\nNot a SystemAsset — nodes are the \"where\", assets the \"what\". Spatial coordinates
+  and belongsToGeographicalRegion are declared here; carrier operating points (voltage, pressure, …) live on typed buses.\n"
+
+attributes:
+- id: latitude
+  required: false
+  belongsToGroup: [spatial]
+- id: longitude
+  required: false
+  belongsToGroup: [spatial]
+- id: elevation
+  required: false
+  belongsToGroup: [spatial]
+relations:
+- id: belongsToGeographicalRegion
+  required: false
+  belongsToGroup: [spatial]
+- id: belongsToMarketZone
+  required: false
+  belongsToGroup: [spatial]
+  target: MarketZone
+- id: belongsToCarrierDomain
+  required: true
+  target: CarrierDomain
+abstract: true

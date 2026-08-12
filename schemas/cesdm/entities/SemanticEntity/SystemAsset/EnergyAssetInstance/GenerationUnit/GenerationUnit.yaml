@@ -1,0 +1,138 @@
+name: GenerationUnit
+parents:
+- EnergyAssetInstance
+description: >
+  Deployed generation asset with topology, dispatch, and optional dynamics data.
+  Technology-specific design attributes live on subclasses (Hydro-, Wind-, Solar-,
+  ThermalGenerationUnit); shared dispatch/topology fields stay here.
+
+  Carrier rule: the injected carrier is implied by atNode → CarrierDomain when a
+  single-carrier bus is attached. Optional hasInputCarrier / hasOutputCarrier are
+  overrides for imports or multi-fuel cases. Bus classification (PQ/PV/slack) lives
+  on ElectricalBus.powerflow_bus_type, not on the generator.
+
+relations:
+- id: usesDynamicModelType
+  required: false
+  belongsToGroup:
+  - dynamics
+  target: DynamicMachineModelType
+- id: hasTechnology
+  required: false
+  target: GeneratorType
+- id: hasInputResource
+  required: false
+  target: NaturalResource
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasOutputCarrier
+  required: false
+  target: Carrier
+- id: hasAvailabilityProfile
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: atNode
+  required: false
+  belongsToGroup:
+  - topology
+- id: hasAutomaticVoltageRegulator
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: hasTurbineGovernor
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: hasPowerSystemStabilizer
+  required: false
+  belongsToGroup:
+  - dynamics
+attributes:
+- id: rated_voltage
+  required: false
+  belongsToGroup:
+  - technical
+  - dynamics
+- id: rated_apparent_power
+  required: false
+  belongsToGroup:
+  - technical
+  - dynamics
+- id: generator_technology_type
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: nominal_power_capacity
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: minimum_generation
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: maximum_generation
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: variable_operating_cost
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: energy_conversion_efficiency
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: annual_resource_potential
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: dispatch_type
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup:
+  - dispatch
+- id: voltage_magnitude_setpoint
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: voltage_angle_setpoint
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: active_power_setpoint
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: reactive_power_setpoint
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: maximum_active_power_output
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: minimum_active_power_output
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: maximum_reactive_power_output
+  required: false
+  belongsToGroup:
+  - power_flow
+- id: minimum_reactive_power_output
+  required: false
+  belongsToGroup:
+  - power_flow

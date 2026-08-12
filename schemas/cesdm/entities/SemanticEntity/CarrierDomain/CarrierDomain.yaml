@@ -1,0 +1,15 @@
+name: CarrierDomain
+parents:
+- SemanticEntity
+description: 'Represents a homogeneous flow domain in which all connected assets exchange,
+  transport, inject, or withdraw the same Carrier. A CarrierDomain acts as the
+  topological scope within which mass or energy balance is enforced. Every Bus (network
+  node) belongs to exactly one CarrierDomain.
+
+  Examples: an AC electricity domain, a district heating domain, a hydrogen pipeline
+  domain, a natural gas domain.
+
+  '
+relations:
+- id: hasCarrier
+  required: true

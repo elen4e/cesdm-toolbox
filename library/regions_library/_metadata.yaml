@@ -1,0 +1,5 @@
+description: "CESDM regions & market-zone library — Eurostat NUTS 0–3 GeographicalRegion entities (name,\
+  \ long_name, description, region_level, nuts_code, iso_country_code, isSubRegionOf) plus ENTSO-E-style\
+  \ MarketZone entities.\n\nImport after the default library (carriers are referenced by market zones):\n\
+  \n    model.import_library('library/default_library')\n    model.import_library('library/regions_library')\n\
+  \nRegenerate from the NUTS shapefile with:\n    python tools/generate_regions_library.py\n"

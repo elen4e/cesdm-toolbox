@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" role="img" aria-labelledby="title desc">
+  <title id="title">Direct bilateral tool-to-tool exchange</title>
+  <desc id="desc">PyPSA, Calliope, OSeMOSYS, and an in-house framework are connected pairwise. Every pair requires its own bilateral data mapping.</desc>
+  <style>
+    .title { font: 700 30px Inter, Arial, sans-serif; fill: #0F172A; }
+    .subtitle { font: 500 16px Inter, Arial, sans-serif; fill: #475569; }
+    .label { font: 700 20px Inter, Arial, sans-serif; fill: #0F172A; }
+    .small { font: 500 14px Inter, Arial, sans-serif; fill: #64748B; }
+    .mapping { font: 600 13px Inter, Arial, sans-serif; fill: #475569; }
+    .line { stroke: #64748B; stroke-width: 2.5; fill: none; marker-start: url(#arrow-left); marker-end: url(#arrow-right); }
+  </style>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="11" flood-color="#0F172A" flood-opacity="0.13"/>
+    </filter>
+    <marker id="arrow-left" markerWidth="10" markerHeight="10" refX="1" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M10,0 L0,5 L10,10 z" fill="#64748B"/>
+    </marker>
+    <marker id="arrow-right" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748B"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="620" rx="24" fill="#F8FAFC"/>
+  <text x="600" y="48" text-anchor="middle" class="title">Direct tool-to-tool exchange</text>
+  <text x="600" y="77" text-anchor="middle" class="subtitle">Every tool pair needs a dedicated bilateral mapping</text>
+
+  <!-- Outer bilateral mappings -->
+  <path d="M385 180 L815 180" class="line"/>
+  <path d="M290 235 L290 385" class="line"/>
+  <path d="M910 235 L910 385" class="line"/>
+  <path d="M385 440 L815 440" class="line"/>
+
+  <!-- Cross mappings: curved in opposite directions for readability -->
+  <path d="M372 218 C520 268 680 352 828 402" class="line"/>
+  <path d="M828 218 C680 268 520 352 372 402" class="line"/>
+
+  <!-- Mapping labels -->
+  <g>
+    <rect x="497" y="161" width="206" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="600" y="180" text-anchor="middle" class="mapping">PyPSA ↔ Calliope</text>
+
+    <rect x="175" y="296" width="230" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="290" y="315" text-anchor="middle" class="mapping">PyPSA ↔ OSeMOSYS</text>
+
+    <rect x="785" y="296" width="250" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="910" y="315" text-anchor="middle" class="mapping">Calliope ↔ In-house</text>
+
+    <rect x="487" y="421" width="226" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="600" y="440" text-anchor="middle" class="mapping">OSeMOSYS ↔ In-house</text>
+
+    <rect x="620" y="276" width="206" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="723" y="295" text-anchor="middle" class="mapping">PyPSA ↔ In-house</text>
+
+    <rect x="374" y="316" width="226" height="28" rx="14" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <text x="487" y="335" text-anchor="middle" class="mapping">Calliope ↔ OSeMOSYS</text>
+  </g>
+
+  <!-- Tool cards -->
+  <g filter="url(#shadow)">
+    <rect x="195" y="125" width="190" height="110" rx="22" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="815" y="125" width="190" height="110" rx="22" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="195" y="385" width="190" height="110" rx="22" fill="#FFFFFF" stroke="#CBD5E1"/>
+    <rect x="815" y="385" width="190" height="110" rx="22" fill="#FFFFFF" stroke="#CBD5E1"/>
+  </g>
+
+  <!-- Tool card content (centered in each box) -->
+  <g>
+    <!-- PyPSA — top left -->
+    <circle cx="290" cy="155" r="20" fill="#DBEAFE"/>
+    <path d="M280 155h20M290 145v20" stroke="#2563EB" stroke-width="3" stroke-linecap="round"/>
+    <text x="290" y="192" text-anchor="middle" class="label">PyPSA</text>
+    <text x="290" y="214" text-anchor="middle" class="small">native format</text>
+
+    <!-- Calliope — top right -->
+    <circle cx="910" cy="155" r="20" fill="#DCFCE7"/>
+    <path d="M900 148h20v14h-20z M905 143h10" stroke="#16A34A" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="910" y="192" text-anchor="middle" class="label">Calliope</text>
+    <text x="910" y="214" text-anchor="middle" class="small">native format</text>
+
+    <!-- OSeMOSYS — bottom left -->
+    <circle cx="290" cy="415" r="20" fill="#FEF3C7"/>
+    <path d="M279 421l8-12 7 8 7-11" stroke="#D97706" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="290" y="452" text-anchor="middle" class="label">OSeMOSYS</text>
+    <text x="290" y="474" text-anchor="middle" class="small">native format</text>
+
+    <!-- In-house — bottom right -->
+    <circle cx="910" cy="415" r="20" fill="#F3E8FF"/>
+    <path d="M899 404h22v22h-22z M905 410h10M905 416h10M905 422h6" stroke="#9333EA" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="910" y="452" text-anchor="middle" class="label">In-house</text>
+    <text x="910" y="474" text-anchor="middle" class="small">custom format</text>
+  </g>
+
+  <rect x="275" y="548" width="650" height="42" rx="21" fill="#FFF7ED" stroke="#FDBA74"/>
+  <text x="600" y="574" text-anchor="middle" class="subtitle">4 tools require 6 separately maintained bilateral mappings</text>
+</svg>

@@ -1,0 +1,44 @@
+name: ElectrolyserUnit
+parents:
+- ConversionUnit
+description: >
+  Compact electricity → hydrogen conversion unit with typed electricity and hydrogen node relations.
+
+  For arbitrary MxN conversion use GenericConversionUnit with ConversionPort.
+attributes:
+- id: energy_conversion_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: nominal_electrical_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: minimum_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup: [capacity_expansion]
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasHydrogenOutputCarrier
+  required: false
+  target: Carrier
+- id: atElectricityNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus
+- id: atHydrogenNode
+  required: false
+  belongsToGroup: [topology]
+  target: HydrogenBus

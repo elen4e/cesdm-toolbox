@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1156" viewBox="0 0 1200 1156" role="img" aria-labelledby="title desc">
+  <title id="title">What a CESDM model is</title>
+  <desc id="desc">Three layers: a layman summary of the system, a single-line diagram with an Interconnector, then entity cards (three per row) explaining each piece in plain language.</desc>
+
+  <defs>
+    <style>
+      .title { font: 700 26px Inter, Arial, sans-serif; fill: #0F172A; }
+      .subtitle { font: 500 14px Inter, Arial, sans-serif; fill: #475569; }
+      .layer { font: 700 13px Inter, Arial, sans-serif; fill: #16806F; }
+      .layer-sub { font: 500 12px Inter, Arial, sans-serif; fill: #64748B; }
+      .layman { font: 500 15px Inter, Arial, sans-serif; fill: #0F172A; }
+      .layman-em { font: 600 15px Inter, Arial, sans-serif; fill: #0F172A; }
+      .sld-label { font: 600 13px Inter, Arial, sans-serif; fill: #0F172A; }
+      .sld-id { font: 500 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #64748B; }
+      .ent { font: 700 14px Inter, Arial, sans-serif; fill: #0F172A; }
+      .id { font: 500 11px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #64748B; }
+      .sec { font: 700 11px Inter, Arial, sans-serif; fill: #64748B; }
+      .kv { font: 500 13px Inter, Arial, sans-serif; fill: #334155; }
+      .chip-title { font: 600 14px Inter, Arial, sans-serif; fill: #0F172A; }
+      .chip-body { font: 500 12px Inter, Arial, sans-serif; fill: #475569; }
+      .panel-layman { fill: #FFFBEB; stroke: #F59E0B; stroke-width: 2.2; }
+      .panel { fill: #EEF7F5; stroke: #16806F; stroke-width: 2.2; }
+      .panel2 { fill: #F1F5F9; stroke: #94A3B8; stroke-width: 2; }
+      .asset { fill: #FFFFFF; stroke: #94A3B8; stroke-width: 2; }
+      .bus { fill: #DBEAFE; stroke: #2563EB; stroke-width: 2.5; }
+      .stor { fill: #FEF3C7; stroke: #D97706; stroke-width: 2; }
+      .branch { stroke: #64748B; stroke-width: 4; stroke-linecap: round; fill: none; }
+      .flow { stroke: #2563EB; stroke-width: 2.4; fill: none; marker-end: url(#arrow); }
+      .card { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; }
+      .card-bus { fill: #EFF6FF; stroke: #2563EB; stroke-width: 2; }
+      .card-stor { fill: #FFFBEB; stroke: #D97706; stroke-width: 2; }
+      .card-ix { fill: #F8FAFC; stroke: #64748B; stroke-width: 2; }
+      .chip { fill: #FFFFFF; stroke: #CBD5E1; stroke-width: 2; }
+      .chip-accent { fill: #F0FDF4; stroke: #86EFAC; stroke-width: 2; }
+    </style>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="5" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#2563EB"/>
+    </marker>
+    <marker id="arrowStart" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto">
+      <path d="M8,0 L0,4 L8,8 z" fill="#D97706"/>
+    </marker>
+    <marker id="arrowEndStor" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 z" fill="#D97706"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="1156" rx="24" fill="#F8FAFC"/>
+
+  <text x="600" y="34" text-anchor="middle" class="title">A semantic description of the energy system</text>
+  <text x="600" y="54" text-anchor="middle" class="subtitle">Schema-defined · tool-independent · not an analysis engine</text>
+
+  <!-- ========== LAYER 0 / top: layman story ========== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="68" width="1120" height="136" rx="18" class="panel-layman"/>
+  </g>
+  <text x="64" y="94" class="layer">In plain words</text>
+  <text x="64" y="120" class="layman">A small electricity system with a wind farm, a battery at the same connection point,</text>
+  <text x="64" y="142" class="layman">and a link to a neighbouring point where demand is served. CESDM does not run this</text>
+  <text x="64" y="164" class="layman">system — it <tspan class="layman-em">describes</tspan> the pieces, their properties, and how they connect,</text>
+  <text x="64" y="186" class="layman">in a form any tool can share.</text>
+
+  <!-- ========== LAYER 1: SLD ========== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="224" width="1120" height="260" rx="18" class="panel"/>
+  </g>
+  <text x="64" y="248" class="layer">Layer 1 · Single-line diagram (topology)</text>
+  <text x="64" y="266" class="layer-sub">Physical connectivity — assets, buses, and one Interconnector</text>
+
+  <rect x="80" y="292" width="150" height="52" rx="12" class="asset"/>
+  <text x="155" y="314" text-anchor="middle" class="sld-label">GenerationUnit</text>
+  <text x="155" y="332" text-anchor="middle" class="sld-id">gen.demo.wind</text>
+
+  <path d="M230 318 L278 318" class="flow"/>
+
+  <circle cx="320" cy="318" r="30" class="bus"/>
+  <text x="320" y="314" text-anchor="middle" class="sld-label">Bus A</text>
+  <text x="320" y="330" text-anchor="middle" class="sld-id">bus.A</text>
+
+  <!-- Bus A <-> StorageUnit (bidirectional, longer stub) -->
+  <path d="M320 350 L320 415" fill="none" stroke="#D97706" stroke-width="2.6"
+        marker-start="url(#arrowStart)" marker-end="url(#arrowEndStor)"/>
+  <text x="338" y="385" class="layer-sub">↔ charge / discharge</text>
+  <rect x="245" y="418" width="150" height="48" rx="10" class="stor"/>
+  <text x="320" y="438" text-anchor="middle" class="sld-label">StorageUnit</text>
+  <text x="320" y="456" text-anchor="middle" class="sld-id">stor.demo.battery</text>
+
+  <line x1="350" y1="318" x2="548" y2="318" class="branch"/>
+  <rect x="388" y="290" width="122" height="26" rx="8" class="asset"/>
+  <text x="449" y="308" text-anchor="middle" class="sld-label">Interconnector</text>
+  <text x="449" y="348" text-anchor="middle" class="sld-id">ix.A-B</text>
+
+  <circle cx="590" cy="318" r="30" class="bus"/>
+  <text x="590" y="314" text-anchor="middle" class="sld-label">Bus B</text>
+  <text x="590" y="330" text-anchor="middle" class="sld-id">bus.B</text>
+
+  <path d="M620 318 L688 318" class="flow"/>
+
+  <rect x="690" y="292" width="150" height="52" rx="12" class="asset"/>
+  <text x="765" y="314" text-anchor="middle" class="sld-label">DemandUnit</text>
+  <text x="765" y="332" text-anchor="middle" class="sld-id">dem.demo.elec</text>
+
+
+  <!-- ========== LAYER 2: 3 boxes per row ========== -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="504" width="1120" height="490" rx="18" class="panel2"/>
+  </g>
+  <text x="64" y="528" class="layer">Layer 2 · Same pieces, in plain language</text>
+  <text x="64" y="546" class="layer-sub">What each part is like, and how the pieces connect — matching the diagram above</text>
+
+  <!-- Row 1 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="566" width="350" height="195" rx="14" class="card"/>
+  </g>
+  <text x="235" y="592" text-anchor="middle" class="ent">Wind farm</text>
+  <text x="235" y="610" text-anchor="middle" class="id">GenerationUnit · gen.demo.wind</text>
+  <text x="78" y="636" class="sec">about it</text>
+  <text x="78" y="656" class="kv">Can deliver up to 50 MW</text>
+  <text x="78" y="688" class="sec">how it connects</text>
+  <text x="78" y="708" class="kv">Attached to bus.A</text>
+  <text x="78" y="726" class="kv">Uses a wind availability profile</text>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="566" width="350" height="195" rx="14" class="card-bus"/>
+  </g>
+  <text x="600" y="592" text-anchor="middle" class="ent">Connection point A</text>
+  <text x="600" y="610" text-anchor="middle" class="id">ElectricalBus · bus.A</text>
+  <text x="443" y="636" class="sec">about it</text>
+  <text x="443" y="656" class="kv">Operates at 20 kV</text>
+  <text x="443" y="688" class="sec">how it connects</text>
+  <text x="443" y="708" class="kv">Located in Switzerland</text>
+
+  <g filter="url(#shadow)">
+    <rect x="790" y="566" width="350" height="195" rx="14" class="card-stor"/>
+  </g>
+  <text x="965" y="592" text-anchor="middle" class="ent">Battery</text>
+  <text x="965" y="610" text-anchor="middle" class="id">StorageUnit · stor.demo.battery</text>
+  <text x="808" y="636" class="sec">about it</text>
+  <text x="808" y="656" class="kv">Charge/discharge up to 10 MW</text>
+  <text x="808" y="674" class="kv">Can store 40 MWh</text>
+  <text x="808" y="700" class="sec">how it connects</text>
+  <text x="808" y="720" class="kv">Attached to bus.A</text>
+  <text x="808" y="738" class="kv">Battery technology</text>
+
+  <!-- Row 2 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="778" width="350" height="195" rx="14" class="card-ix"/>
+  </g>
+  <text x="235" y="804" text-anchor="middle" class="ent">Link between the points</text>
+  <text x="235" y="822" text-anchor="middle" class="id">Interconnector · ix.A-B</text>
+  <text x="78" y="848" class="sec">about it</text>
+  <text x="78" y="868" class="kv">Can transfer up to 100 MW</text>
+  <text x="78" y="900" class="sec">how it connects</text>
+  <text x="78" y="920" class="kv">Joins bus.A to bus.B</text>
+
+  <g filter="url(#shadow)">
+    <rect x="425" y="778" width="350" height="195" rx="14" class="card-bus"/>
+  </g>
+  <text x="600" y="804" text-anchor="middle" class="ent">Connection point B</text>
+  <text x="600" y="822" text-anchor="middle" class="id">ElectricalBus · bus.B</text>
+  <text x="443" y="848" class="sec">about it</text>
+  <text x="443" y="868" class="kv">Operates at 20 kV</text>
+  <text x="443" y="900" class="sec">how it connects</text>
+  <text x="443" y="920" class="kv">Located in Switzerland</text>
+
+  <g filter="url(#shadow)">
+    <rect x="790" y="778" width="350" height="195" rx="14" class="card"/>
+  </g>
+  <text x="965" y="804" text-anchor="middle" class="ent">Electricity demand</text>
+  <text x="965" y="822" text-anchor="middle" class="id">DemandUnit · dem.demo.elec</text>
+  <text x="808" y="848" class="sec">about it</text>
+  <text x="808" y="868" class="kv">Needs 100000 MWh per year</text>
+  <text x="808" y="900" class="sec">how it connects</text>
+  <text x="808" y="920" class="kv">Attached to bus.B</text>
+  <text x="808" y="938" class="kv">Has a demand time profile</text>
+
+  <!-- Principle chips -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="1022" width="360" height="110" rx="16" class="chip"/>
+    <rect x="420" y="1022" width="360" height="110" rx="16" class="chip"/>
+    <rect x="800" y="1022" width="360" height="110" rx="16" class="chip-accent"/>
+  </g>
+  <text x="220" y="1060" text-anchor="middle" class="chip-title">Not a solver</text>
+  <text x="220" y="1086" text-anchor="middle" class="chip-body">No dispatch, power flow,</text>
+  <text x="220" y="1104" text-anchor="middle" class="chip-body">or simulation runs here</text>
+
+  <text x="600" y="1060" text-anchor="middle" class="chip-title">Not one vendor format</text>
+  <text x="600" y="1086" text-anchor="middle" class="chip-body">Meaning is separate from</text>
+  <text x="600" y="1104" text-anchor="middle" class="chip-body">tool-specific file layouts</text>
+
+  <text x="980" y="1060" text-anchor="middle" class="chip-title">Same meaning, many serializations</text>
+  <text x="980" y="1086" text-anchor="middle" class="chip-body">YAML · JSON · CSV ·</text>
+  <text x="980" y="1104" text-anchor="middle" class="chip-body">Frictionless packages · databases</text>
+</svg>

@@ -1,0 +1,22 @@
+name: AggregatorAgent
+parents:
+- Agent
+description: Agent that coordinates a local energy community, observes tariffs and
+  flexibility, and may dispatch controllable assets.
+attributes:
+- id: aggregation_strategy
+  required: false
+- id: price_sensitivity
+  required: false
+- id: self_sufficiency_target
+  required: false
+relations:
+- id: managesCommunity
+  target: EnergyCommittee
+  required: true
+- id: controlsAsset
+  target: EnergyAssetInstance
+  required: false
+- id: observesProfile
+  target: Profile
+  required: false

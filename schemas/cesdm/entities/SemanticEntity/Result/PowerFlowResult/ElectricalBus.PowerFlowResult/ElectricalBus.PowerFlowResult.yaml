@@ -1,0 +1,34 @@
+name: ElectricalBus.PowerFlowResult
+parents:
+- PowerFlowResult
+description: >
+  Power-flow result for an ElectricalBus (voltage, angle, injections, imbalance metrics).
+
+  Snapshot fields hold a single solve; time-series aggregates apply when the run has a TimestampSeries.
+relations:
+- id: reportsOn
+  required: true
+  target: ElectricalBus
+- id: hasVoltageMagnitudeProfile
+  required: false
+  target: Profile
+  description: Time series of voltage_magnitude, for a time-series power-flow run.
+- id: hasVoltageAngleProfile
+  required: false
+  target: Profile
+  description: Time series of voltage_angle, for a time-series power-flow run.
+attributes:
+- id: voltage_magnitude
+  required: false
+- id: voltage_angle
+  required: false
+- id: net_active_power_injection
+  required: false
+- id: net_reactive_power_injection
+  required: false
+- id: average_voltage_magnitude
+  required: false
+- id: min_voltage_magnitude
+  required: false
+- id: max_voltage_magnitude
+  required: false

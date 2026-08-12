@@ -1,0 +1,32 @@
+name: ConversionPort
+parents:
+- Port
+description: >
+  Single input or output port of a GenericConversionUnit in the MxN port model.
+  Records bus attachment (atNode), carrier, flow direction, and flow_coefficient relative to the
+  unit's referencePort. Not an EnergyAssetInstance — a structural interface of the conversion unit.
+attributes:
+- id: port_direction
+  required: true
+- id: flow_coefficient
+  required: true
+- id: minimum_flow_fraction
+  required: false
+- id: maximum_flow_fraction
+  required: false
+- id: maximum_output_power
+  required: false
+relations:
+- id: belongsToUnit
+  required: true
+  target: ConversionUnit
+- id: atNode
+  required: true
+  target: NetworkNode
+- id: hasCarrier
+  required: true
+  target: Carrier
+- id: hasFlowCoefficientProfile
+  required: false
+  target: Profile
+  belongsToGroup: [dispatch]

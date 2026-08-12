@@ -1,0 +1,70 @@
+name: DynamicMachineModelType.Synchronous
+parents:
+- DynamicMachineModelType
+view_family: dynamics
+description: Reusable synchronous-machine dynamic model type based on Park's equivalent
+  circuit. The entity contains model parameters that may be shared by multiple GenerationUnit
+  instances. Generator-specific rated apparent power and rated voltage are stored
+  on each GenerationUnit and define the per-unit base. machine_model_order selects
+  the parameter subset used by a simulator.
+attributes:
+- id: machine_model_order
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: inertia_constant
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: damping_coefficient
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: d_axis_synchronous_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: q_axis_synchronous_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: d_axis_transient_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: q_axis_transient_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: d_axis_transient_open_circuit_time_constant
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: q_axis_transient_open_circuit_time_constant
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: d_axis_subtransient_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: q_axis_subtransient_reactance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: d_axis_subtransient_open_circuit_time_constant
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: q_axis_subtransient_open_circuit_time_constant
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: armature_resistance
+  required: false
+  belongsToGroup:
+  - dynamics
+- id: stator_leakage_reactance
+  required: false
+  belongsToGroup:
+  - dynamics

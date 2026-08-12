@@ -1,0 +1,32 @@
+name: TransmissionElement
+parents:
+- EnergyAssetInstance
+abstract: true
+description: >
+  Abstract asset that transports a carrier between two NetworkNodes in the same CarrierDomain (fromNode
+  / toNode).
+
+  Level-2 families: ElectricityTransmission, GasTransmission, HeatTransmission, and capacity-only
+  GenericInterconnector. Cross-domain conversion uses ConversionUnit.
+
+  Carrier rule: the transported carrier is implied by the connected nodes' CarrierDomain. Optional
+  hasTechnology → TransmissionType holds shared techno-economic / physical defaults.
+attributes:
+- id: from_switch_closed
+  required: false
+  belongsToGroup: [topology]
+- id: to_switch_closed
+  required: false
+  belongsToGroup: [topology]
+relations:
+- id: fromNode
+  required: false
+  belongsToGroup: [topology]
+  target: NetworkNode
+- id: toNode
+  required: false
+  belongsToGroup: [topology]
+  target: NetworkNode
+- id: hasTechnology
+  required: false
+  target: TransmissionType

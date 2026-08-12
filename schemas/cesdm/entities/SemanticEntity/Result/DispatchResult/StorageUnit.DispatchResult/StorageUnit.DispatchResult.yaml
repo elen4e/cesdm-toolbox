@@ -1,0 +1,35 @@
+name: StorageUnit.DispatchResult
+parents:
+- DispatchResult
+description: Hourly dispatch result for StorageUnit assets. Holds scalar aggregates
+  (total charge/discharge energy, equivalent cycles, round-trip efficiency) and relations
+  to time-series Profile entities (charge power, discharge power, state of charge,
+  dual variables).
+relations:
+- id: reportsOn
+  required: true
+  target: StorageUnit
+- id: hasDischargeProfile
+  required: false
+  target: Profile
+- id: hasChargeProfile
+  required: false
+  target: Profile
+- id: hasStateOfChargeProfile
+  required: false
+  target: Profile
+- id: hasDischargeDualProfile
+  required: false
+  target: Profile
+- id: hasChargeDualProfile
+  required: false
+  target: Profile
+attributes:
+- id: total_discharge_energy
+  required: false
+- id: total_charge_energy
+  required: false
+- id: storage_cycles
+  required: false
+- id: average_round_trip_efficiency
+  required: false

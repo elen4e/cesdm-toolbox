@@ -1,0 +1,28 @@
+name: DemandUnit.DispatchResult
+parents:
+- DispatchResult
+description: Hourly dispatch result for DemandUnit assets. Captures served and
+  curtailed demand, cost of supply, and the nodal price seen by the demand unit. Curtailment
+  indicates infeasibility or value-of-lost-load events.
+relations:
+- id: reportsOn
+  required: true
+  target: DemandUnit
+- id: hasServedDemandProfile
+  required: false
+  target: Profile
+- id: hasCurtailedDemandProfile
+  required: false
+  target: Profile
+- id: hasDemandDualProfile
+  required: false
+  target: Profile
+attributes:
+- id: total_served_energy
+  required: false
+- id: total_curtailed_energy
+  required: false
+- id: curtailment_rate
+  required: false
+- id: total_variable_cost
+  required: false

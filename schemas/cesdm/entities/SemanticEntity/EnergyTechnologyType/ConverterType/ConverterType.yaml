@@ -1,0 +1,31 @@
+name: ConverterType
+parents:
+- EnergyTechnologyType
+description: 'Technology template for cross-domain conversion assets (CHP plants,
+  electrolysers, heat pumps, P2X converters).
+
+  '
+attributes:
+- id: name
+  required: false
+- id: energy_conversion_efficiency
+  required: false
+- id: net_electrical_efficiency
+  required: false
+- id: net_thermal_efficiency
+  required: false
+- id: rated_electrical_power_capacity
+  required: false
+- id: rated_thermal_output_capacity
+  required: false
+- id: variable_operating_cost
+  required: false
+- id: fixed_operating_cost
+  required: false
+- id: investment_cost
+  required: false
+- id: technical_lifetime
+  required: false
+- id: economic_lifetime
+  required: false
+relations: []

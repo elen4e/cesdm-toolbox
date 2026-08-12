@@ -1,0 +1,61 @@
+name: Controller.PSS.PSS2A
+parents:
+- Controller.PSS
+description: >
+  IEEE PSS2A dual-input stabiliser. IEEE Std 421.5-2016, Section 12.3.
+attributes:
+- id: PSS_PSS2A_Ks1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_Ks2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T6
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T7
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T8
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T9
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_M
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_N
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_Tw1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_Tw2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_Tw3
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T1
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T2
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T3
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_PSS2A_T4
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_Vs_max
+  required: false
+  belongsToGroup: [dynamics]
+- id: PSS_Vs_min
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

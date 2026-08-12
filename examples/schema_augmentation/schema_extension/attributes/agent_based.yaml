@@ -1,0 +1,7 @@
+attributes:
+  bidding_strategy:
+    description: Strategy used by the agent controlling an asset.
+    value:
+      type: string
+      constraints:
+        enum: [price_taker, strategic, cooperative]

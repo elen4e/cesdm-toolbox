@@ -1,0 +1,27 @@
+name: EnergyCommittee
+role: domain
+parents:
+  - SemanticEntity
+description: >
+  A local energy community: a group of households and small businesses
+  engaged in collective self-consumption.
+attributes:
+  - id: name
+    required: false
+  - id: founding_year
+    required: false
+  - id: member_count
+    required: false
+  - id: total_pv_capacity_kwp
+    required: false
+  - id: self_sufficiency_rate
+    required: false
+  - id: legal_form
+    required: false
+relations:
+  - id: locatedIn
+    target: Municipality
+    required: true
+  - id: hasOperator
+    target: Organisation
+    required: true

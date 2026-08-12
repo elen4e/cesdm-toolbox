@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="420" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">CESDM time-series architecture</title>
+  <desc id="desc">An asset references a profile. The profile contains interpretation metadata, references a timestamp series, and points to values in HDF5.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#345b78"/>
+    </marker>
+    <style>
+      .title{font:700 28px Arial,sans-serif;fill:#18344b}.label{font:700 20px Arial,sans-serif;fill:#18344b}.body{font:16px Arial,sans-serif;fill:#29475e}.small{font:14px Arial,sans-serif;fill:#4f687a}.box{fill:#fff;stroke:#345b78;stroke-width:2.5;rx:18}.accent{fill:#e9f3f8;stroke:#28749b}.store{fill:#f5f1e7;stroke:#8a6f34}.line{stroke:#345b78;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1200" height="420" fill="#fff"/>
+  <text x="600" y="42" text-anchor="middle" class="title">CESDM Time-Series Architecture</text>
+
+  <rect x="40" y="135" width="210" height="130" class="box"/>
+  <text x="145" y="180" text-anchor="middle" class="label">Asset</text>
+  <text x="145" y="214" text-anchor="middle" class="body">Wind generator</text>
+  <text x="145" y="239" text-anchor="middle" class="small">or demand / storage</text>
+
+  <rect x="350" y="95" width="270" height="210" class="box accent"/>
+  <text x="485" y="137" text-anchor="middle" class="label">Profile</text>
+  <text x="380" y="178" class="body">profile_type</text>
+  <text x="380" y="208" class="body">profile_unit</text>
+  <text x="380" y="238" class="body">data_reference</text>
+  <text x="380" y="268" class="body">hasTimestampSeries</text>
+
+  <rect x="730" y="105" width="250" height="190" class="box"/>
+  <text x="855" y="147" text-anchor="middle" class="label">TimestampSeries</text>
+  <text x="760" y="188" class="body">start_datetime</text>
+  <text x="760" y="218" class="body">resolution</text>
+  <text x="760" y="248" class="body">length / timezone</text>
+
+  <rect x="760" y="340" width="380" height="55" class="box store"/>
+  <text x="950" y="374" text-anchor="middle" class="label">HDF5 /profiles/&lt;id&gt;/values</text>
+
+  <path d="M250 200 H350" class="line"/>
+  <text x="300" y="187" text-anchor="middle" class="small">semantic relation</text>
+  <path d="M620 200 H730" class="line"/>
+  <text x="675" y="187" text-anchor="middle" class="small">time axis</text>
+  <path d="M500 305 C520 360 650 365 760 366" class="line"/>
+  <text x="620" y="348" text-anchor="middle" class="small">numeric payload</text>
+</svg>

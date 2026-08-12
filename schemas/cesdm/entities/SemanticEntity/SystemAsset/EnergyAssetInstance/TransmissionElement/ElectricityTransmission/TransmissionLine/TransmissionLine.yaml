@@ -1,0 +1,26 @@
+name: TransmissionLine
+parents:
+- ElectricityTransmission
+description: 'AC or DC transmission line or cable between two ElectricalBuses, with impedance, charging,
+  length, and thermal rating.
+
+  '
+attributes:
+- id: series_resistance_per_km
+  required: false
+  belongsToGroup: [power_flow]
+- id: series_reactance_per_km
+  required: false
+  belongsToGroup: [power_flow]
+- id: shunt_susceptance_per_km
+  required: false
+  belongsToGroup: [power_flow]
+- id: line_length
+  required: false
+  belongsToGroup: [power_flow]
+- id: parallel_circuit_count
+  required: false
+  belongsToGroup: [power_flow]
+- id: thermal_capacity_rating
+  required: false
+  belongsToGroup: [power_flow]

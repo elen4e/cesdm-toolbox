@@ -1,0 +1,25 @@
+name: DispatchRunRecord
+parents:
+- RunRecord
+description: "Provenance for one dispatch optimisation run; anchors the DispatchResult entities from that
+  run.\n"
+attributes:
+- id: solver_name
+  required: false
+- id: solver_status
+  required: false
+- id: objective_value
+  required: false
+- id: optimality_gap
+  required: false
+- id: solve_time_seconds
+  required: false
+- id: scenario_year
+  required: false
+- id: co2_price
+  required: false
+relations:
+- id: hasTimestampSeries
+  required: true
+  target: TimestampSeries
+  description: The time horizon over which the dispatch was optimised.

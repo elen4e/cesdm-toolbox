@@ -1,0 +1,64 @@
+name: CHPUnit
+parents:
+- ConversionUnit
+description: >
+  Combined heat and power unit for the common one-fuel → electricity + heat case, with typed fuel/electricity/heat
+  node relations.
+
+  For arbitrary MxN conversion use GenericConversionUnit with ConversionPort.
+attributes:
+- id: nominal_electrical_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: nominal_thermal_power_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: electrical_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: thermal_efficiency
+  required: false
+  belongsToGroup: [technical, dispatch]
+- id: total_efficiency
+  required: false
+  belongsToGroup: [technical]
+- id: power_to_heat_ratio
+  required: false
+  belongsToGroup: [technical]
+- id: minimum_load
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_up
+  required: false
+  belongsToGroup: [dispatch]
+- id: maximum_ramp_rate_down
+  required: false
+  belongsToGroup: [dispatch]
+- id: variable_operating_cost
+  required: false
+  belongsToGroup: [dispatch]
+- id: fixed_operating_cost
+  required: false
+  belongsToGroup: [capacity_expansion]
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasElectricityOutputCarrier
+  required: false
+  target: Carrier
+- id: hasHeatOutputCarrier
+  required: false
+  target: Carrier
+- id: atFuelNode
+  required: false
+  belongsToGroup: [topology]
+  target: NetworkNode
+- id: atElectricityNode
+  required: false
+  belongsToGroup: [topology]
+  target: ElectricalBus
+- id: atHeatNode
+  required: false
+  belongsToGroup: [topology]
+  target: HeatBus

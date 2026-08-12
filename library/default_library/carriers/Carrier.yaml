@@ -1,0 +1,91 @@
+Carrier:
+  carrier.electricity:
+    attributes:
+    - id: name
+      value: Electricity
+    - id: co2_emission_intensity
+      value: 0.0
+    - id: energy_carrier_cost
+      value: 0.0
+    relations: []
+  carrier.fuel.fossil.gas.natural_gas:
+    attributes:
+    - id: name
+      value: Natural Gas
+    - id: co2_emission_intensity
+      value: 0.2052
+    - id: energy_carrier_cost
+      value: 22.68
+    relations: []
+  carrier.fuel.fossil.coal.hard_coal:
+    attributes:
+    - id: name
+      value: Hard Coal
+    - id: co2_emission_intensity
+      value: 0.3384
+    - id: energy_carrier_cost
+      value: 6.48
+    relations: []
+  carrier.fuel.fossil.coal.lignite:
+    attributes:
+    - id: name
+      value: Lignite
+    - id: co2_emission_intensity
+      value: 0.3636
+    - id: energy_carrier_cost
+      value: 6.48
+    relations: []
+  carrier.fuel.fossil.oil:
+    attributes:
+    - id: name
+      value: Oil
+    - id: co2_emission_intensity
+      value: 0.2808
+    - id: energy_carrier_cost
+      value: 34.56
+    relations: []
+  carrier.fuel.fossil.oil.shale:
+    attributes:
+    - id: name
+      value: Oil Shale
+    - id: co2_emission_intensity
+      value: 0.36
+    - id: energy_carrier_cost
+      value: 34.56
+    relations: []
+  carrier.fuel.biofuel.biomass:
+    attributes:
+    - id: name
+      value: Biomass
+    - id: co2_emission_intensity
+      value: 0.0
+    - id: energy_carrier_cost
+      value: 67.68
+    relations: []
+  carrier.hydrogen:
+    attributes:
+    - id: name
+      value: Hydrogen
+    - id: co2_emission_intensity
+      value: 0.0
+    - id: energy_carrier_cost
+      value: 0.0
+    relations: []
+  carrier.heat:
+    attributes:
+    - id: name
+      value: Heat
+    - id: co2_emission_intensity
+      value: 0.0
+    - id: energy_carrier_cost
+      value: 0.0
+    relations: []
+  carrier.fuel.nuclear.uranium:
+    attributes:
+    - id: name
+      value: Uranium
+    - id: co2_emission_intensity
+      value: 0.0
+    - id: energy_carrier_cost
+      value: 6.12
+    relations: []

@@ -1,0 +1,22 @@
+name: ShuntUnit
+parents:
+- EnergyAssetInstance
+description: 'A static shunt element connected to a single ElectricalBus.
+
+  The ShuntUnit entity carries the identity of the shunt device, its
+  electrical behaviour for power-flow studies (active_power_injection,
+  reactive_power_injection), and its topology connection (atNode), all
+  declared directly.
+
+  '
+attributes:
+- id: active_power_injection
+  required: false
+  belongsToGroup: [power_flow]
+- id: reactive_power_injection
+  required: false
+  belongsToGroup: [power_flow]
+relations:
+- id: atNode
+  required: false
+  belongsToGroup: [topology]

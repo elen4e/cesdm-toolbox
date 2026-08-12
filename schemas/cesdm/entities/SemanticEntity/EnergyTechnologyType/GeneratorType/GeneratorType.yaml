@@ -1,0 +1,56 @@
+name: GeneratorType
+parents:
+- EnergyTechnologyType
+description: 'Technology template for generation assets. Instances (GenerationUnit)
+  inherit shared techno-economic parameters via hasTechnology. Covers thermal generators
+  (gas, coal, nuclear), variable renewables (wind, solar), hydro run-of-river, and
+  demand response.
+
+  Library usage ------------- Create one GeneratorType per technology class (e.g.
+  "Generation.Thermal.Gas.CCGT.New") with all shared parameters. Each GenerationUnit
+  then sets only instance-specific overrides directly on itself.
+
+  '
+attributes:
+- id: name
+  required: false
+- id: dispatch_type
+  required: false
+- id: energy_conversion_efficiency
+  required: false
+- id: variable_operating_cost
+  required: false
+- id: fixed_operating_cost
+  required: false
+- id: investment_cost
+  required: false
+- id: technical_lifetime
+  required: false
+- id: economic_lifetime
+  required: false
+- id: maximum_ramp_rate_up
+  required: false
+- id: maximum_ramp_rate_down
+  required: false
+- id: minimum_up_time
+  required: false
+- id: minimum_down_time
+  required: false
+- id: hot_start_cost
+  required: false
+- id: cold_start_cost
+  required: false
+- id: co2_emission_factor
+  required: false
+- id: fuel_consumption_rate
+  required: false
+relations:
+- id: hasInputCarrier
+  required: false
+  target: Carrier
+- id: hasInputResource
+  required: false
+  target: NaturalResource
+- id: hasOutputCarrier
+  required: false
+  target: Carrier

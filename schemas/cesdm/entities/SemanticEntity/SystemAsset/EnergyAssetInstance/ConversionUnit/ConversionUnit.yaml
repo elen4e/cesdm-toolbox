@@ -1,0 +1,24 @@
+name: ConversionUnit
+parents:
+- EnergyAssetInstance
+abstract: true
+description: >
+  Abstract base for assets that convert one or more input carriers into one or more output carriers, possibly
+  across CarrierDomains.
+
+  Concrete leaves:
+    CHPUnit             — compact 1 fuel → electricity + heat
+    HeatPumpUnit        — compact electricity → heat
+    ElectrolyserUnit    — compact electricity → hydrogen
+    BoilerUnit          — compact fuel → heat
+    FuelCellUnit        — compact hydrogen/fuel → electricity (+ optional heat)
+    GenericConversionUnit — arbitrary MxN via ConversionPort
+  Do not instantiate ConversionUnit directly.
+
+  Carrier rule: multi-carrier topology is explicit (typed node/carrier relations on compact leaves, or
+  ConversionPort.hasCarrier on GenericConversionUnit). Optional hasTechnology → ConverterType holds shared
+  techno-economic defaults.
+relations:
+- id: hasTechnology
+  required: false
+  target: ConverterType

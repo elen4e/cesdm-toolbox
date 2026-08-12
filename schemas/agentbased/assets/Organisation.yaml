@@ -1,0 +1,9 @@
+name: Organisation
+role: domain
+parents:
+  - SemanticEntity
+description: Organisation operating or owning an energy community.
+attributes:
+  - id: name
+    required: true
+relations: null

@@ -1,0 +1,28 @@
+name: HydraulicStorageUnit
+parents:
+- EnergyAssetInstance
+description: >
+  Hydraulic water body for energy-system water balance: reservoir, pondage, RoR reach (energy_storage_capacity
+  ≈ 0), or PHS basin.
+
+  Not a StorageUnit — power conversion is a separate HydroGenerationUnit linked via drawsFromHydraulicStorage
+  / dischargesToHydraulicStorage. Natural inflow uses annual_natural_inflow_energy + hasNaturalInflowProfile.
+  Do not attach StorageType via hasTechnology; hydro classification lives on the paired
+  HydroGenerationUnit (GeneratorType) and on this unit's capacity/inflow fields.
+attributes:
+- id: energy_storage_capacity
+  required: false
+  belongsToGroup: [dispatch]
+- id: annual_natural_inflow_energy
+  required: false
+  belongsToGroup: [dispatch]
+relations:
+- id: storesCarrier
+  required: false
+  target: Carrier
+- id: storesResource
+  required: false
+  target: NaturalResource
+- id: hasNaturalInflowProfile
+  required: false
+  belongsToGroup: [dispatch]

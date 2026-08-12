@@ -1,0 +1,7 @@
+name: Port
+parents:
+- SemanticEntity
+abstract: true
+description: 'Abstract structural interface of an asset or asset component. Ports are not
+  assets: they describe connection points, carrier direction and optional port-specific limits.
+  Concrete or domain-specific ports may specialise this class.'

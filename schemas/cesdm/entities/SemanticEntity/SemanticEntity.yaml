@@ -1,0 +1,12 @@
+name: SemanticEntity
+description: 'Abstract root of all CESDM domain entities. Provides shared identity and annotation attributes.
+
+  '
+attributes:
+- id: name
+  required: false
+- id: long_name
+  required: false
+- id: description
+  required: false
+abstract: true

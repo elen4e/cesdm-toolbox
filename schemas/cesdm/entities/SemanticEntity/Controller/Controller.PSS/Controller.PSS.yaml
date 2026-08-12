@@ -1,0 +1,15 @@
+name: Controller.PSS
+parents:
+- Controller
+abstract: true
+view_family: pss
+description: >
+  Abstract base for power-system stabiliser controllers attached to a synchronous machine's AVR.
+
+  Linked via controlsGenerationUnit (inverse: hasPowerSystemStabilizer). Use a concrete IEEE/commercial
+  leaf.
+
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

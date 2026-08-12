@@ -1,0 +1,328 @@
+attributes:
+  adoption_threshold:
+    label: Adoption Threshold
+    description: Minimum utility/probability/payback threshold for adopting a technology.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  adoption_year:
+    label: Adoption Year
+    description: Year in which PV, battery, or another prosumer technology was adopted.
+    value:
+      type: integer
+  agent_kind:
+    label: Agent Kind
+    description: Role of the agent in an agent-based model.
+    value:
+      type: string
+      constraints:
+        enum:
+        - prosumer
+        - aggregator
+        - regulator
+        - market
+        - network_operator
+        - other
+  aggregation_strategy:
+    label: Aggregation Strategy
+    description: Strategy used by an aggregator to coordinate community assets.
+    value:
+      type: string
+      constraints:
+        enum:
+        - self_consumption
+        - cost_minimisation
+        - peak_shaving
+        - grid_support
+        - market_revenue
+        - other
+  annual_consumption_kwh:
+    label: Annual Electricity Consumption
+    description: Annual household electricity consumption.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kWh/year
+  battery_adoption_probability:
+    label: Battery Adoption Probability
+    description: Probability that the prosumer adopts battery storage during the simulated period.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  bfs_code:
+    label: BFS Code
+    description: Swiss federal municipality code.
+    value:
+      type: integer
+  building_type:
+    label: Building Type
+    description: Residential building category.
+    value:
+      type: string
+      constraints:
+        enum:
+        - detached
+        - semi-detached
+        - apartment
+        - other
+  canton:
+    label: Canton
+    description: Swiss canton abbreviation.
+    value:
+      type: string
+  comfort_preference:
+    label: Comfort Preference
+    description: Preference weight for maintaining comfort when shifting demand.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  decision_rule:
+    label: Decision Rule
+    description: Behavioural decision rule or model used by an agent.
+    value:
+      type: string
+      constraints:
+        enum:
+        - rule_based
+        - threshold
+        - utility_maximisation
+        - bounded_rationality
+        - reinforcement_learning
+        - exogenous
+        - other
+  end_year:
+    label: End Year
+    description: Last model year.
+    value:
+      type: integer
+  environmental_preference:
+    label: Environmental Preference
+    description: Preference weight for low-emission or renewable choices.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  ev_adoption_probability:
+    label: EV Adoption Probability
+    description: Probability that the prosumer adopts an electric vehicle during the simulated period.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  founding_year:
+    label: Founding Year
+    description: Year in which the energy community was founded.
+    value:
+      type: integer
+  gross_floor_area_m2:
+    label: Gross Floor Area
+    description: Gross floor area of the dwelling.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - m2
+  has_battery:
+    label: Has Battery
+    description: Whether the household owns or uses a battery storage system.
+    value:
+      type: boolean
+  has_ev:
+    label: Has EV
+    description: Whether the household owns or uses an electric vehicle.
+    value:
+      type: boolean
+  has_pv:
+    label: Has PV
+    description: Whether the household owns or uses a photovoltaic system.
+    value:
+      type: boolean
+  information_level:
+    label: Information Level
+    description: Information available to the agent.
+    value:
+      type: string
+      constraints:
+        enum:
+        - perfect
+        - forecast
+        - local
+        - limited
+        - social
+  legal_form:
+    label: Legal Form
+    description: Legal form of the energy community.
+    value:
+      type: string
+      constraints:
+        enum:
+        - cooperative
+        - association
+        - llc
+        - other
+  member_count:
+    label: Member Count
+    description: Number of members in the energy community.
+    value:
+      type: integer
+      constraints:
+        minimum: 0
+  objective_description:
+    label: Objective Description
+    description: Human-readable description of the scenario objective.
+    value:
+      type: string
+  occupant_count:
+    label: Occupant Count
+    description: Number of people living in the household.
+    value:
+      type: integer
+      constraints:
+        minimum: 0
+  ownership_status:
+    label: Ownership Status
+    description: Whether the household owns or rents the dwelling.
+    value:
+      type: string
+      constraints:
+        enum:
+        - owner
+        - tenant
+        - other
+  population:
+    label: Population
+    description: Municipality population.
+    value:
+      type: integer
+      constraints:
+        minimum: 0
+  price_sensitivity:
+    label: Price Sensitivity
+    description: Relative sensitivity to electricity price or tariff signals.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  pv_adoption_probability:
+    label: PV Adoption Probability
+    description: Probability that the prosumer adopts PV during the simulated period.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  random_seed:
+    label: Random Seed
+    description: Random seed for stochastic agent decisions.
+    value:
+      type: integer
+  risk_aversion:
+    label: Risk Aversion
+    description: Dimensionless risk aversion parameter.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  self_sufficiency_rate:
+    label: Self-Sufficiency Rate
+    description: Share of demand covered by local generation.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  self_sufficiency_target:
+    label: Self-sufficiency Target
+    description: Target share of demand covered by local generation.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+        maximum: 1.0
+    unit:
+      constraints:
+        enum:
+        - fraction
+  start_year:
+    label: Start Year
+    description: First model year.
+    value:
+      type: integer
+  time_step:
+    label: Time Step
+    description: Simulation time step, e.g. P1Y or PT1H.
+    value:
+      type: string
+  total_pv_capacity_kwp:
+    label: Total PV Capacity
+    description: Installed photovoltaic peak capacity of the energy community.
+    value:
+      type: decimal
+      constraints:
+        minimum: 0.0
+    unit:
+      constraints:
+        enum:
+        - kWp
+  urbanisation_level:
+    label: Urbanisation Level
+    description: Urbanisation category of the municipality.
+    value:
+      type: string
+      constraints:
+        enum:
+        - urban
+        - suburban
+        - rural

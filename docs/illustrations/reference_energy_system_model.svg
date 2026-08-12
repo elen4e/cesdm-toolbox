@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="690" viewBox="0 0 1200 690" role="img" aria-labelledby="title desc">
+<title id="title">CESDM reference energy system model tutorial</title><desc id="desc">Switzerland and four neighbouring electricity nodes with Swiss gas and heat domains coupled by a CHP plant.</desc>
+<defs><marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#52616b"/></marker><marker id="arr2" markerWidth="10" markerHeight="10" refX="1" refY="3" orient="auto"><path d="M9,0 L9,6 L0,3 z" fill="#52616b"/></marker><style>.t{font:600 22px Arial;fill:#183153}.s{font:16px Arial;fill:#334}.box{fill:#fff;stroke:#6b7c93;stroke-width:2}.elec{fill:#e9f7ef;stroke:#2e8b57}.gas{fill:#fff2df;stroke:#d17b0f}.heat{fill:#fdeaea;stroke:#c84b4b}.asset{fill:#f6f8fb;stroke:#73849a}.edge{stroke:#52616b;stroke-width:3;fill:none;marker-start:url(#arr2);marker-end:url(#arr)}</style></defs>
+<text x="600" y="42" text-anchor="middle" class="t">CESDM Reference Energy System Model Tutorial</text>
+<text x="600" y="70" text-anchor="middle" class="s">One model for geography, networks, assets, sector coupling, profiles, validation, aggregation, and export</text>
+<!-- electricity neighbours -->
+<rect x="60" y="130" width="190" height="80" rx="14" class="elec"/><text x="155" y="164" text-anchor="middle" class="t">France</text><text x="155" y="190" text-anchor="middle" class="s">bus.fr</text>
+<rect x="950" y="130" width="190" height="80" rx="14" class="elec"/><text x="1045" y="164" text-anchor="middle" class="t">Germany</text><text x="1045" y="190" text-anchor="middle" class="s">bus.de</text>
+<rect x="60" y="410" width="190" height="80" rx="14" class="elec"/><text x="155" y="444" text-anchor="middle" class="t">Italy</text><text x="155" y="470" text-anchor="middle" class="s">bus.it</text>
+<rect x="950" y="410" width="190" height="80" rx="14" class="elec"/><text x="1045" y="444" text-anchor="middle" class="t">Austria</text><text x="1045" y="470" text-anchor="middle" class="s">bus.at</text>
+<rect x="430" y="245" width="340" height="130" rx="18" class="elec"/><text x="600" y="285" text-anchor="middle" class="t">Switzerland Electricity Domain</text><text x="600" y="316" text-anchor="middle" class="s">bus.ch · generation · demand · hydro storage</text><text x="600" y="344" text-anchor="middle" class="s">wind · solar · gas · nuclear · profiles</text>
+<path d="M250 170 L430 270" class="edge"/><path d="M950 170 L770 270" class="edge"/><path d="M250 450 L430 350" class="edge"/><path d="M950 450 L770 350" class="edge"/>
+<!-- multi energy -->
+<rect x="180" y="555" width="230" height="80" rx="14" class="gas"/><text x="295" y="589" text-anchor="middle" class="t">Gas Domain</text><text x="295" y="615" text-anchor="middle" class="s">bus.ch.gas · gas supply</text>
+<rect x="485" y="525" width="230" height="110" rx="14" class="asset"/><text x="600" y="563" text-anchor="middle" class="t">CHPUnit</text><text x="600" y="590" text-anchor="middle" class="s">one fuel input</text><text x="600" y="615" text-anchor="middle" class="s">electricity + useful heat outputs</text>
+<rect x="790" y="555" width="230" height="80" rx="14" class="heat"/><text x="905" y="589" text-anchor="middle" class="t">Heat Domain</text><text x="905" y="615" text-anchor="middle" class="s">bus.ch.heat · heat demand</text>
+<path d="M410 595 L485 595" stroke="#52616b" stroke-width="3" marker-end="url(#arr)"/><path d="M715 595 L790 595" stroke="#52616b" stroke-width="3" marker-end="url(#arr)"/><path d="M600 525 L600 375" stroke="#52616b" stroke-width="3" marker-end="url(#arr)"/>
+</svg>

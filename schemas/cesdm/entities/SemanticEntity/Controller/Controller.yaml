@@ -1,0 +1,13 @@
+name: Controller
+parents:
+- SemanticEntity
+abstract: true
+description: >
+  Abstract base for AVR, governor, and PSS controllers attached to a synchronous machine.
+
+  Do not instantiate directly — use a concrete leaf; link to GenerationUnit via controlsGenerationUnit.
+
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

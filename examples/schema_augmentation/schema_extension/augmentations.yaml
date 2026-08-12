@@ -1,0 +1,9 @@
+augmentations:
+  EnergyAssetInstance:
+    groups:
+      agent:
+        attributes:
+          - id: bidding_strategy
+            default: price_taker
+        relations:
+          - id: ownedByAgent

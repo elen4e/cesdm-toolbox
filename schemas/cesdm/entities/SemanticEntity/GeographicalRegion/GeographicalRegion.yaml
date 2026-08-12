@@ -1,0 +1,19 @@
+name: GeographicalRegion
+parents:
+- SemanticEntity
+description: >
+  Spatial / administrative region used to locate assets and network nodes
+  (countries, NUTS 1–3, or custom areas). Hierarchically nested via isSubRegionOf
+  (e.g. NUTS3 → NUTS2 → NUTS1 → country). Market / bidding zones are modelled
+  separately as MarketZone and linked with coversRegion / belongsToMarketZone.
+
+attributes:
+- id: region_level
+  required: false
+- id: nuts_code
+  required: false
+- id: iso_country_code
+  required: false
+relations:
+- id: isSubRegionOf
+  required: false

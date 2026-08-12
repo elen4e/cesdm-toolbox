@@ -1,0 +1,61 @@
+name: Controller.GOV.GGOV1
+parents:
+- Controller.GOV
+description: >
+  GE/PSS/E Generic Governor (GGOV1) — gas turbine and combined-cycle.
+attributes:
+- id: GOV_GGOV1_R
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Tpelec
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Kpgov
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Kigov
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Kdgov
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Tdgov
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Tact
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_T3
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Ropen
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Rclose
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Kimw
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Aset
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Ka
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_GGOV1_Ta
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_Db
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_Pmax
+  required: false
+  belongsToGroup: [dynamics]
+- id: GOV_Pmin
+  required: false
+  belongsToGroup: [dynamics]
+relations:
+- id: controlsGenerationUnit
+  required: true
+  target: GenerationUnit

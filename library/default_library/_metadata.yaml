@@ -1,0 +1,21 @@
+description: >
+  CESDM default technology library — core carriers, CarrierDomains,
+  natural resources, GeneratorType and StorageType templates for general
+  modelling.
+
+  Load with: model.import_library('library/default_library')
+
+  Default CarrierDomains (domain.electricity, domain.gas, domain.heat,
+  domain.hydrogen) are ready-made single-carrier flow scopes linked to the
+  matching Carrier via hasCarrier. Geography belongs on regions/buses
+  (belongsToGeographicalRegion), not on separate regional domains.
+
+  Gas/coal/oil vintages use Existing/New/CCS/Biofuel. Fine-grained ENTSO-E
+  TYNDP vintages (Old1/Old2/Present*, oil shale) live in
+  library/tyndp_library and are imported in addition for TYNDP pipelines.
+
+  Schema hierarchy note: GeneratorType, StorageType, ConverterType and
+  TransmissionType remain technology templates, not asset classes. Concrete
+  assets use refined classes such as GenerationUnit or HydroGenerationUnit;
+  hasTechnology links them to these library technology types for shared
+  efficiencies, costs and carrier relations.

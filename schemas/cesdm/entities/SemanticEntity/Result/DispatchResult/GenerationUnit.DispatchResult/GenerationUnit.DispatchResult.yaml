@@ -1,0 +1,39 @@
+name: GenerationUnit.DispatchResult
+parents:
+- DispatchResult
+description: Hourly dispatch result for GenerationUnit assets. Holds scalar aggregates
+  (total generation, capacity factor, CO2 emissions, costs) and relations to time-series
+  Profile entities (dispatch output, commitment status, startup/shutdown, reduced
+  costs). One result per asset per run.
+relations:
+- id: reportsOn
+  required: true
+  target: GenerationUnit
+- id: hasDispatchProfile
+  required: false
+  target: Profile
+- id: hasCommitmentProfile
+  required: false
+  target: Profile
+- id: hasStartupProfile
+  required: false
+  target: Profile
+- id: hasShutdownProfile
+  required: false
+  target: Profile
+- id: hasReducedCostProfile
+  required: false
+  target: Profile
+attributes:
+- id: total_generation
+  required: false
+- id: capacity_factor
+  required: false
+- id: full_load_hours
+  required: false
+- id: total_variable_cost
+  required: false
+- id: total_start_cost
+  required: false
+- id: co2_emissions
+  required: false

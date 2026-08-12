@@ -1,0 +1,18 @@
+name: NaturalResource
+parents:
+- SemanticEntity
+description: 'Exogenous natural resource or environmental potential (wind, irradiance, river flow, geothermal
+  heat) — not a network Carrier.
+
+  Time-varying availability is attached on the consuming asset (e.g. hasAvailabilityProfile, hasNaturalInflowProfile).
+
+  '
+attributes:
+- id: name
+  required: false
+- id: resource_group
+  required: false
+- id: resource_type
+  required: false
+- id: natural_resource_unit
+  required: false

@@ -1,0 +1,19 @@
+name: DynamicRunRecord
+parents:
+- RunRecord
+description: >
+  Provenance for one time-domain dynamic simulation; anchors DynamicResult entities.
+
+  Often chained after a PowerFlowRunRecord via hasInputRun.
+attributes:
+- id: solver_name
+  required: false
+- id: solve_time_seconds
+  required: false
+- id: integration_method
+  required: false
+- id: simulation_timestep_seconds
+  required: false
+- id: simulation_duration_seconds
+  required: false
+relations: []

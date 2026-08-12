@@ -1,0 +1,57 @@
+relations:
+  actsFor:
+    description: Relates a ProsumerAgent to the Household it represents.
+    target:
+    - Household
+  connectedTo:
+    description: Relates a household to a low-voltage node.
+    target:
+    - LowVoltageNode
+  controlsAsset:
+    description: Relates an agent or agent decision view to CESDM assets it can control or influence.
+    target:
+    - EnergyAssetInstance
+  hasAgent:
+    description: Relates an AgentBasedModel to its participating agents.
+    target:
+    - Agent
+  hasOperator:
+    description: Relates an energy community to the organisation operating it.
+    target:
+    - Organisation
+  isPartOf:
+    description: Relates a municipality to a canton.
+    target:
+    - Canton
+  managesCommunity:
+    description: Relates an AggregatorAgent to the EnergyCommittee it manages.
+    target:
+    - EnergyCommittee
+  memberOf:
+    description: Relates a household or agent to an energy community of which it is a member.
+    target:
+    - EnergyCommittee
+  observesProfile:
+    description: Relates an agent or decision view to a Profile used as an information signal.
+    target:
+    - Profile
+  ownsAsset:
+    description: Relates a household to a CESDM asset physically or contractually owned by it.
+    target:
+    - EnergyAssetInstance
+  participatesIn:
+    description: Relates an agent to the local energy community in which it participates.
+    target:
+    - EnergyCommittee
+  representsAgent:
+    description: Relates an AgentDecisionView to the Agent it represents.
+    target:
+    - Agent
+  simulatesAsset:
+    description: Relates an AgentBasedModel to CESDM assets included in the simulation.
+    target:
+    - EnergyAssetInstance
+  usesProfile:
+    description: Relates an AgentBasedModel to profiles used as exogenous inputs.
+    target:
+    - Profile

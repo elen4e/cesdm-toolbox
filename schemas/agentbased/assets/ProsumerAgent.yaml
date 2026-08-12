@@ -1,0 +1,35 @@
+name: ProsumerAgent
+parents:
+- Agent
+description: Agent representing a household or small prosumer that can consume electricity,
+  invest in PV/battery/EV, and react to tariffs.
+attributes:
+- id: risk_aversion
+  required: false
+- id: price_sensitivity
+  required: false
+- id: environmental_preference
+  required: false
+- id: comfort_preference
+  required: false
+- id: adoption_threshold
+  required: false
+- id: pv_adoption_probability
+  required: false
+- id: battery_adoption_probability
+  required: false
+- id: ev_adoption_probability
+  required: false
+relations:
+- id: actsFor
+  target: Household
+  required: true
+- id: participatesIn
+  target: EnergyCommittee
+  required: false
+- id: controlsAsset
+  target: EnergyAssetInstance
+  required: false
+- id: observesProfile
+  target: Profile
+  required: false

@@ -1,0 +1,13 @@
+description: >
+  CESDM TYNDP technology library — ENTSO-E TYNDP vintage / market-modelling
+  GeneratorType extensions on top of library/default_library.
+
+  Import after the default library:
+
+      model.import_library("library/default_library")
+      model.import_library("library/tyndp_library")
+
+  Contains fine-grained TYNDP vintages (Old1/Old2/Present*) and oil-shale
+  classes that are intentionally absent from the core default library.
+  Shared carriers and resources stay in default_library; this package only
+  adds GeneratorType entities.

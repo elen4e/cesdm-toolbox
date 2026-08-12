@@ -1,0 +1,246 @@
+# Analysis profile: machine dynamics
+#
+# What a dynamic simulation needs on reusable synchronous-machine model
+# types and concrete AVR/GOV/PSS controllers. Schema marks these
+# belongsToGroup: [dynamics] fields as optional so bare models validate;
+# this profile is where the study-level requirements live.
+#
+# Load and run with:
+#   errors = model.validate_for_analysis("dynamics")
+
+name: dynamics
+description: >
+  Minimum attribute requirements for synchronous-machine dynamic model
+  types and controllers used in transient / RMS dynamics studies.
+
+requirements:
+
+  - entity_class: DynamicMachineModelType.Synchronous
+    checks:
+      - attribute: machine_model_order
+        required: true
+
+      - attribute: inertia_constant
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: d_axis_synchronous_reactance
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: q_axis_synchronous_reactance
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: d_axis_transient_reactance
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: d_axis_transient_open_circuit_time_constant
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: d_axis_subtransient_reactance
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: q_axis_subtransient_reactance
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: d_axis_subtransient_open_circuit_time_constant
+        required: true
+        constraints:
+          minimum: 0
+
+      - attribute: q_axis_subtransient_open_circuit_time_constant
+        required: true
+        constraints:
+          minimum: 0
+
+  - entity_class: Controller.AVR.AC1A
+    checks:
+      - attribute: AVR_AC1A_Ka
+        required: true
+      - attribute: AVR_AC1A_Ta
+        required: true
+      - attribute: AVR_AC1A_Ke
+        required: true
+      - attribute: AVR_AC1A_Te
+        required: true
+      - attribute: AVR_AC1A_Kf
+        required: true
+      - attribute: AVR_AC1A_Tf
+        required: true
+      - attribute: AVR_AC1A_Kc
+        required: true
+      - attribute: AVR_AC1A_Kd
+        required: true
+      - attribute: AVR_Va_min
+        required: true
+      - attribute: AVR_Va_max
+        required: true
+      - attribute: AVR_Efd_min
+        required: true
+      - attribute: AVR_Efd_max
+        required: true
+
+  - entity_class: Controller.AVR.IEEET1
+    checks:
+      - attribute: AVR_IEEET1_Ka
+        required: true
+      - attribute: AVR_IEEET1_Ta
+        required: true
+      - attribute: AVR_IEEET1_Ke
+        required: true
+      - attribute: AVR_IEEET1_Te
+        required: true
+      - attribute: AVR_IEEET1_Kf
+        required: true
+      - attribute: AVR_IEEET1_Tf
+        required: true
+      - attribute: AVR_Vr_min
+        required: true
+      - attribute: AVR_Vr_max
+        required: true
+      - attribute: AVR_Efd_min
+        required: true
+      - attribute: AVR_Efd_max
+        required: true
+
+  - entity_class: Controller.AVR.SEXS
+    checks:
+      - attribute: AVR_SEXS_Ka
+        required: true
+      - attribute: AVR_SEXS_Ta
+        required: true
+      - attribute: AVR_Efd_min
+        required: true
+      - attribute: AVR_Efd_max
+        required: true
+
+  - entity_class: Controller.AVR.ST1A
+    checks:
+      - attribute: AVR_ST1A_Ka
+        required: true
+      - attribute: AVR_ST1A_Ta
+        required: true
+      - attribute: AVR_Va_min
+        required: true
+      - attribute: AVR_Va_max
+        required: true
+      - attribute: AVR_Efd_min
+        required: true
+      - attribute: AVR_Efd_max
+        required: true
+
+  - entity_class: Controller.GOV.GGOV1
+    checks:
+      - attribute: GOV_GGOV1_R
+        required: true
+      - attribute: GOV_GGOV1_Kpgov
+        required: true
+      - attribute: GOV_GGOV1_Kigov
+        required: true
+      - attribute: GOV_GGOV1_Tact
+        required: true
+      - attribute: GOV_GGOV1_T3
+        required: true
+      - attribute: GOV_Pmax
+        required: true
+      - attribute: GOV_Pmin
+        required: true
+
+  - entity_class: Controller.GOV.HYGOV
+    checks:
+      - attribute: GOV_HYGOV_R
+        required: true
+      - attribute: GOV_HYGOV_r
+        required: true
+      - attribute: GOV_HYGOV_Tr
+        required: true
+      - attribute: GOV_HYGOV_Tf
+        required: true
+      - attribute: GOV_HYGOV_Tg
+        required: true
+      - attribute: GOV_HYGOV_Tw
+        required: true
+      - attribute: GOV_HYGOV_At
+        required: true
+      - attribute: GOV_Pmax
+        required: true
+      - attribute: GOV_Pmin
+        required: true
+
+  - entity_class: Controller.GOV.IEEEG1
+    checks:
+      - attribute: GOV_IEEEG1_R
+        required: true
+      - attribute: GOV_IEEEG1_T1
+        required: true
+      - attribute: GOV_IEEEG1_T3
+        required: true
+      - attribute: GOV_Pmax
+        required: true
+      - attribute: GOV_Pmin
+        required: true
+
+  - entity_class: Controller.PSS.PSS2A
+    checks:
+      - attribute: PSS_PSS2A_Ks1
+        required: true
+      - attribute: PSS_PSS2A_Ks2
+        required: true
+      - attribute: PSS_PSS2A_Tw1
+        required: true
+      - attribute: PSS_PSS2A_Tw3
+        required: true
+      - attribute: PSS_PSS2A_T1
+        required: true
+      - attribute: PSS_PSS2A_T2
+        required: true
+      - attribute: PSS_Vs_max
+        required: true
+      - attribute: PSS_Vs_min
+        required: true
+
+  - entity_class: Controller.PSS.PSS2B
+    checks:
+      - attribute: PSS_PSS2B_Ks1
+        required: true
+      - attribute: PSS_PSS2B_Ks2
+        required: true
+      - attribute: PSS_PSS2B_Tw1
+        required: true
+      - attribute: PSS_PSS2B_Tw3
+        required: true
+      - attribute: PSS_PSS2B_T1
+        required: true
+      - attribute: PSS_PSS2B_T2
+        required: true
+      - attribute: PSS_Vs_max
+        required: true
+      - attribute: PSS_Vs_min
+        required: true
+
+  - entity_class: Controller.PSS.STAB1
+    checks:
+      - attribute: PSS_STAB1_Kstab
+        required: true
+      - attribute: PSS_STAB1_Tw
+        required: true
+      - attribute: PSS_STAB1_T1
+        required: true
+      - attribute: PSS_STAB1_T2
+        required: true
+      - attribute: PSS_Vs_max
+        required: true
+      - attribute: PSS_Vs_min
+        required: true

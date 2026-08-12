@@ -1,0 +1,28 @@
+NaturalResource:
+  resource.renewable.solar:
+    attributes:
+    - id: name
+      value: Solar
+    - id: resource_group
+      value: renewable
+    - id: resource_type
+      value: solar_irradiance
+    relations: []
+  resource.renewable.wind:
+    attributes:
+    - id: name
+      value: Wind
+    - id: resource_group
+      value: renewable
+    - id: resource_type
+      value: wind
+    relations: []
+  resource.water:
+    attributes:
+    - id: name
+      value: Water
+    - id: resource_group
+      value: hydro
+    - id: resource_type
+      value: water_inflow
+    relations: []

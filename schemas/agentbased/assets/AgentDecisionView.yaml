@@ -1,0 +1,25 @@
+name: AgentDecisionView
+
+description: Behavioural view of one agent in an agent-based model. It stores decision
+  parameters and optional links to controlled assets and observed profiles.
+attributes:
+- id: decision_rule
+  required: false
+- id: adoption_threshold
+  required: false
+- id: price_sensitivity
+  required: false
+- id: risk_aversion
+  required: false
+- id: comfort_preference
+  required: false
+relations:
+- id: representsAgent
+  target: Agent
+  required: true
+- id: controlsAsset
+  target: EnergyAssetInstance
+  required: false
+- id: observesProfile
+  target: Profile
+  required: false
